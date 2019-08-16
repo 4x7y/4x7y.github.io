@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Introduction No slippage constraints:  \begin{align}\dot{x} - \rho \dot{\phi}\cos \theta &amp;= 0 \\ \dot{y} - \rho \dot{\phi}\sin \theta &amp;= 0 \end{align}Let system configuration $\qb = (x, y, \phi, \thet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[MLS94] Nonholonomic Behavior in Robotic System">
+<meta property="og:url" content="http://xueyuechuan.me/2019/07/23/mls94-ch7/index.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Introduction No slippage constraints:  \begin{align}\dot{x} - \rho \dot{\phi}\cos \theta &amp;= 0 \\ \dot{y} - \rho \dot{\phi}\sin \theta &amp;= 0 \end{align}Let system configuration $\qb = (x, y, \phi, \thet">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://xueyuechuan.me/2019/07/23/mls94-ch7/rolling-disk.png">
+<meta property="og:image" content="http://xueyuechuan.me/2019/07/23/mls94-ch7/flow-vector-field.png">
+<meta property="og:image" content="http://xueyuechuan.me/2019/07/23/mls94-ch7/lie-brackets.png">
+<meta property="og:updated_time" content="2019-07-27T17:22:39.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[MLS94] Nonholonomic Behavior in Robotic System">
+<meta name="twitter:description" content="Introduction No slippage constraints:  \begin{align}\dot{x} - \rho \dot{\phi}\cos \theta &amp;= 0 \\ \dot{y} - \rho \dot{\phi}\sin \theta &amp;= 0 \end{align}Let system configuration $\qb = (x, y, \phi, \thet">
+<meta name="twitter:image" content="http://xueyuechuan.me/2019/07/23/mls94-ch7/rolling-disk.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[MLS94] Nonholonomic Behavior in Robotic System</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/07/23/mls94-ch8/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/07/23/mls94-ch6-2/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/07/23/mls94-ch7/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&text=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&is_video=false&description=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[MLS94] Nonholonomic Behavior in Robotic System&body=Check out this article: http://xueyuechuan.me/2019/07/23/mls94-ch7/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&name=[MLS94] Nonholonomic Behavior in Robotic System&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controllability-and-Frobenius-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Controllability and Frobenius Theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-of-Nonholonomic-Systems"><span class="toc-number">3.</span> <span class="toc-text">Examples of Nonholonomic Systems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nonholonomic-Motion-Planning"><span class="toc-number">4.</span> <span class="toc-text">Nonholonomic Motion Planning</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [MLS94] Nonholonomic Behavior in Robotic System
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Yuechuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-07-23T16:10:08.000Z" itemprop="datePublished">2019-07-23</time>
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/robotics/">robotics</a> › <a class="category-link" href="/categories/robotics/MLS94/">MLS94</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="rolling-disk.png" width="500"></p>
+<p>No slippage constraints:</p>
+<script type="math/tex; mode=display">
+\begin{align}\dot{x} - \rho \dot{\phi}\cos \theta &= 0 \\
+\dot{y} - \rho \dot{\phi}\sin \theta &= 0
+\end{align}</script><p>Let system configuration $\qb = (x, y, \phi, \theta) \in \mathcal{C}$, we can rewrite the above equations as</p>
+<script type="math/tex; mode=display">
+\require{color}
+\begin{bmatrix}
+1 & 0 & -\rho \cos \theta & 0 \\
+0 & 1 & -\rho \sin \theta & 0
+\end{bmatrix}
+\dot{\qb} \triangleq {\color{blue} A_q}\, \dot{\qb} = 0
+\qquad \text{(Pfaffian Constraint)}</script><p>which means $\dot{\qb} \in \mathcal{N}({\color{blue}A_q})$.</p>
+<ul>
+<li><p><strong>Q1:</strong> Is it possible to move between any two points in $\mathcal{C}$ while satisfying the constraints?</p>
+</li>
+<li><p><strong>Q2:</strong> Is it possible to find two constraint functions $h_i (q) = 0, i = 1, 2$ such that $\mathcal{N}(A_q) = \mathcal{N}(\nabla_\qb \hb_q)$ ?</p>
+<p><em>Proof: Suppose such constraint $\hb$ exists. We have</em></p>
+<script type="math/tex; mode=display">
+\begin{align}
+    &\frac{\partial h_1}{\partial \phi} = -\rho \cos \theta, \quad \frac{\partial h_1}{\partial \theta} = 0 \\
+    \Rightarrow \quad 
+    &\frac{\partial^2 h_1}{\partial \phi\partial \theta} = \rho\sin\theta,\quad \frac{\partial^2 h_1}{\partial \phi\partial \theta} = 0 \\
+    \Rightarrow \quad 
+    &\rho\sin\theta = 0
+    \end{align}</script><p><em>which is in general impossible.</em></p>
+</li>
+</ul>
+<p>Now assume the two holonomic constraints are independent and then the null space of $A_q$ has 2 degree-of-freedoms. Let $\fb(\qb)$ and $\gb(\qb)$ be the two basis of the null space, for example</p>
+<script type="math/tex; mode=display">
+\fb(\qb) = 
+\begin{bmatrix}
+\rho \cos \theta \\
+\rho \sin \theta \\
+1 \\
+0
+\end{bmatrix}, \quad
+\gb(\qb) = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}</script><p>then $\dot{\qb} = \fb(\qb) u_1 + \gb(\qb) u_2$. Here $\fb(\qb)$  and $\gb(\qb)$ are both <strong>vector fields</strong>.</p>
+<div class="content-box bfb1">
+  <span class="title">Vector Field</span>
+  <p>A vector field on $\mathbb{R}^n$ is a smooth map which assigns to each point $\qb \in \mathbb{R}^n$ a tangent vector $\fb(\qb) \in T_q \mathbb{R}^n$. It can be thought as right-hand sides of differential equations:</p>
+  <p>$$\dot{\qb} = \fb(\qb)$$</p>
+</div>
+
+<p><img src="flow-vector-field.png" width="400"></p>
+<div class="content-box bfb1">
+  <span class="title">Flow of Vector Field</span>
+  <p>A flow of vector field represents the solution of the differential equation above. Specifically, $\phi^f_t(\qb)$ represents the state of the differential equation at time $t$ starting from $\qb$ at time $0$.</p>
+</div>
+
+<p>Obviously, we have</p>
+<script type="math/tex; mode=display">
+\frac{\rm d}{ {\rm d}t} \phi_t^f(\qb) = \fb\big(\phi_t^f(\qb)\big)</script><p>and by the existence and uniqueness theorem of ODE, it satisfies the following group property:</p>
+<script type="math/tex; mode=display">
+\phi_t^f(\qb) \circ \phi_s^f(\qb) = \phi_{t+s}^f(\qb) = \phi_t^f\big(\phi_s^f(\qb)\big)</script><p>for all $t$ and $s$.</p>
+<hr>
+<p>As shown in the disk rolling example, if a system is associated with two vector fields, the direction of motion at a certain point is not unique. Now consider a infinitesimal square motion around $\qb_0$: </p>
+<script type="math/tex; mode=display">
+(\fb, \epsilon) \rightarrow (\gb, \epsilon) \rightarrow (-\fb, \epsilon) \rightarrow (-\gb, \epsilon)</script><p><img src="lie-brackets.png" width="300"></p>
+<script type="math/tex; mode=display">
+\qb(4\epsilon) = \qb_0 + \epsilon^2\left( \frac{\partial \gb}{\partial \qb} \fb(\qb) - \frac{\partial \fb}{\partial \qb} \gb(\qb)  \right) + O(\epsilon^3)</script><p>Motivated by this calculation, we define the <strong>Lie bracket</strong> of two vector fields $\fb$ and $\gb$</p>
+<div class="content-box bfb1">
+  <span class="title">Lie Bracket</span>
+  <p>$$[\fb, \gb](\qb) = \frac{\partial \gb}{\partial \qb} \fb(\qb) - \frac{\partial \fb}{\partial \qb}\gb(\qb).$$</p>
+  <p>$\fb$ and $\gb$ are said to commute if $[\fb, \gb] = 0$.</p>
+</div>
+
+<p><em>Example</em>: Lie brackets of linear vector fields $\fb(\qb) = A\qb$ and $\gb(\qb) = B\qb$ is</p>
+<script type="math/tex; mode=display">
+[\fb, \gb](\qb) = (BA - AB)\qb,</script><p>that is the <strong>commutator</strong> of the two matrices $A, B$.</p>
+<div class="content-box bfb1">
+  <span class="title">Properties of Lie brackets</span>
+  <ol>
+    <li><p><b>Skew-symmetry</b></p><p>
+    $$
+        [f, g] = -[g, f]
+        $$
+    </p></li>
+    <li><p><b>Jacobi identity</b></p><p>
+    $$
+        [f, [g, h]] + [h, [f, g]] + [g, [h, f]] = 0
+        $$
+      </p></li>
+    <li><p><b>Chain rule</b></p><p>
+    $$
+    [\alpha f, \beta g] = \alpha \beta [f, g] + \alpha(L_f \beta)g - \beta (L_g \alpha)f,
+    $$
+    </p><p>
+      where $L_f\beta$ and $L_g\alpha$ stand for the Lie derivatives of $\beta$ and $\alpha$ along the vector fields $f$ and $g$ respectively.
+      </p></li>
+  </ol>
+</div>
+
+<h2 id="Controllability-and-Frobenius-Theorem"><a href="#Controllability-and-Frobenius-Theorem" class="headerlink" title="Controllability and Frobenius Theorem"></a>Controllability and Frobenius Theorem</h2><h2 id="Examples-of-Nonholonomic-Systems"><a href="#Examples-of-Nonholonomic-Systems" class="headerlink" title="Examples of Nonholonomic Systems"></a>Examples of Nonholonomic Systems</h2><h2 id="Nonholonomic-Motion-Planning"><a href="#Nonholonomic-Motion-Planning" class="headerlink" title="Nonholonomic Motion Planning"></a>Nonholonomic Motion Planning</h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controllability-and-Frobenius-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Controllability and Frobenius Theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-of-Nonholonomic-Systems"><span class="toc-number">3.</span> <span class="toc-text">Examples of Nonholonomic Systems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nonholonomic-Motion-Planning"><span class="toc-number">4.</span> <span class="toc-text">Nonholonomic Motion Planning</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/07/23/mls94-ch7/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&text=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&is_video=false&description=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[MLS94] Nonholonomic Behavior in Robotic System&body=Check out this article: http://xueyuechuan.me/2019/07/23/mls94-ch7/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&title=[MLS94] Nonholonomic Behavior in Robotic System"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/07/23/mls94-ch7/&name=[MLS94] Nonholonomic Behavior in Robotic System&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
