@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/links/index.html</loc>
+    
+    <lastmod>2019-08-20T21:58:29.386Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/index.html</loc>
     
     <lastmod>2019-08-16T20:11:33.415Z</lastmod>
@@ -404,13 +411,6 @@
     <loc>http://xueyuechuan.me/notes/cole1989b.html</loc>
     
     <lastmod>2019-07-08T15:30:08.830Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/links/index.html</loc>
-    
-    <lastmod>2019-07-08T14:27:08.030Z</lastmod>
     
   </url>
   
