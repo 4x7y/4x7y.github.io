@@ -6,16 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Notes              &amp;hearts; My Note [Xue, 2019]                      In-hand manipulation Defined as transitions between different grasps [Zhang et al. 1996]  Topological features of object and finger">
+    <meta name="description" content="NotesGrasp Synthesis              &amp;hearts; A simple set of grasps for a dextrous hand [Lyons, 1985]                       Lyons, Damian. “A simple set of grasps for a dextrous hand.” Proceedings. 1985">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Notes">
 <meta property="og:url" content="http://xueyuechuan.me/notes/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Notes              &amp;hearts; My Note [Xue, 2019]                      In-hand manipulation Defined as transitions between different grasps [Zhang et al. 1996]  Topological features of object and finger">
+<meta property="og:description" content="NotesGrasp Synthesis              &amp;hearts; A simple set of grasps for a dextrous hand [Lyons, 1985]                       Lyons, Damian. “A simple set of grasps for a dextrous hand.” Proceedings. 1985">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://xueyuechuan.me/notes/mynote/move_obj_1.png">
-<meta property="og:image" content="http://xueyuechuan.me/notes/mynote/move_obj_2.png">
-<meta property="og:image" content="http://xueyuechuan.me/notes/mynote/move_finger_tip_loc.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/Sarkar1996/coordinates.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
@@ -50,11 +47,11 @@
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img1.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img2.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img3.png">
-<meta property="og:updated_time" content="2019-08-16T20:11:33.415Z">
+<meta property="og:updated_time" content="2019-08-22T21:12:16.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes">
-<meta name="twitter:description" content="Notes              &amp;hearts; My Note [Xue, 2019]                      In-hand manipulation Defined as transitions between different grasps [Zhang et al. 1996]  Topological features of object and finger">
-<meta name="twitter:image" content="http://xueyuechuan.me/notes/mynote/move_obj_1.png">
+<meta name="twitter:description" content="NotesGrasp Synthesis              &amp;hearts; A simple set of grasps for a dextrous hand [Lyons, 1985]                       Lyons, Damian. “A simple set of grasps for a dextrous hand.” Proceedings. 1985">
+<meta name="twitter:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
     <meta name="robots" content="noindex, follow">
     
         
@@ -128,56 +125,7 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1>
-    <div class="spoiler collapsed">
-        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>My Note</b> [<i>Xue</i>, 2019]</div>
-        <div class="spoiler-content">
-            <h4 id="In-hand-manipulation"><a href="#In-hand-manipulation" class="headerlink" title="In-hand manipulation"></a>In-hand manipulation</h4><ul>
-<li><p>Defined as transitions between different grasps <em>[Zhang et al. 1996]</em></p>
-</li>
-<li><p><strong>Topological features</strong> of object and finger:</p>
-<p><em>Example: vertices, edges, surface patch of geometry</em> </p>
-</li>
-<li><p><strong>Canonical grasp</strong>:</p>
-<p><em>Defined in terms of contact pairs between topological features of the hand and the object. Force closure is required.</em></p>
-<p><em>Example:</em> {(F1 surface, Obj edge 1), (F2 surface, Obj surface patch 2)}</p>
-</li>
-<li><p><strong>Directed graph of possible transitions</strong></p>
-<p><em>Need to be manually assigned at this time.</em></p>
-</li>
-</ul>
-<h3 id="Grasp-workspace"><a href="#Grasp-workspace" class="headerlink" title="Grasp  workspace"></a>Grasp  workspace</h3><ul>
-<li>The range of possible manipulations with a given grasp <em>[Kerr  1986]</em></li>
-<li>As a <strong>function</strong> of the <strong>rolling</strong> and sliding that occurs at the contacts<ul>
-<li>Initial configuration </li>
-<li>The path the object moves along</li>
-</ul>
-</li>
-<li>Explored by numerical methods</li>
-<li>Assigned the velocity of each configuration after planning, trapezoidal velocity profile</li>
-</ul>
-<h3 id="Exploration-strategies"><a href="#Exploration-strategies" class="headerlink" title="Exploration strategies"></a>Exploration strategies</h3><h4 id="Move-object-in-a-desired-direction"><a href="#Move-object-in-a-desired-direction" class="headerlink" title="Move object in a desired direction"></a>Move object in a desired direction</h4><ul>
-<li>Each finger contributes two linear constraints</li>
-<li>Total degrees of freedom: #Joints + 3 (from object) - 2 * #Fingers</li>
-<li>If we have 2 or more joints on each finger, we can control the movement ($x, y, \phi$) of the object by rolling.</li>
-<li>Velocity can be assigned afterwards.</li>
-</ul>
-<p><img src="mynote/move_obj_1.png" alt="move_obj_1"></p>
-<p><img src="mynote/move_obj_2.png" alt="move_obj_2"></p>
-<h4 id="Move-fingers-on-the-boundary-of-the-object"><a href="#Move-fingers-on-the-boundary-of-the-object" class="headerlink" title="Move fingers on the boundary of the object"></a>Move fingers on the boundary of the object</h4><p><img src="mynote/move_finger_tip_loc.png" alt="move_finger_tip_loc"></p>
-<h3 id="RRT-exploration"><a href="#RRT-exploration" class="headerlink" title="RRT exploration"></a>RRT exploration</h3><p>Now we explore the workspace of a canonical grasp using the two strategy described above. For a 2D problem, the C-space is the posture of the object, i.e. $(x,y, \phi)$.</p>
-<p>Standard RRT algorithm.</p>
-<ol>
-<li>Randomly sample C-space $c$</li>
-<li>Shoot a line from nearest point $n$ to $c$ until boundary condition failed (not force closure or object-finger not in touch)</li>
-<li>Mark point if force closure <strong>with $n-1$ or less fingers</strong> (This will be used for finger gaits)</li>
-</ol>
-<h3 id="Finger-gaits"><a href="#Finger-gaits" class="headerlink" title="Finger gaits"></a>Finger gaits</h3><p>Let $S$ be the boundary of the circle as shown above, $F_i$ be the $i$-th finger. For two adjacent canonical grasps, say $\{(F_1, S), (F_2, S)\}$ and $\{(F_1, S), (F_2, S)\}, (F_3, S)\}$, if their RRT trees have intersection, we can employ the second strategy to adjust the position of the contact on the object boundary. Then we can remove $F_3$ to perform the finger gaits.</p>
-<h3 id="Control-of-Manipulation"><a href="#Control-of-Manipulation" class="headerlink" title="Control of Manipulation"></a>Control of Manipulation</h3><p>With a planning based on kinematics, we can further get the desired joint torque based on optimization method, in which joint configuration and velocity of all fingers are all known.</p>
-
-        </div>
-    </div>
-<h4 id="Grasp-Synthesis"><a href="#Grasp-Synthesis" class="headerlink" title="Grasp Synthesis"></a>Grasp Synthesis</h4>
+          <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><h4 id="Grasp-Synthesis"><a href="#Grasp-Synthesis" class="headerlink" title="Grasp Synthesis"></a>Grasp Synthesis</h4>
     <div class="spoiler collapsed">
         <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>A simple set of grasps for a dextrous hand</b> [<i>Lyons</i>, 1985]</div>
         <div class="spoiler-content">
@@ -882,7 +830,7 @@ J\qbdot &= G^\top \tilde{P} \dot{X}_o \\
 N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big)</script></li>
 <li><p>Error feedback term</p>
 <script type="math/tex; mode=display">
-\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  (\ddot{X}_o + K_d \dot{X}_e + K_p X_e)</script></li>
+\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  (\ddot{X}_d + K_d \dot{X}_e + K_p X_e)</script></li>
 <li><p>Internal grasp force term (within friction cone)</p>
 <script type="math/tex; mode=display">
 J^\top \fb_{\rm null}</script></li>

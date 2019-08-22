@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    
+    <lastmod>2019-08-22T21:12:16.995Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/cole1989a.html</loc>
     
-    <lastmod>2019-08-22T20:40:04.256Z</lastmod>
+    <lastmod>2019-08-22T21:11:39.129Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://xueyuechuan.me/links/index.html</loc>
     
     <lastmod>2019-08-20T21:58:29.386Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
-    
-    <lastmod>2019-08-16T20:11:33.415Z</lastmod>
     
   </url>
   
