@@ -855,12 +855,22 @@ M_o = \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix},\,
 P = \begin{bmatrix} I & 0 \\ 0 & P \end{bmatrix},\,
 N_o = \begin{bmatrix} 0 \\ (P\dot{\gammab_o}) \times I_w (P \dot{\gammab}_o) + I_w (\dot{P} \dot{\gammab}_o) \end{bmatrix}, \, 
 F_o = \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}</script><h4 id="Finger-Dynamics"><a href="#Finger-Dynamics" class="headerlink" title="Finger Dynamics"></a>Finger Dynamics</h4><script type="math/tex; mode=display">
-M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \fb_c</script><h4 id="System-Dynamics"><a href="#System-Dynamics" class="headerlink" title="System Dynamics"></a>System Dynamics</h4><p>Contact force </p>
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \fb_c</script><h4 id="System-Dynamics"><a href="#System-Dynamics" class="headerlink" title="System Dynamics"></a>System Dynamics</h4><p>Object dynamics and finger dynamics are connected by forces at finger contact points</p>
 <script type="math/tex; mode=display">
-F_o = G \fb_c</script><script type="math/tex; mode=display">
+F_o = G \fb_c</script><p><u>Assuming force closure</u> of grasp $G$, the required contact force equals</p>
+<script type="math/tex; mode=display">
 \begin{align}
-\begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}
-&= G \fb_c
+\fb_c 
+&= G^\dagger F_o + \fb_{\rm null} \\
+&= G^\dagger \left( M_o \tilde{P}\ddot{X}_o + N_o \right) + \fb_{\rm null}
+\end{align}</script><p>where $\fb_{\rm null}$ is any internal force belonging to null space of $G$, and $G^\dagger$ is the pseudo inverse of $G$.</p>
+<p>Combining the object and finger dynamics, we have</p>
+<script type="math/tex; mode=display">
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \Big(G^\dagger \left( M_o \tilde{P}\ddot{X}_o + N_o \right) + \fb_{\rm null} \Big)</script><p>To satisfy the pure rolling constraint, we let</p>
+<script type="math/tex; mode=display">
+\begin{align}
+J\qbdot &= G^\top \tilde{P} \dot{X}_o \\
+\dot{J} \qbdot + J \ddot{\qb} &= \dot{G}^\top \tilde{P}\dot{X}_o + G^\top \dot{\tilde{P}} \dot{X}_o + G^\top \tilde{P} \ddot{X}_o
 \end{align}</script>
         </div>
     </div>
