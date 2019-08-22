@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-07-22T19:38:43.606Z">
+<meta property="og:updated_time" content="2019-08-22T19:41:50.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kinematics and control of multifingered hands with rolling contact">
 <meta name="twitter:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
@@ -166,7 +166,12 @@ R_{wf} \hat{\nb}^f_f \times
 \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix} &= \color{red} G \begin{bmatrix} \fb_{c_1} \\ \vdots \\ \fb_{c_m} \end{bmatrix} 
 \end{align}</script><p><em>Note: Suppose the grasp map $G$ has full rank, then prehensility ($\text{null}(G) \,\cap\, FC \neq \emptyset $) implies force closure.</em></p>
 <script type="math/tex; mode=display">
-G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</script><h2 id="Dynamics-and-Control"><a href="#Dynamics-and-Control" class="headerlink" title="Dynamics and Control"></a>Dynamics and Control</h2><p>Newton-Euler equation of the object</p>
+G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</script><h2 id="Dynamics-and-Control"><a href="#Dynamics-and-Control" class="headerlink" title="Dynamics and Control"></a>Dynamics and Control</h2><p>Control objectives:</p>
+<ul>
+<li><strong>Tracking</strong>: object center of mass follow desired trajectory</li>
+<li><strong>Maintain contact with No Slipping</strong>: none zero contact force within friction cone</li>
+</ul>
+<h4 id="Object-Dynamics"><a href="#Object-Dynamics" class="headerlink" title="Object Dynamics"></a>Object Dynamics</h4><p>Newton-Euler equation of the object (world frame)</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix} \begin{bmatrix} \ddot{\rb}_o \\ \dot{\omegab}_o \end{bmatrix} +
@@ -174,8 +179,19 @@ G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</sc
 &=
 \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}
 \end{align}</script><p>where $I_w = R_{wo}\, I_o\, R_{wo}^\top$ is the object inertia matrix in the world frame.</p>
-<p>Note that </p>
+<p>Suppose the orientation of the object can be parameterized locally (no singularity) by $\gammab_o \in \mathbb{R}^3$, such that $R_o = R(\gamma)$, there exists a linear transformation $P(\gammab_o)$ so that</p>
 <script type="math/tex; mode=display">
+\omegab_o = P(\gammab_o) \dot{\gammab}_o</script><p>Let $X_o = [\xb_o^\top , \gammab_o^\top]^\top$, the object dynamics can be rewritten as</p>
+<script type="math/tex; mode=display">
+M_o \tilde{P}_o \ddot{X}_o + N_o = F_o</script><p>where </p>
+<script type="math/tex; mode=display">
+M_o = \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix},\,
+P = \begin{bmatrix} I & 0 \\ 0 & P \end{bmatrix},\,
+N_o = \begin{bmatrix} 0 \\ (P\dot{\gammab_o}) \times I_w (P \dot{\gammab}_o) + I_w (\dot{P} \dot{\gammab}_o) \end{bmatrix}, \, 
+F_o = \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}</script><h4 id="Finger-Dynamics"><a href="#Finger-Dynamics" class="headerlink" title="Finger Dynamics"></a>Finger Dynamics</h4><script type="math/tex; mode=display">
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \fb_c</script><h4 id="System-Dynamics"><a href="#System-Dynamics" class="headerlink" title="System Dynamics"></a>System Dynamics</h4><p>Contact force </p>
+<script type="math/tex; mode=display">
+F_o = G \fb_c</script><script type="math/tex; mode=display">
 \begin{align}
 \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}
 &= G \fb_c
