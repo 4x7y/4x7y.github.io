@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-08-22T20:00:42.236Z">
+<meta property="og:updated_time" content="2019-08-22T20:40:04.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kinematics and control of multifingered hands with rolling contact">
 <meta name="twitter:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
@@ -186,7 +186,7 @@ G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</sc
 M_o \tilde{P}_o \ddot{X}_o + N_o = F_o</script><p>where </p>
 <script type="math/tex; mode=display">
 M_o = \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix},\,
-P = \begin{bmatrix} I & 0 \\ 0 & P \end{bmatrix},\,
+\tilde{P} = \begin{bmatrix} I & 0 \\ 0 & P \end{bmatrix},\,
 N_o = \begin{bmatrix} 0 \\ (P\dot{\gammab_o}) \times I_w (P \dot{\gammab}_o) + I_w (\dot{P} \dot{\gammab}_o) \end{bmatrix}, \, 
 F_o = \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}</script><h4 id="Finger-Dynamics"><a href="#Finger-Dynamics" class="headerlink" title="Finger Dynamics"></a>Finger Dynamics</h4><script type="math/tex; mode=display">
 M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \fb_c</script><h4 id="System-Dynamics"><a href="#System-Dynamics" class="headerlink" title="System Dynamics"></a>System Dynamics</h4><p>Object dynamics and finger dynamics are connected by forces at finger contact points</p>
@@ -205,7 +205,23 @@ M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \Big(G^\dagger \left( M_o \t
 \begin{align}
 J\qbdot &= G^\top \tilde{P} \dot{X}_o \\
 \dot{J} \qbdot + J \ddot{\qb} &= \dot{G}^\top \tilde{P}\dot{X}_o + G^\top \dot{\tilde{P}} \dot{X}_o + G^\top \tilde{P} \ddot{X}_o
-\end{align}</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+\end{align}</script><p>Assuming system will not go through singular configuration, $J^{-1}$ will exist such that</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\color{red}{\Big(MJ^{-1}G^\top} &\color{red}{+ J^\top G^\dagger M_o\Big)\tilde{P}}\ddot{X}_o =  \\
+& \taub \color{purple}{- N - MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) - J^\top \big( G^\dagger N_o  \big)} + \color{Blue}{J^\top \fb_{\rm null}}
+\end{align}</script><ol>
+<li><p>Nonlinearity cancellation term</p>
+<script type="math/tex; mode=display">
+N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big)</script></li>
+<li><p>Error feedback term</p>
+<script type="math/tex; mode=display">
+\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  (\ddot{X}_o + K_d \dot{X}_e + K_p X_e)</script></li>
+<li><p>Internal grasp force term (within friction cone)</p>
+<script type="math/tex; mode=display">
+J^\top \fb_{\rm null}</script></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>
