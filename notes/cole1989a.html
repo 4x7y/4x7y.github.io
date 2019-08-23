@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-08-22T21:11:39.129Z">
+<meta property="og:updated_time" content="2019-08-23T18:46:27.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kinematics and control of multifingered hands with rolling contact">
 <meta name="twitter:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
@@ -166,8 +166,7 @@ R_{wf} \hat{\nb}^f_f \times
 \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix} &= \color{red} G \begin{bmatrix} \fb_{c_1} \\ \vdots \\ \fb_{c_m} \end{bmatrix} 
 \end{align}</script><p><em>Note: Suppose the grasp map $G$ has full rank, then prehensility ($\text{null}(G) \,\cap\, FC \neq \emptyset $) implies force closure.</em></p>
 <script type="math/tex; mode=display">
-G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</script><h2 id="Dynamics-and-Control"><a href="#Dynamics-and-Control" class="headerlink" title="Dynamics and Control"></a>Dynamics and Control</h2><p>Control objectives:</p>
-<ul>
+G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</script><h2 id="Dynamics-and-Control"><a href="#Dynamics-and-Control" class="headerlink" title="Dynamics and Control"></a>Dynamics and Control</h2><h4 id="Control-objectives"><a href="#Control-objectives" class="headerlink" title="Control objectives:"></a>Control objectives:</h4><ul>
 <li><strong>Tracking</strong>: object center of mass follow desired trajectory</li>
 <li><strong>Maintain contact with No Slipping</strong>: none zero contact force within friction cone</li>
 </ul>
@@ -175,7 +174,7 @@ G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</sc
 <script type="math/tex; mode=display">
 \begin{align}
 \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix} \begin{bmatrix} \ddot{\rb}_o \\ \dot{\omegab}_o \end{bmatrix} +
-\begin{bmatrix} 0 \\ \omegab \times I_w \omegab_o \end{bmatrix}
+\begin{bmatrix} 0 \\ \omegab_o \times I_w \omegab_o \end{bmatrix}
 &=
 \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}
 \end{align}</script><p>where $I_w = R_{wo}\, I_o\, R_{wo}^\top$ is the object inertia matrix in the world frame.</p>
@@ -207,10 +206,11 @@ J\qbdot &= G^\top \tilde{P} \dot{X}_o \\
 \dot{J} \qbdot + J \ddot{\qb} &= \dot{G}^\top \tilde{P}\dot{X}_o + G^\top \dot{\tilde{P}} \dot{X}_o + G^\top \tilde{P} \ddot{X}_o
 \end{align}</script><p>Assuming system will not go through singular configuration, $J^{-1}$ will exist such that</p>
 <script type="math/tex; mode=display">
+\require{color}
 \begin{align}
-\color{red}{\Big(MJ^{-1}G^\top} &\color{red}{+ J^\top G^\dagger M_o\Big)\tilde{P}}\ddot{X}_o =  \\
-& \taub \color{purple}{- N - MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) - J^\top \big( G^\dagger N_o  \big)} + \color{Blue}{J^\top \fb_{\rm null}}
-\end{align}</script><ol>
+{\color{red} \Big(MJ^{-1}G^\top} & {\color{red} + J^\top G^\dagger M_o\Big)\tilde{P}}\ddot{X}_o =  \\
+& \taub {\color{purple} - N - MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) - J^\top \big( G^\dagger N_o  \big)} + {\color{Blue} J^\top \fb_{\rm null}}
+\end{align}</script><h4 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h4><ol>
 <li><p>Nonlinearity cancellation term</p>
 <script type="math/tex; mode=display">
 N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big)</script></li>
@@ -221,7 +221,14 @@ N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \
 <script type="math/tex; mode=display">
 J^\top \fb_{\rm null}</script></li>
 </ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<p>Control output:</p>
+<script type="math/tex; mode=display">
+\require{color}
+\begin{align}
+\taub = & \, N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big) \\
+&+\, \Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_d + K_d \dot{X}_e + K_p X_e)} \\
+&+ \, J^\top \fb_{\rm null}
+\end{align}</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>
