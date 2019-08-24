@@ -10,7 +10,7 @@
 <meta name="keywords" content="mujoco">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[MuJoCo] Inverse Dynamics API">
-<meta property="og:url" content="http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/index.html">
+<meta property="og:url" content="http://xueyuechuan.me/2019/08/16/mj-frc-inverse/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="mj_inverse() calculates the inverse dynamics of the dynamics system, similar to inverseDynamics() function in Matlab Robotics Toolbox. Input to the function need to be pre-assigned to the sim.data str">
 <meta property="og:locale" content="English">
@@ -90,16 +90,16 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&text=[MuJoCo] Inverse Dynamics API"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&is_video=false&description=[MuJoCo] Inverse Dynamics API"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[MuJoCo] Inverse Dynamics API&body=Check out this article: http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&name=[MuJoCo] Inverse Dynamics API&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&text=[MuJoCo] Inverse Dynamics API"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&is_video=false&description=[MuJoCo] Inverse Dynamics API"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[MuJoCo] Inverse Dynamics API&body=Check out this article: http://xueyuechuan.me/2019/08/16/mj-frc-inverse/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&name=[MuJoCo] Inverse Dynamics API&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -223,16 +223,16 @@ M(\qb)\ddot{\qb} + C(\qb, \qbdot) + N(\qb) = \taub_{\rm actuator} + J^\top \fb_{
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&text=[MuJoCo] Inverse Dynamics API"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&is_video=false&description=[MuJoCo] Inverse Dynamics API"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[MuJoCo] Inverse Dynamics API&body=Check out this article: http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/16/MUJOCO-Inverse-Dynamics/&name=[MuJoCo] Inverse Dynamics API&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&text=[MuJoCo] Inverse Dynamics API"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&is_video=false&description=[MuJoCo] Inverse Dynamics API"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[MuJoCo] Inverse Dynamics API&body=Check out this article: http://xueyuechuan.me/2019/08/16/mj-frc-inverse/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&title=[MuJoCo] Inverse Dynamics API"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/16/mj-frc-inverse/&name=[MuJoCo] Inverse Dynamics API&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
