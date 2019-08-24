@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>[MuJoCo] Jacobian API</title>
+      <link href="/2019/08/24/mj-jacobian/"/>
+      <url>/2019/08/24/mj-jacobian/</url>
+      <content type="html"><![CDATA[<p>The function for computing Jacobians is:</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mj_jac</span><span class="params">(model, data, jacp, jacr, point, body_index)</span></span></span><br></pre></td></tr></table></figure><p>The Jacobian has translational (<code>jacp</code>) and rotational (<code>jacr</code>) components. <code>jacp</code> and <code>jacr</code> point to 3-by-nv matrices you allocated that will hold the result. Each row of this matrix is the gradient of the corresponding 3D coordinate of the specified point with respect to the degrees of freedom.  If either is <code>NULL</code>, that Jacobian is not computed. <sup><a href="#fn_1" id="reffn_1">1</a></sup></p><p>The <code>point</code> is in <strong>3D global (world) coordinates</strong>. body is the body index. <sup><a href="#fn_2" id="reffn_2">2</a></sup></p><p>There are also helper functions <code>mj_jacBody</code>, <code>mj_jacSite</code>, etc that compute the Jacobian of the frame of the specified body, site etc.</p><p>Note that the position-dependent stages of the computation must have been executed for the current state in order for these functions to return correct results. So to be safe, do <code>mj_forward</code> and then <code>mj_jac</code>. If you do <code>mj_step</code> and then call <code>mj_jac</code>, the Jacobians will correspond to the state before the integration of positions and velocities took place.</p><blockquote id="fn_1"><sup>1</sup>. <a href="http://www.mujoco.org/book/APIreference.html#mj_jac" target="_blank" rel="noopener">MuJoCo API Document</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a></blockquote><blockquote id="fn_2"><sup>2</sup>. <a href="http://www.mujoco.org/forum/index.php?threads/easiest-way-to-compute-jacobian.3374/" target="_blank" rel="noopener">MuJoCo Forum - Easiest way to compute Jacobian</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a></blockquote><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> mujoco </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>[MuJoCo] Inverse Dynamics API</title>
       <link href="/2019/08/16/mj-frc-inverse/"/>
       <url>/2019/08/16/mj-frc-inverse/</url>
