@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/links/index.html</loc>
+    
+    <lastmod>2019-08-26T18:07:24.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/romano2011.html</loc>
+    
+    <lastmod>2019-08-26T18:00:12.244Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    
+    <lastmod>2019-08-26T17:59:16.196Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/2019/08/24/mj-jacobian/</loc>
     
     <lastmod>2019-08-24T15:48:51.570Z</lastmod>
@@ -16,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
-    
-    <lastmod>2019-08-23T15:07:29.630Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/ott2008.html</loc>
     
     <lastmod>2019-08-22T18:49:54.693Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/links/index.html</loc>
-    
-    <lastmod>2019-08-20T21:58:29.386Z</lastmod>
     
   </url>
   
@@ -835,14 +842,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
+    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
+    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
