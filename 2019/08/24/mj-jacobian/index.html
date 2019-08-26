@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="The function for computing Jacobians is: 1void mj_jac(model, data, jacp, jacr, point, body_index) The Jacobian has translational (jacp) and rotational (jacr) components. jacp and jacr point to 3-by-nv">
+    <meta name="description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
 <meta name="keywords" content="mujoco">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[MuJoCo] Jacobian API">
 <meta property="og:url" content="http://xueyuechuan.me/2019/08/24/mj-jacobian/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="The function for computing Jacobians is: 1void mj_jac(model, data, jacp, jacr, point, body_index) The Jacobian has translational (jacp) and rotational (jacr) components. jacp and jacr point to 3-by-nv">
+<meta property="og:description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-08-24T15:48:51.570Z">
+<meta property="og:updated_time" content="2019-08-26T20:49:31.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[MuJoCo] Jacobian API">
-<meta name="twitter:description" content="The function for computing Jacobians is: 1void mj_jac(model, data, jacp, jacr, point, body_index) The Jacobian has translational (jacp) and rotational (jacr) components. jacp and jacr point to 3-by-nv">
+<meta name="twitter:description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
     
     
         
@@ -104,7 +104,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Geometric-Analytical-Jacobian"><span class="toc-number">1.</span> <span class="toc-text">Geometric/Analytical Jacobian</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Geometric-Jacobian"><span class="toc-number">1.0.1.</span> <span class="toc-text">Geometric Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Analytical-Jacobian"><span class="toc-number">1.0.2.</span> <span class="toc-text">Analytical Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relation"><span class="toc-number">1.0.3.</span> <span class="toc-text">Relation</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#MuJoCo-Jacobian-API"><span class="toc-number">2.</span> <span class="toc-text">MuJoCo Jacobian API</span></a></li>
     </div>
   </span>
 </div>
@@ -145,9 +145,27 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>The function for computing Jacobians is:</p>
+    <h2 id="Geometric-Analytical-Jacobian"><a href="#Geometric-Analytical-Jacobian" class="headerlink" title="Geometric/Analytical Jacobian"></a>Geometric/Analytical Jacobian</h2><h4 id="Geometric-Jacobian"><a href="#Geometric-Jacobian" class="headerlink" title="Geometric Jacobian"></a>Geometric Jacobian</h4><p>The relationship between the joint velocities and the corresponding (uniquely-defined) end-effector <strong>linear and angular velocities</strong> at given point on the end-effector.</p>
+<script type="math/tex; mode=display">
+\vb = \begin{bmatrix} \pbdot \\ \omegab \end{bmatrix} = \begin{bmatrix} J_p \\ J_o \end{bmatrix} \qbdot = J \qbdot</script><h4 id="Analytical-Jacobian"><a href="#Analytical-Jacobian" class="headerlink" title="Analytical Jacobian"></a>Analytical Jacobian</h4><p>The relationship between the joint velocities and the corresponding (not uniquely-defined) end-effector <strong>linear velocities and time derivatives of any representation of the orientation</strong> at given point on the end-effector.</p>
+<script type="math/tex; mode=display">
+\xbdot = \begin{bmatrix} \pbdot \\ \dot{\phib} \end{bmatrix} = 
+\begin{bmatrix} J_p \\ J_{\phi} \end{bmatrix} \qbdot = J_a \qbdot</script><h4 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h4><p>Assume $\phib = (\gamma, \beta, \alpha)$ is the ZYX Euler angle. The velocity relation is given by</p>
+<script type="math/tex; mode=display">
+\vb = \begin{bmatrix} \pbdot \\ \omegab \end{bmatrix} = 
+\begin{bmatrix} I & 0 \\ 0 & T(\phib) \end{bmatrix} \begin{bmatrix} \pbdot \\ \dot{\phib} \end{bmatrix} = T_a(\phib) \xbdot</script><p>where</p>
+<script type="math/tex; mode=display">
+T(\phib) = \begin{bmatrix} 
+0 & -\sin \gamma & \cos \gamma \cos \beta \\
+0 & \cos \gamma & \sin \gamma \cos \beta \\
+1 & 0 & \sin \beta
+\end{bmatrix}</script><p>The jacobian relation is given correspondingly by</p>
+<script type="math/tex; mode=display">
+J = T(\phib) J_a</script><p>or</p>
+<script type="math/tex; mode=display">
+J_a = T(\phib)^{-1} J</script><h2 id="MuJoCo-Jacobian-API"><a href="#MuJoCo-Jacobian-API" class="headerlink" title="MuJoCo Jacobian API"></a>MuJoCo Jacobian API</h2><p>The function for computing <strong>geometrical jacobian</strong> is:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mj_jac</span><span class="params">(model, data, jacp, jacr, point, body_index)</span></span></span><br></pre></td></tr></table></figure>
-<p>The Jacobian has translational (<code>jacp</code>) and rotational (<code>jacr</code>) components. <code>jacp</code> and <code>jacr</code> point to 3-by-nv matrices you allocated that will hold the result. Each row of this matrix is the gradient of the corresponding 3D coordinate of the specified point with respect to the degrees of freedom.  If either is <code>NULL</code>, that Jacobian is not computed. <sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
+<p>The geometrical Jacobian has translational (<code>jacp</code>) and rotational (<code>jacr</code>) components. <code>jacp</code> and <code>jacr</code> point to 3-by-nv matrices you allocated that will hold the result. Each row of this matrix is the gradient of the corresponding 3D coordinate of the specified point with respect to the degrees of freedom.  If either is <code>NULL</code>, that Jacobian is not computed. <sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
 <p>The <code>point</code> is in <strong>3D global (world) coordinates</strong>. body is the body index. <sup><a href="#fn_2" id="reffn_2">2</a></sup></p>
 <p>There are also helper functions <code>mj_jacBody</code>, <code>mj_jacSite</code>, etc that compute the Jacobian of the frame of the specified body, site etc.</p>
 <p>Note that the position-dependent stages of the computation must have been executed for the current state in order for these functions to return correct results. So to be safe, do <code>mj_forward</code> and then <code>mj_jac</code>. If you do <code>mj_step</code> and then call <code>mj_jac</code>, the Jacobians will correspond to the state before the integration of positions and velocities took place.</p>
@@ -186,7 +204,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Geometric-Analytical-Jacobian"><span class="toc-number">1.</span> <span class="toc-text">Geometric/Analytical Jacobian</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Geometric-Jacobian"><span class="toc-number">1.0.1.</span> <span class="toc-text">Geometric Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Analytical-Jacobian"><span class="toc-number">1.0.2.</span> <span class="toc-text">Analytical Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relation"><span class="toc-number">1.0.3.</span> <span class="toc-text">Relation</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#MuJoCo-Jacobian-API"><span class="toc-number">2.</span> <span class="toc-text">MuJoCo Jacobian API</span></a></li>
     </div>
 
     <div id="share-footer" style="display: none">
