@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
-<meta name="keywords" content="mujoco">
+    <meta name="description" content="Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory.  The desired performance is specified through a generalized dyn">
+<meta name="keywords" content="control">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[MuJoCo] Jacobian API">
-<meta property="og:url" content="http://xueyuechuan.me/2019/08/24/mj-jacobian/index.html">
+<meta property="og:title" content="Impedance Control">
+<meta property="og:url" content="http://xueyuechuan.me/2019/08/26/impedance_ctrl/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
+<meta property="og:description" content="Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory.  The desired performance is specified through a generalized dyn">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-08-26T20:49:31.700Z">
+<meta property="og:updated_time" content="2019-08-27T05:27:32.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[MuJoCo] Jacobian API">
-<meta name="twitter:description" content="Geometric/Analytical JacobianGeometric JacobianThe relationship between the joint velocities and the corresponding (uniquely-defined) end-effector linear and angular velocities at given point on the e">
+<meta name="twitter:title" content="Impedance Control">
+<meta name="twitter:description" content="Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory.  The desired performance is specified through a generalized dyn">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[MuJoCo] Jacobian API</title>
+    <title>Impedance Control</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -76,10 +76,8 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/08/26/impedance_ctrl/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        
-        <li><a class="icon" href="/2019/08/16/mj-frc-inverse/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/08/24/mj-jacobian/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -92,21 +90,21 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/24/mj-jacobian/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&text=[MuJoCo] Jacobian API"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&is_video=false&description=[MuJoCo] Jacobian API"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[MuJoCo] Jacobian API&body=Check out this article: http://xueyuechuan.me/2019/08/24/mj-jacobian/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&name=[MuJoCo] Jacobian API&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/26/impedance_ctrl/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&text=Impedance Control"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&is_video=false&description=Impedance Control"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Impedance Control&body=Check out this article: http://xueyuechuan.me/2019/08/26/impedance_ctrl/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&name=Impedance Control&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Geometric-Analytical-Jacobian"><span class="toc-number">1.</span> <span class="toc-text">Geometric/Analytical Jacobian</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Geometric-Jacobian"><span class="toc-number">1.0.1.</span> <span class="toc-text">Geometric Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Analytical-Jacobian"><span class="toc-number">1.0.2.</span> <span class="toc-text">Analytical Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relation"><span class="toc-number">1.0.3.</span> <span class="toc-text">Relation</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#MuJoCo-Jacobian-API"><span class="toc-number">2.</span> <span class="toc-text">MuJoCo Jacobian API</span></a></li>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Robot-dynamics-equation"><span class="toc-number">1.</span> <span class="toc-text">Robot dynamics equation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Robot-dynamics-in-Cartesian-coordinates"><span class="toc-number">2.</span> <span class="toc-text">Robot dynamics in Cartesian coordinates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Design-of-Control-Law"><span class="toc-number">3.</span> <span class="toc-text">Design of Control Law</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Choice-of-Impedance-Model"><span class="toc-number">4.</span> <span class="toc-text">Choice of Impedance Model</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -118,7 +116,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        [MuJoCo] Jacobian API
+        Impedance Control
     </h1>
 
 
@@ -129,7 +127,7 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2019-08-24T15:32:42.000Z" itemprop="datePublished">2019-08-24</time>
+        <time datetime="2019-08-26T18:53:00.000Z" itemprop="datePublished">2019-08-26</time>
     </div>
 
 
@@ -138,7 +136,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/mujoco/">mujoco</a>
+        <a class="tag-link" href="/tags/control/">control</a>
     </div>
 
 
@@ -147,35 +145,66 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Geometric-Analytical-Jacobian"><a href="#Geometric-Analytical-Jacobian" class="headerlink" title="Geometric/Analytical Jacobian"></a>Geometric/Analytical Jacobian</h2><h4 id="Geometric-Jacobian"><a href="#Geometric-Jacobian" class="headerlink" title="Geometric Jacobian"></a>Geometric Jacobian</h4><p>The relationship between the joint velocities and the corresponding (uniquely-defined) end-effector <strong>linear and angular velocities</strong> at given point on the end-effector.</p>
+    <ul>
+<li>Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory. </li>
+<li>The desired performance is specified through a <strong>generalized dynamic impedance</strong>, namely a complete set of <em>mass-spring-damper equations</em> (typically chosen as linear and decoupled, but also nonlinear).</li>
+<li>Since a control loop based on force error is missing, <strong>forces</strong> are only <strong>indirectly</strong> assigned by <strong>controlling position</strong>.</li>
+</ul>
+<h4 id="Robot-dynamics-equation"><a href="#Robot-dynamics-equation" class="headerlink" title="Robot dynamics equation"></a>Robot dynamics equation</h4><p>Let $\phib$ be a parameterization of the orientation of the end effector, for instance, Euler angle in ZYX sequence. </p>
 <script type="math/tex; mode=display">
-\vb = \begin{bmatrix} \pbdot \\ \omegab \end{bmatrix} = \begin{bmatrix} J_p \\ J_o \end{bmatrix} \qbdot = J \qbdot</script><h4 id="Analytical-Jacobian"><a href="#Analytical-Jacobian" class="headerlink" title="Analytical Jacobian"></a>Analytical Jacobian</h4><p>The relationship between the joint velocities and the corresponding (not uniquely-defined) end-effector <strong>linear velocities and time derivatives of any representation of the orientation</strong> at given point on the end-effector.</p>
+\begin{align}
+M(\qb) \ddot{\qb} + C(\qb, \qbdot)\qbdot + N(\qb) &= \taub + J^\top \fb \\
+&= \taub + J_a^\top \fb_a
+\end{align}</script><p>where $J$ is the geometric jacobian and $J_a$ is the analytic jacobian, $\fb_a$ is the generalized force performing work on $\xbdot = (\pbdot, \dot{\phib})$. We have the relation</p>
 <script type="math/tex; mode=display">
-\xbdot = \begin{bmatrix} \pbdot \\ \dot{\phib} \end{bmatrix} = 
-\begin{bmatrix} J_p \\ J_{\phi} \end{bmatrix} \qbdot = J_a \qbdot</script><h4 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h4><p>Assume $\phib = (\gamma, \beta, \alpha)$ is the ZYX Euler angle. The velocity relation is given by</p>
+\xbdot = T_a(\phib) \vb, \quad \fb_a = T_a^{-1}(\phib) \fb, \quad \xbdot = J_a \qbdot, \quad \vb = J\qbdot</script><h4 id="Robot-dynamics-in-Cartesian-coordinates"><a href="#Robot-dynamics-in-Cartesian-coordinates" class="headerlink" title="Robot dynamics in Cartesian coordinates"></a>Robot dynamics in Cartesian coordinates</h4><p>Assume $J_a$ is invertible, we have</p>
 <script type="math/tex; mode=display">
-\vb = \begin{bmatrix} \pbdot \\ \omegab \end{bmatrix} = 
-\begin{bmatrix} I & 0 \\ 0 & T(\phib) \end{bmatrix} \begin{bmatrix} \pbdot \\ \dot{\phib} \end{bmatrix} = T_a(\phib) \xbdot</script><p>where</p>
+\begin{align}
+M_x(\qb) \ddot{\qb} + C_x(\qb, \qbdot)\qbdot + N_x(\qb) &= J_a^{-\top} \taub + \fb_a
+\end{align}</script><p>where </p>
 <script type="math/tex; mode=display">
-T(\phib) = \begin{bmatrix} 
-0 & -\sin \gamma & \cos \gamma \cos \beta \\
-0 & \cos \gamma & \sin \gamma \cos \beta \\
-1 & 0 & \sin \beta
-\end{bmatrix}</script><p>The jacobian relation is given correspondingly by</p>
+\begin{align}
+M_x(\qb) &= J_a^{-\top} M\, J_a^{-1} ,\\
+C_x(\qb, \qbdot) &= J_a^{-\top} C \, J_a^{-1} - M_x \dot{J}_a J_a^{-1}, \\
+N_x(\qb) &= J_a^{-\top} N.
+\end{align}</script><h4 id="Design-of-Control-Law"><a href="#Design-of-Control-Law" class="headerlink" title="Design of Control Law"></a>Design of Control Law</h4><p>Move robot control input $\taub$ to the left of the equation, we get</p>
 <script type="math/tex; mode=display">
-J = T(\phib) J_a</script><p>or</p>
+\taub = J_a^{\top}(\qb)\Big[ M_x(\qb) \ddot{\xb} + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \Big],</script><p>By substituting the $\ddot{\xb}$ with desired acceleration $\ab$, it becomes </p>
 <script type="math/tex; mode=display">
-J_a = T(\phib)^{-1} J</script><h2 id="MuJoCo-Jacobian-API"><a href="#MuJoCo-Jacobian-API" class="headerlink" title="MuJoCo Jacobian API"></a>MuJoCo Jacobian API</h2><p>The function for computing <strong>geometrical jacobian</strong> is:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mj_jac</span><span class="params">(model, data, jacp, jacr, point, body_index)</span></span></span><br></pre></td></tr></table></figure>
-<p>The geometrical Jacobian has translational (<code>jacp</code>) and rotational (<code>jacr</code>) components. <code>jacp</code> and <code>jacr</code> point to 3-by-nv matrices you allocated that will hold the result. Each row of this matrix is the gradient of the corresponding 3D coordinate of the specified point with respect to the degrees of freedom.  If either is <code>NULL</code>, that Jacobian is not computed. <sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
-<p>The <code>point</code> is in <strong>3D global (world) coordinates</strong>. body is the body index. <sup><a href="#fn_2" id="reffn_2">2</a></sup></p>
-<p>There are also helper functions <code>mj_jacBody</code>, <code>mj_jacSite</code>, etc that compute the Jacobian of the frame of the specified body, site etc.</p>
-<p>Note that the position-dependent stages of the computation must have been executed for the current state in order for these functions to return correct results. So to be safe, do <code>mj_forward</code> and then <code>mj_jac</code>. If you do <code>mj_step</code> and then call <code>mj_jac</code>, the Jacobians will correspond to the state before the integration of positions and velocities took place.</p>
+\require{color}
+\taub = J_a^{\top}(\qb)\Big[ M_x(\qb) {\color{red} \ab} + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \Big], \\</script><p>and we get the closed loop system</p>
+<script type="math/tex; mode=display">
+\ddot{\xb} = \ab.</script><p>Imposition of the impedance model</p>
+<script type="math/tex; mode=display">
+M_m(\ddot{\xb} - \ddot{\xb}_d) + D_m(\xbdot - \xbdot_d) + K_m(\xb - \xb_d) = \fb_a</script><p><em>($M_m, D_m$ and $K_m$ are desired inertia, desired damping and desired stiffness, respectively)</em></p>
+<p>is realized by choosing</p>
+<script type="math/tex; mode=display">
+\ab = \ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb - \xb_d \big) + F_a\Big]</script><p>Note: $\xb_d$ is the desired motion, which typically <strong>slightly penetrates</strong> inside the compliant environment (keeping thus contact)</p>
+<p>Substitute $\ab$ into the control law, after simplification, we get</p>
+<script type="math/tex; mode=display">
+\require{color}
+\begin{align}
+\taub 
+&= J_a^{\top}(\qb)\Big[ M_x(\qb) {\color{blue} \ab} + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \Big] \\
+&= J_a^{\top}(\qb)\bigg[ M_x(\qb)  {\color{blue} \Big[\ddot{\xb}_d + M_m^{-1} \Big( D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) + \fb_a\Big) \Big]} \\
+&\qquad \qquad \quad + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \bigg] \\ \\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big]  \bigg\}\\
+&\qquad \qquad + J_a^{\top}(\qb) C_x(\qb, \qbdot)\xbdot + J_a^{\top}(\qb) N_x(\qb) + {\color{purple} J_a^\top(\qb)(M_x(\qb)M_m^{-1} - I)\fb_a} \\ \\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
+&\qquad \qquad + C(\qb, \qbdot)\qbdot \,{\color{red} - M(\qb)J_a^{-1}\dot{J}_a \qbdot} + N(\qb) + J_a^\top(\qb)(M_x(\qb)M_m^{-1} - I)\fb_a \\ \\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d \,{\color{red} - \dot{J}_a \qbdot} + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
+&\qquad \qquad + C(\qb, \qbdot)\qbdot + N(\qb) + J_a^\top(\qb)(M_x(\qb)M_m^{-1} - I)\fb_a
+\end{align}</script><p>While the principle of control design is based on dynamic analysis and desired (impedance) behavior as described in the Cartesian space, the final control implementation is always made at <strong>robot joint level</strong>.</p>
+<h4 id="Choice-of-Impedance-Model"><a href="#Choice-of-Impedance-Model" class="headerlink" title="Choice of Impedance Model"></a>Choice of Impedance Model</h4><ul>
+<li><p><strong>Low contact forces</strong></p>
+<p>Large$M_{m, i}$ and small $K_{m,i}$ in Cartesian directions where contact is foreseen</p>
+</li>
+<li><p><strong>Good tracking</strong></p>
+<p>Large $K_{m, i}$ and small $M_{m, i}$ in Cartesian directions that are supposed to be free</p>
+</li>
+</ul>
 <blockquote id="fn_1">
-<sup>1</sup>. <a href="http://www.mujoco.org/book/APIreference.html#mj_jac" target="_blank" rel="noopener">MuJoCo API Document</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. <a href="http://www.mujoco.org/forum/index.php?threads/easiest-way-to-compute-jacobian.3374/" target="_blank" rel="noopener">MuJoCo Forum - Easiest way to compute Jacobian</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+<sup>1</sup>. <a href="http://www.diag.uniroma1.it/~deluca/rob2_en/15_ImpedanceControl.pdf" target="_blank" rel="noopener">Alessandro De Luca (2018). Impedance Control [slides] </a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
   </div>
@@ -206,21 +235,21 @@ J_a = T(\phib)^{-1} J</script><h2 id="MuJoCo-Jacobian-API"><a href="#MuJoCo-Jaco
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Geometric-Analytical-Jacobian"><span class="toc-number">1.</span> <span class="toc-text">Geometric/Analytical Jacobian</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Geometric-Jacobian"><span class="toc-number">1.0.1.</span> <span class="toc-text">Geometric Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Analytical-Jacobian"><span class="toc-number">1.0.2.</span> <span class="toc-text">Analytical Jacobian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relation"><span class="toc-number">1.0.3.</span> <span class="toc-text">Relation</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#MuJoCo-Jacobian-API"><span class="toc-number">2.</span> <span class="toc-text">MuJoCo Jacobian API</span></a></li>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Robot-dynamics-equation"><span class="toc-number">1.</span> <span class="toc-text">Robot dynamics equation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Robot-dynamics-in-Cartesian-coordinates"><span class="toc-number">2.</span> <span class="toc-text">Robot dynamics in Cartesian coordinates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Design-of-Control-Law"><span class="toc-number">3.</span> <span class="toc-text">Design of Control Law</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Choice-of-Impedance-Model"><span class="toc-number">4.</span> <span class="toc-text">Choice of Impedance Model</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/24/mj-jacobian/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&text=[MuJoCo] Jacobian API"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&is_video=false&description=[MuJoCo] Jacobian API"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[MuJoCo] Jacobian API&body=Check out this article: http://xueyuechuan.me/2019/08/24/mj-jacobian/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&title=[MuJoCo] Jacobian API"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/24/mj-jacobian/&name=[MuJoCo] Jacobian API&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2019/08/26/impedance_ctrl/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&text=Impedance Control"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&is_video=false&description=Impedance Control"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Impedance Control&body=Check out this article: http://xueyuechuan.me/2019/08/26/impedance_ctrl/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&title=Impedance Control"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2019/08/26/impedance_ctrl/&name=Impedance Control&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
