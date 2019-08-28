@@ -701,7 +701,7 @@ M \dot{\boldsymbol{\psi}} = R\mathcal{V}_b</script><h3 id="Hand-Workspace"><a hr
         </div>
     </div>
 
-    <div class="spoiler expanded">
+    <div class="spoiler collapsed">
         <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Kinematics and control of multifingered hands with rolling contact</b> [<i>Cole, Hauser, Sastry</i>, 1989]</div>
         <div class="spoiler-content">
             <blockquote>
@@ -842,7 +842,14 @@ J^\top \fb_{\rm null}</script></li>
 \taub = & \, N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big) \\
 &+\, \Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_d + K_d \dot{X}_e + K_p X_e)} \\
 &+ \, J^\top \fb_{\rm null}
-\end{align}</script>
+\end{align}</script><h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p>First plug the control law to the dynamic equation, we get</p>
+<script type="math/tex; mode=display">
+\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_e + K_d \dot{X}_e + K_p X_e)} = J^\top \fb_{\rm null}</script><p>which is a $m$ dimensional equation ($m &gt; 6$ is the number of joints). To show the objective errors are orthogonal to the arbitrary internal force $\fb_{\rm null}$, we premultiply $GJ^{-\top}$ to both sides of the above equation, and we get</p>
+<script type="math/tex; mode=display">
+\Big( GJ^{-\top} MJ^{-1}G^\top + M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_e + K_d \dot{X}_e + K_p X_e)} = 0.</script><p>The $\fb_{\rm null}$ is eliminated since $\fb_{\rm null}$ lies in the null space of $G$. Now, $M_o$ is positive definite and $GJ^{-\top}MJ^{-1}G^\top$ is semidefinite, and $\tilde{P}$ is nonsingular by assumption, so that </p>
+<script type="math/tex; mode=display">
+\ddot{X}_d + K_d \dot{X}_e + K_p X_e = 0</script><p>Appropriate selection of $K_d$ and $K_p$ implies that $X_e, \dot{X}_e \rightarrow 0$.  </p>
+
         </div>
     </div>
 
