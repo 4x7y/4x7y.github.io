@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/about/index.html</loc>
+    
+    <lastmod>2019-08-29T15:03:16.905Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/cole1989a.html</loc>
     
-    <lastmod>2019-08-28T19:52:02.851Z</lastmod>
+    <lastmod>2019-08-28T19:55:01.518Z</lastmod>
     
   </url>
   
@@ -835,13 +842,6 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/about/index.html</loc>
-    
-    <lastmod>2019-02-22T16:47:13.311Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/2018/12/28/Robotics-Commonly-Used-Code-Snippets/</loc>
     
     <lastmod>2019-01-14T20:33:48.463Z</lastmod>
@@ -863,14 +863,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
+    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
+    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
