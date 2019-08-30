@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Yuechuan&#39;s Blog">
-<meta property="og:url" content="http://xueyuechuan.me/categories/robotics/dynamics/index.html">
+    <meta name="description" content="Let $J \in \mathbb{R}^{n\times m}$ be the jacobian obtained at the end effector.  \xbdot = J\qbdot,\qquad \ddot{\xb} = \dot{J}\qbdot + J\ddot{\qb}Since for a redundant manipulator, $J$ is not square (">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dynamic Control of Redundant Manipulator">
+<meta property="og:url" content="http://xueyuechuan.me/notes/hsu1989.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Let $J \in \mathbb{R}^{n\times m}$ be the jacobian obtained at the end effector.  \xbdot = J\qbdot,\qquad \ddot{\xb} = \dot{J}\qbdot + J\ddot{\qb}Since for a redundant manipulator, $J$ is not square (">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2019-08-30T20:22:54.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuechuan&#39;s Blog">
+<meta name="twitter:title" content="Dynamic Control of Redundant Manipulator">
+<meta name="twitter:description" content="Let $J \in \mathbb{R}^{n\times m}$ be the jacobian obtained at the end effector.  \xbdot = J\qbdot,\qquad \ddot{\xb} = \dot{J}\qbdot + J\ddot{\qb}Since for a redundant manipulator, $J$ is not square (">
     
     
         
@@ -32,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Category: dynamics</title>
+    <title>Dynamic Control of Redundant Manipulator</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -82,37 +86,34 @@
 </header>
 
         
-        <div id="archive">
-  <ul class="post-list">
-    
-    
-    
-      
-      
-      
-      
-        <h2>2018</h2>
-      
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2018-04-23T17:55:15.000Z" itemprop="datePublished">2018-04-23</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2018/04/23/Constrained-Based-Dynamics-Simulation/">Constrained Based Dynamics Simulation</a>
-    
-
-
-</span>
-      </li>
-    
-  </ul>
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
   
 
-</div>
+  <div class="content" itemprop="articleBody">
+      
+          <p>Let $J \in \mathbb{R}^{n\times m}$ be the jacobian obtained at the end effector.</p>
+<script type="math/tex; mode=display">
+\xbdot = J\qbdot,\qquad \ddot{\xb} = \dot{J}\qbdot + J\ddot{\qb}</script><p>Since for a redundant manipulator, $J$ is not square ($m &gt; n$) and assume $J$ is not singular (${\rm rank}(J) = n$), we know $JJ^\top \in \mathbb{R}^{n \times n}$ is invertible. The pseudo-inverse $J^\dagger$ is defined as the right inverse</p>
+<script type="math/tex; mode=display">
+J^\dagger = J^\top (JJ^\top)^{-1}</script><p>Thus, the solution of </p>
+<script type="math/tex; mode=display">
+\require{color}
+\vb = J{\color{blue} \qbdot}</script><p>is given by</p>
+<script type="math/tex; mode=display">
+\qbdot = J^\dagger \vb + \qbdot_{\rm null}</script><p>where $\qbdot_{\rm null} = \mathcal{N}(J) \xib,\, \xib \in \mathbb{R}^{m - n} $ lies in the null space of $J$.</p>
+<p>The general form of manipulator dynamics with $m$ joints is given by</p>
+<script type="math/tex; mode=display">
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub \\
+M(\qb) J^\dagger \ddot{\qb} + N(\qb, \qbdot) = \taub \\</script><p>To let the end effector track a desired trajectory $\xb_d(t)$ in the workspace, we enforce the workspace error decay exponentially:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&\ddot{\xb}_e + K_v \xbdot_e + K_p \xb_e = 0 \\
+\Rightarrow \qquad &\ddot{\xb} = \ddot{\xb}_d + K_v \xbdot_e + K_p \xb_e
+\end{align}</script><script type="math/tex; mode=display">
+\taub = M\Big( J^\dagger \big(\ddot{\xb}_d + K_v \xbdot_e + K_p \xb_e - \dot{J} \qbdot\big) +  \qbdot_{\rm null} \Big) + N</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        
+  </div>
+</article>
 
         
         <footer id="footer">
