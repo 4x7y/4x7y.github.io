@@ -2371,19 +2371,24 @@ g = \{ c_1, c_2, \cdots , c_m \}</script><p><em>Example</em> $g = \{ (h_1, o_2),
 J^\dagger = J^\top (JJ^\top)^{-1}</script><p>Thus, the solution of </p>
 <script type="math/tex; mode=display">
 \require{color}
-\vb = J{\color{blue} \qbdot}</script><p>is given by</p>
+\ddot{\xb} = \dot{J}\qbdot + J{\color{blue} \ddot{\qb}}</script><p>is given by</p>
 <script type="math/tex; mode=display">
-\qbdot = J^\dagger \vb + \qbdot_{\rm null}</script><p>where $\qbdot_{\rm null} = \mathcal{N}(J) \xib,\, \xib \in \mathbb{R}^{m - n} $ lies in the null space of $J$.</p>
+\ddot{\qb} = J^\dagger \ddot{\xb} + \qbdot_{\rm null}</script><p>where $\qbdot_{\rm null} = \mathcal{N}(J) \xib,\, \xib \in \mathbb{R}^{m - n} $ lies in the null space of $J$.</p>
 <p>The general form of manipulator dynamics with $m$ joints is given by</p>
 <script type="math/tex; mode=display">
-M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub \\
-M(\qb) J^\dagger \ddot{\qb} + N(\qb, \qbdot) = \taub \\</script><p>To let the end effector track a desired trajectory $\xb_d(t)$ in the workspace, we enforce the workspace error decay exponentially:</p>
+\begin{align}
+& M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub \\
+\Rightarrow \qquad & M(\qb) \Big( J^\dagger \ddot{\xb} - \dot{J}\qbdot + \ddot{\qb}_{\rm null}\Big) + N(\qb, \qbdot) = \taub
+\end{align}</script><p>To let the end effector track a desired trajectory $\xb_d(t)$ in the workspace, we enforce the workspace error decay exponentially:</p>
 <script type="math/tex; mode=display">
 \begin{align}
 &\ddot{\xb}_e + K_v \xbdot_e + K_p \xb_e = 0 \\
 \Rightarrow \qquad &\ddot{\xb} = \ddot{\xb}_d + K_v \xbdot_e + K_p \xb_e
-\end{align}</script><script type="math/tex; mode=display">
-\taub = M\Big( J^\dagger \big(\ddot{\xb}_d + K_v \xbdot_e + K_p \xb_e - \dot{J} \qbdot\big) +  \qbdot_{\rm null} \Big) + N</script>
+\end{align}</script><p>and the corresponding control law is given by</p>
+<script type="math/tex; mode=display">
+\taub = M\Big( J^\dagger \big(\ddot{\xb}_d + K_v \xbdot_e + K_p \xb_e - \dot{J} \qbdot\big) +  {\color{blue} \ddot{\qb}_{\rm null}} \Big) + N</script><hr>
+<p>${\color{blue} \ddot{\qb}_{\rm null}}$ provides us the dexterity to control the other DoF in the joints.</p>
+
         </div>
     </div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>

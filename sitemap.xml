@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/</loc>
+    
+    <lastmod>2019-09-03T21:41:42.630Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/hsu1989.html</loc>
     
-    <lastmod>2019-08-30T20:22:54.058Z</lastmod>
+    <lastmod>2019-09-02T15:55:18.391Z</lastmod>
     
   </url>
   
@@ -870,14 +877,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
+    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
+    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
