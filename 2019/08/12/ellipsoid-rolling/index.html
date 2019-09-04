@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ d">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.png">
-<meta property="og:updated_time" content="2019-09-04T02:31:28.090Z">
+<meta property="og:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.gif">
+<meta property="og:updated_time" content="2019-09-04T15:59:16.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ellipsoid Rolling">
 <meta name="twitter:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ d">
-<meta name="twitter:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.png">
+<meta name="twitter:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.gif">
     
     
         
@@ -148,7 +148,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><img src="ellipsoid-rolling.png" width="450"></p>
+    <p><img src="ellipsoid-rolling.gif" width="450"></p>
 <p>Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ denote the  vector is represented in body and world frame, respectively.</p>
 <p>If the two ellipsoids are in contact with each other, and have only one contact point, we have</p>
 <script type="math/tex; mode=display">
@@ -177,9 +177,9 @@ R_{w1} \nb_1 &= -R_{w2} \nb_2
 \Longleftrightarrow \qquad & \qquad \qquad \quad\dot{R}_{w1} \pb^b_1 + \obdot^w_1 &&= \dot{R}_{w2} \pb^b_2 + \obdot^w_2 \tag{2}\\
 \Longleftrightarrow \qquad & \begin{bmatrix} - R_{w1} \pb^b_1 \times & I \end{bmatrix} \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} &&= \begin{bmatrix} - R_{w2} \pb^b_2 \times & I \end{bmatrix} \begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix} \\
 \triangleq \qquad & \qquad \qquad\qquad Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} && = Q_2 \begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix} 
-\end{alignat}</script><p>where the second step employs the angular velocity relation that</p>
+\end{alignat}</script><p>where the second step employs the relation that</p>
 <script type="math/tex; mode=display">
-\omegab = \dot{R}R^\top.</script><p>Thus, by fixing the velocity of the ellipsoid 1, the translational and angular velocity of ellipsoid 2 is determined by</p>
+\omegab \times = \dot{R}R^\top.</script><p>Thus, by fixing the velocity of the ellipsoid 1, the translational and angular velocity of ellipsoid 2 is determined by</p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix}  = Q_2^\top (Q_2 Q_2^\top)^{-1} Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} + \mathcal{N}(Q_2) {\color{red} \lambdab}</script><p>where $\mathcal{N}(Q_2)$ is the null space of $Q_2$ and $\color{red} \lambdab$ is a $3 \times 1$ free vector corresponding to the 3 degrees of freedom motion of ellipsoid 2 around ellipsoid 1 (rolling in tangential plane $\times 2$ and spinning along normal vector $\times 1$).</p>
 <p>To let $\omegab_2^w$ align with $z$-axis, we can choose $\lambdab$ by solving</p>
