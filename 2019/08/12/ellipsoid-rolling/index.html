@@ -14,7 +14,7 @@
 <meta property="og:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ de">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.png">
-<meta property="og:updated_time" content="2019-09-04T02:13:59.788Z">
+<meta property="og:updated_time" content="2019-09-04T02:15:20.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ellipsoid Rolling">
 <meta name="twitter:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ de">
@@ -180,7 +180,7 @@ R_{w1} \nb_1 &= -R_{w2} \nb_2
 <script type="math/tex; mode=display">
 \omegab = \dot{R}R^\top.</script><p>Thus, the translational and angular velocity of ellipsoid 2 is determined by</p>
 <script type="math/tex; mode=display">
-\begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix}  = Q_2^\top (Q_2 Q_2^\top)^{-1} Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} + \mathcal{N}(Q_2) {\color{red} \lambdab}</script><p>where $\mathcal{N}(Q_2)$ is the null space of $Q_2$ and $\lambdab$ is a $3 \times 1$ free vector corresponding to the three degrees of freedom motion of ellipsoid 2 (rolling in tangential plane $\times 2$ and spin along normal vector $\times 1$) around ellipsoid 1.</p>
+\begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix}  = Q_2^\top (Q_2 Q_2^\top)^{-1} Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} + \mathcal{N}(Q_2) {\color{red} \lambdab}</script><p>where $\mathcal{N}(Q_2)$ is the null space of $Q_2$ and $\lambdab$ is a $3 \times 1$ free vector corresponding to the 3 degrees of freedom motion of ellipsoid 2 (rolling in tangential plane $\times 2$ and spinning along normal vector $\times 1$) around ellipsoid 1.</p>
 <p>To let $\omegab_2^w$ align with $z$-axis, we can choose $\lambdab$ by solving</p>
 <script type="math/tex; mode=display">
 \mathcal{N}_{2,a} \,\lambdab = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}</script><p>where $\mathcal{N}_{2,a}$ is the first three rows of matrix $\mathcal{N}(Q_2)$.</p>
