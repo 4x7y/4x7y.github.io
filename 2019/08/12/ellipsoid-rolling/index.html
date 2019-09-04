@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ de">
+    <meta name="description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ellipsoid Rolling">
 <meta property="og:url" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ de">
+<meta property="og:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ d">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.png">
-<meta property="og:updated_time" content="2019-09-04T02:19:07.934Z">
+<meta property="og:updated_time" content="2019-09-04T02:31:28.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ellipsoid Rolling">
-<meta name="twitter:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ de">
+<meta name="twitter:description" content="Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ d">
 <meta name="twitter:image" content="http://xueyuechuan.me/2019/08/12/ellipsoid-rolling/ellipsoid-rolling.png">
     
     
@@ -149,7 +149,8 @@
 
   <div class="content" itemprop="articleBody">
     <p><img src="ellipsoid-rolling.png" width="450"></p>
-<p>Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscript $b$ and $w$ denote the  vector is represented in body and world frame, respectively.</p>
+<p>Let $\pb^b_1 = (x_1, y_1, z_1)^\top$ and $\pb_2^b = (x_2, y_2, z_2)^\top$ be the contact point coordinates represented in the body frame of ellipsoid 1 and ellipsoid 2. The superscripts $b$ and $w$ denote the  vector is represented in body and world frame, respectively.</p>
+<p>If the two ellipsoids are in contact with each other, and have only one contact point, we have</p>
 <script type="math/tex; mode=display">
 \begin{align}
 {\pb^b_1}^\top \,C_1\, \pb^b_1 &= 1 \\
@@ -160,7 +161,7 @@ R_{w1} \nb_1 &= -R_{w2} \nb_2
 \end{align}</script><p>where</p>
 <script type="math/tex; mode=display">
 \nb_i = C_i \,\pb_i^b
-,\quad C_i = \begin{bmatrix} 1/{a_i^2} & 0 & 0 \\ 0 & 1/{b_i^2} & 0 \\ 0 & 0 & 1/{c_i^2} \end{bmatrix}.</script><p>Take the first order derivative of the above equations and we get</p>
+,\quad C_i = \begin{bmatrix} 1/{a_i^2} & 0 & 0 \\ 0 & 1/{b_i^2} & 0 \\ 0 & 0 & 1/{c_i^2} \end{bmatrix}.</script><p>Take the first order derivative of the above equations and we obtain</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \nb_1^\top \pbdot^b_1 &= 0\\
@@ -178,12 +179,12 @@ R_{w1} \nb_1 &= -R_{w2} \nb_2
 \triangleq \qquad & \qquad \qquad\qquad Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} && = Q_2 \begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix} 
 \end{alignat}</script><p>where the second step employs the angular velocity relation that</p>
 <script type="math/tex; mode=display">
-\omegab = \dot{R}R^\top.</script><p>Thus, the translational and angular velocity of ellipsoid 2 is determined by</p>
+\omegab = \dot{R}R^\top.</script><p>Thus, by fixing the velocity of the ellipsoid 1, the translational and angular velocity of ellipsoid 2 is determined by</p>
 <script type="math/tex; mode=display">
-\begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix}  = Q_2^\top (Q_2 Q_2^\top)^{-1} Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} + \mathcal{N}(Q_2) {\color{red} \lambdab}</script><p>where $\mathcal{N}(Q_2)$ is the null space of $Q_2$ and $\lambdab$ is a $3 \times 1$ free vector corresponding to the 3 degrees of freedom motion of ellipsoid 2 (rolling in tangential plane $\times 2$ and spinning along normal vector $\times 1$) around ellipsoid 1.</p>
+\begin{bmatrix}\omegab_2^w \\ \obdot^w_2 \end{bmatrix}  = Q_2^\top (Q_2 Q_2^\top)^{-1} Q_1 \begin{bmatrix}\omegab_1^w \\ \obdot^w_1 \end{bmatrix} + \mathcal{N}(Q_2) {\color{red} \lambdab}</script><p>where $\mathcal{N}(Q_2)$ is the null space of $Q_2$ and $\color{red} \lambdab$ is a $3 \times 1$ free vector corresponding to the 3 degrees of freedom motion of ellipsoid 2 around ellipsoid 1 (rolling in tangential plane $\times 2$ and spinning along normal vector $\times 1$).</p>
 <p>To let $\omegab_2^w$ align with $z$-axis, we can choose $\lambdab$ by solving</p>
 <script type="math/tex; mode=display">
-\mathcal{N}_{2,a} \,\lambdab = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}</script><p>where $\mathcal{N}_{2,a}$ is the first three rows of matrix $\mathcal{N}(Q_2)$.</p>
+\mathcal{N}_{2,\omega} \,\lambdab = \begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}</script><p>where $\mathcal{N}_{2,\omega} \in \mathbb{R}^{3\times 3}$ is the first three rows of matrix $\mathcal{N}(Q_2)$.</p>
 <hr>
 <p>In addition, subtracting $(2)$ from $(1)$ gives </p>
 <script type="math/tex; mode=display">
