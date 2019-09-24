@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory.  The desired performance is specified through a generalized dyn">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-08-27T18:43:44.097Z">
+<meta property="og:updated_time" content="2019-09-24T20:59:44.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Impedance Control">
 <meta name="twitter:description" content="Impedance control is suited for tasks in which contact forces should be “kept small”, while their accurate regulation is not mandatory.  The desired performance is specified through a generalized dyn">
@@ -190,11 +190,11 @@ M_m(\ddot{\xb} - \ddot{\xb}_d) + D_m(\xbdot - \xbdot_d) + K_m(\xb - \xb_d) = \fb
 &= J_a^{\top}(\qb)\Big[ M_x(\qb) {\color{blue} \ab} + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \Big] \\
 &= J_a^{\top}(\qb)\bigg[ M_x(\qb)  {\color{blue} \Big[\ddot{\xb}_d + M_m^{-1} \Big( D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) + \fb_a\Big) \Big]} \\
 &\qquad \qquad \quad + C_x(\qb, \qbdot)\xbdot + N_x(\qb) - \fb_a \bigg] \\ \\
-&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big]  \bigg\}\\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot_d - \xbdot \big) + K_m \big(\xb_d - \xb\big) \Big]  \bigg\}\\
 &\qquad \qquad + J_a^{\top}(\qb) C_x(\qb, \qbdot)\xbdot + J_a^{\top}(\qb) N_x(\qb) + {\color{purple} J_a^\top(\qb)\Big(M_x(\qb)M_m^{-1} - I\Big)\fb_a} \\ \\
-&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d + M_m^{-1} \Big[ D_m\big(\xbdot_d - \xbdot \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
 &\qquad \qquad + C(\qb, \qbdot)\qbdot \,{\color{red} - M(\qb)J_a^{-1}\dot{J}_a \qbdot} + N(\qb) + J_a^\top(\qb)\Big(M_x(\qb)M_m^{-1} - I\Big)\fb_a \\ \\
-&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d \,{\color{red} - \dot{J}_a \qbdot} + M_m^{-1} \Big[ D_m\big(\xbdot - \xbdot_d \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
+&= M(\qb) \, J_a^{-1} \bigg\{\ddot{\xb}_d \,{\color{red} - \dot{J}_a \qbdot} + M_m^{-1} \Big[ D_m\big(\xbdot_d - \xbdot \big) + K_m \big(\xb_d - \xb\big) \Big] \bigg\} \\
 &\qquad \qquad + C(\qb, \qbdot)\qbdot + N(\qb) + J_a^\top(\qb)\Big(M_x(\qb)M_m^{-1} - I\Big)\fb_a
 \end{align}</script><p>While the principle of control design is based on dynamic analysis and desired (impedance) behavior as described in the Cartesian space, the final control implementation is always made at <strong>robot joint level</strong>.</p>
 <h4 id="Choice-of-Impedance-Model"><a href="#Choice-of-Impedance-Model" class="headerlink" title="Choice of Impedance Model"></a>Choice of Impedance Model</h4><ul>
@@ -456,6 +456,54 @@ M_m(\ddot{\xb} - \ddot{\xb}_d) + D_m(\xbdot - \xbdot_d) + K_m(\xb - \xb_d) = \fb
                 hib: "\\boldsymbol{\\hi}",
                 psib: "\\boldsymbol{\\psi}",
                 omegab: "\\boldsymbol{\\omega}",
+                alphabdot: "\\dot{\\boldsymbol{\\alpha}}",
+                betabdot: "\\dot{\\boldsymbol{\\beta}}",
+                gammabdot: "\\dot{\\boldsymbol{\\gamma}}",
+                deltabdot: "\\dot{\\boldsymbol{\\delta}}",
+                epsilonbdot: "\\dot{\\boldsymbol{\\epsilon}}",
+                zetabdot: "\\dot{\\boldsymbol{\\zeta}}",
+                etabdot: "\\dot{\\boldsymbol{\\eta}}",
+                thetabdot: "\\dot{\\boldsymbol{\\theta}}",
+                iotabdot: "\\dot{\\boldsymbol{\\iota}}",
+                kappabdot: "\\dot{\\boldsymbol{\\kappa}}",
+                lambdabdot: "\\dot{\\boldsymbol{\\lambda}}",
+                mubdot: "\\dot{\\boldsymbol{\\mu}}",
+                nubdot: "\\dot{\\boldsymbol{\\nu}}",
+                xibdot: "\\dot{\\boldsymbol{\\xi}}",
+                omikronbdot: "\\dot{\\boldsymbol{\\omikron}}",
+                pibdot: "\\dot{\\boldsymbol{\\pi}}",
+                rhobdot: "\\dot{\\boldsymbol{\\rho}}",
+                sigmabdot: "\\dot{\\boldsymbol{\\sigma}}",
+                taubdot: "\\dot{\\boldsymbol{\\tau}}",
+                upsilionbdot: "\\dot{\\boldsymbol{\\upsilion}}",
+                phibdot: "\\dot{\\boldsymbol{\\phi}}",
+                hibdot: "\\dot{\\boldsymbol{\\hi}}",
+                psibdot: "\\dot{\\boldsymbol{\\psi}}",
+                omegabdot: "\\dot{\\boldsymbol{\\omega}",
+                alphabddot: "\\ddot{\\boldsymbol{\\alpha}}",
+                betabddot: "\\ddot{\\boldsymbol{\\beta}}",
+                gammabddot: "\\ddot{\\boldsymbol{\\gamma}}",
+                deltabddot: "\\ddot{\\boldsymbol{\\delta}}",
+                epsilonbddot: "\\ddot{\\boldsymbol{\\epsilon}}",
+                zetabddot: "\\ddot{\\boldsymbol{\\zeta}}",
+                etabddot: "\\ddot{\\boldsymbol{\\eta}}",
+                thetabddot: "\\ddot{\\boldsymbol{\\theta}}",
+                iotabddot: "\\ddot{\\boldsymbol{\\iota}}",
+                kappabddot: "\\ddot{\\boldsymbol{\\kappa}}",
+                lambdabddot: "\\ddot{\\boldsymbol{\\lambda}}",
+                mubddot: "\\ddot{\\boldsymbol{\\mu}}",
+                nubddot: "\\ddot{\\boldsymbol{\\nu}}",
+                xibddot: "\\ddot{\\boldsymbol{\\xi}}",
+                omikronbddot: "\\ddot{\\boldsymbol{\\omikron}}",
+                pibddot: "\\ddot{\\boldsymbol{\\pi}}",
+                rhobddot: "\\ddot{\\boldsymbol{\\rho}}",
+                sigmabddot: "\\ddot{\\boldsymbol{\\sigma}}",
+                taubddot: "\\ddot{\\boldsymbol{\\tau}}",
+                upsilionbddot: "\\ddot{\\boldsymbol{\\upsilion}}",
+                phibddot: "\\ddot{\\boldsymbol{\\phi}}",
+                hibddot: "\\ddot{\\boldsymbol{\\hi}}",
+                psibddot: "\\ddot{\\boldsymbol{\\psi}}",
+                omegabddot: "\\ddot{\\boldsymbol{\\omega}",
                 bold: ["{\\boldsymbol #1}",1]
             }
         }
