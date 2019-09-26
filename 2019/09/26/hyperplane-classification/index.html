@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
 <meta property="og:description" content="Perceptron Algorithm Converge to a separating hyperplane if data are linearly separable Does not terminate otherwise  Let $\thetab = (b, w_1, w_2, \cdots, w_d)^\top$ and $\xb = (1, x_1, x_2, \cdots, x">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-09-26T18:34:43.513Z">
+<meta property="og:updated_time" content="2019-09-26T18:45:25.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[DL] Hyperplane Classifier">
 <meta name="twitter:description" content="Perceptron Algorithm Converge to a separating hyperplane if data are linearly separable Does not terminate otherwise  Let $\thetab = (b, w_1, w_2, \cdots, w_d)^\top$ and $\xb = (1, x_1, x_2, \cdots, x">
@@ -169,9 +169,9 @@ L_\thetab (\xb, y) &= \max (0, -y\, \hat{y}) \\
 <script type="math/tex; mode=display">
 \partial L_\thetab(\xb, y) = \left \{
 \begin{array}{ll}
-0, \qquad &\text{correct prediction}\\
--y \,\xb, &\text{incorrect prediction}\\
-\,[-1, 0] \times y \,\xb, &\text{subderivative, random choose one}
+0, \qquad & \text{if } y\,\thetab^\top \xb > 0, \text{ correct prediction}, \\
+-y \,\xb, & \text{if } y\,\thetab^\top \xb < 0, \text{ incorrect prediction},\\
+\,[-1, 0] \times y \,\xb, & \text{if } \thetab^\top \xb = 0, \text{ use subderivative}
 \end{array}\right.</script><div class="content-box bfb1"><span class="title">Stochastic gradient descent</span>
   <p>Stochastic approximation of gradient descent algorithm. It replaces the actual gradient (calculated from the <b>entire</b> data set) by an estimate thereof (calculated from a <b>randomly selected subset</b> $S$ of the data).</p>
   <p>$$
