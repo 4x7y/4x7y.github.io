@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xueyuechuan.me/"/>
-  <updated>2019-09-26T17:29:27.123Z</updated>
+  <updated>2019-09-26T18:35:43.964Z</updated>
   <id>http://xueyuechuan.me/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>deep-neural-networks</title>
+    <title>[DL] Deep Neural Networks</title>
     <link href="http://xueyuechuan.me/2019/09/26/deep-neural-networks/"/>
     <id>http://xueyuechuan.me/2019/09/26/deep-neural-networks/</id>
     <published>2019-09-26T17:29:27.000Z</published>
-    <updated>2019-09-26T17:29:27.123Z</updated>
+    <updated>2019-09-26T18:35:43.964Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
     
