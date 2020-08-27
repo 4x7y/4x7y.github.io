@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Contiguous SubarrayMaximum Sum SubarrayGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 1234// sum[i] : max sum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dynamic Programming - Subarray">
+<meta property="og:url" content="http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/index.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Contiguous SubarrayMaximum Sum SubarrayGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 1234// sum[i] : max sum">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-12-05T21:29:47.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dynamic Programming - Subarray">
+<meta name="twitter:description" content="Contiguous SubarrayMaximum Sum SubarrayGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. 1234// sum[i] : max sum">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Dynamic Programming - Subarray</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/12/04/Dynamic-Programming-2D/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/12/04/Dynamic-Programming-1D/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&text=Dynamic Programming - Subarray"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&is_video=false&description=Dynamic Programming - Subarray"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Dynamic Programming - Subarray&body=Check out this article: http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&name=Dynamic Programming - Subarray&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Contiguous-Subarray"><span class="toc-number">1.</span> <span class="toc-text">Contiguous Subarray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Sum-Subarray"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Maximum Sum Subarray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Product-Subarray"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">Maximum Product Subarray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Number-of-Subarraies-that-Sum-Equals-K"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">Number of Subarraies that Sum Equals K</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Number-of-Subarraies-that-Product-Less-Than-K"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">Number of Subarraies that Product Less Than K</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Minimum-Size-Subarray-Sum"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">Minimum Size Subarray Sum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Contiguous-Array"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">Contiguous Array</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Discontinuous-Subarray"><span class="toc-number">2.</span> <span class="toc-text">Discontinuous Subarray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Product-of-Three-Numbers"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">Maximum Product of Three Numbers</span></a></li></ol></li>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Dynamic Programming - Subarray
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Yuechuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-12-04T20:20:11.000Z" itemprop="datePublished">2018-12-04</time>
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/algorithm/">algorithm</a> › <a class="category-link" href="/categories/algorithm/dynamic-programming/">dynamic programming</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Contiguous-Subarray"><a href="#Contiguous-Subarray" class="headerlink" title="Contiguous Subarray"></a>Contiguous Subarray</h1><h4 id="Maximum-Sum-Subarray"><a href="#Maximum-Sum-Subarray" class="headerlink" title="Maximum Sum Subarray"></a><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener">Maximum Sum Subarray</a></h4><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest <strong>sum</strong> and return its sum.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sum[i] : max sum of subarray end with nums[i]</span></span><br><span class="line"></span><br><span class="line">sum[i] = nums[i] + (sum[i<span class="number">-1</span>] &gt; <span class="number">0</span> ? sum[i<span class="number">-1</span>] : <span class="number">0</span>);</span><br><span class="line">res = max(res, sum[i]);</span><br></pre></td></tr></table></figure>
+<h4 id="Maximum-Product-Subarray"><a href="#Maximum-Product-Subarray" class="headerlink" title="Maximum Product Subarray"></a><a href="https://leetcode.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">Maximum Product Subarray</a></h4><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest <strong>product</strong> and return its product.</p>
+<p>Considering that the product of two negative numbers can be bigger than two positive numbers, compared to the ‘maximum sum subarray’ problem, we save two intermediate results, thus <code>min</code> and <code>max</code> product of subarraies end with <code>nums[i]</code>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// maxi[i] : max product of subarray end with nums[i]</span></span><br><span class="line"><span class="comment">// mini[i] : min product of subarray end with nums[i] (including negative)</span></span><br><span class="line"></span><br><span class="line">maxi[i] = max( maxi[i<span class="number">-1</span>]*nums[i], mini[i<span class="number">-1</span>]*nums[i], nums[i] );</span><br><span class="line">mini[i] = min( maxi[i<span class="number">-1</span>]*nums[i], mini[i<span class="number">-1</span>]*nums[i], nums[i] );</span><br><span class="line">res = max(res, maxi[i]);</span><br></pre></td></tr></table></figure>
+<h4 id="Number-of-Subarraies-that-Sum-Equals-K"><a href="#Number-of-Subarraies-that-Sum-Equals-K" class="headerlink" title="Number of Subarraies that Sum Equals K"></a><a href="https://leetcode.com/problems/subarray-sum-equals-k/" target="_blank" rel="noopener">Number of Subarraies that Sum Equals K</a></h4><p><strong>Array contains both positive and negative numbers.</strong></p>
+<h4 id="Number-of-Subarraies-that-Product-Less-Than-K"><a href="#Number-of-Subarraies-that-Product-Less-Than-K" class="headerlink" title="Number of Subarraies that Product Less Than K"></a><a href="https://leetcode.com/problems/subarray-product-less-than-k/" target="_blank" rel="noopener">Number of Subarraies that Product Less Than K</a></h4><p><strong>All posivite numbers.</strong></p>
+<p>This is a two-pointer/sliding-window problem. The idea is always keep an <code>max-product-window</code> less than K.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shift</span> window by adding a new number on the right;</span><br><span class="line"><span class="keyword">while</span> (the product is greater than K)</span><br><span class="line">    <span class="keyword">then</span> try to reduce numbers on the left ;</span><br><span class="line">introduce `size of window` new subarrays;</span><br></pre></td></tr></table></figure></p>
+<p>For window (5, 2), when 6 is introduced, it add 3 new subarray: {5}, {5, 2}, {5, 2, 6}.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>; j &lt; nums.size(); right++) &#123;</span><br><span class="line">    prod *= nums[right];</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right &amp;&amp; prod &gt;= K) &#123;</span><br><span class="line">        prod /= nums[left++];</span><br><span class="line">    &#125;</span><br><span class="line">    counter += right - left + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Minimum-Size-Subarray-Sum"><a href="#Minimum-Size-Subarray-Sum" class="headerlink" title="Minimum Size Subarray Sum"></a><a href="https://leetcode.com/problems/minimum-size-subarray-sum/" target="_blank" rel="noopener">Minimum Size Subarray Sum</a></h4><p>Given an array of <code>n</code> positive integers and a positive integer <code>s</code>, find the minimal length of a <strong>contiguous subarray</strong> of which the <code>sum ≥ s</code>. If there isn’t one, return 0 instead.</p>
+<h4 id="Contiguous-Array"><a href="#Contiguous-Array" class="headerlink" title="Contiguous Array"></a><a href="https://leetcode.com/problems/contiguous-array/" target="_blank" rel="noopener">Contiguous Array</a></h4><p>Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.</p>
+<h1 id="Discontinuous-Subarray"><a href="#Discontinuous-Subarray" class="headerlink" title="Discontinuous Subarray"></a>Discontinuous Subarray</h1><h4 id="Maximum-Product-of-Three-Numbers"><a href="#Maximum-Product-of-Three-Numbers" class="headerlink" title="Maximum Product of Three Numbers"></a><a href="https://leetcode.com/problems/maximum-product-of-three-numbers/" target="_blank" rel="noopener">Maximum Product of Three Numbers</a></h4><p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (j = <span class="number">3</span>; j &gt; <span class="number">0</span>; --j) &#123;</span><br><span class="line">    <span class="keyword">if</span> (f[<span class="number">0</span>][j - <span class="number">1</span>] == INT_MIN) <span class="keyword">continue</span>;</span><br><span class="line">    f[<span class="number">0</span>][j] = max(f[<span class="number">0</span>][j], max(f[<span class="number">0</span>][j - <span class="number">1</span>] * nums[i], f[<span class="number">1</span>][j - <span class="number">1</span>] * nums[i]));</span><br><span class="line">    f[<span class="number">1</span>][j] = min(f[<span class="number">1</span>][j], min(f[<span class="number">0</span>][j - <span class="number">1</span>] * nums[i], f[<span class="number">1</span>][j - <span class="number">1</span>] * nums[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Contiguous-Subarray"><span class="toc-number">1.</span> <span class="toc-text">Contiguous Subarray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Sum-Subarray"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Maximum Sum Subarray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Product-Subarray"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">Maximum Product Subarray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Number-of-Subarraies-that-Sum-Equals-K"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">Number of Subarraies that Sum Equals K</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Number-of-Subarraies-that-Product-Less-Than-K"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">Number of Subarraies that Product Less Than K</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Minimum-Size-Subarray-Sum"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">Minimum Size Subarray Sum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Contiguous-Array"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">Contiguous Array</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Discontinuous-Subarray"><span class="toc-number">2.</span> <span class="toc-text">Discontinuous Subarray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Product-of-Three-Numbers"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">Maximum Product of Three Numbers</span></a></li></ol></li>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&text=Dynamic Programming - Subarray"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&is_video=false&description=Dynamic Programming - Subarray"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Dynamic Programming - Subarray&body=Check out this article: http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&title=Dynamic Programming - Subarray"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Subarray/&name=Dynamic Programming - Subarray&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

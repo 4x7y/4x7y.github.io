@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kinematics and control of multifingered hands with rolling contact">
+<meta property="og:url" content="http://xueyuechuan.me/notes/cole1989a.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2019-08-28T19:55:01.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kinematics and control of multifingered hands with rolling contact">
+<meta name="twitter:description" content="Cole, A., Hauser, J., &amp;amp; Sastry, S. (n.d.). Kinematics and control of multifingered hands with rolling contact. Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Kinematics and control of multifingered hands with rolling contact</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="content index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>Yuechuan&#39;s Blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/archives/">Writing</a></li>
+       
+        <li><a href="/categories/">Category</a></li>
+       
+        <li><a href="/links/">Links</a></li>
+       
+        <li><a href="/notes/">Notes</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <blockquote>
+<p>Cole, A., Hauser, J., &amp; Sastry, S. (n.d.). <a href="https://ieeexplore.ieee.org/document/28014/" target="_blank" rel="noopener">Kinematics and control of multifingered hands with rolling contact.</a> Proceedings. 1988 IEEE International Conference on Robotics and Automation. doi:10.1109/robot.1988.12052</p>
+</blockquote>
+<h2 id="The-Kinematics-of-Rolling"><a href="#The-Kinematics-of-Rolling" class="headerlink" title="The Kinematics of Rolling"></a>The Kinematics of Rolling</h2><p>Let $c$ be the contact point fixed on the object $o$ at time $t$. The location and velocity of $c$ in the world frame $w$ are</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\rb_{wc}^w &= \rb_{wo}^w + R_{wo} \rb_{oc}^o \\
+\vb_{wc}^w &= \vb_{wo}^w + [\omegab_{o}^w \times] R_{wo} \rb_{oc}^o + R_{wo}\vb_{oc}^o \\ 
+&= \vb_{wo}^w + [\omegab_{o}^w \times] R_{wo} \rb_{oc}^o
+\end{align}</script><p>where $\vb_{oc}^o$ is $\bold{0}$ since $c$ is a fixed point on frame $o$. </p>
+<p>Let $p$ be the point at the contact coincide with $c$ at time $t$ but not fixed to the object $\rb_{op}(t) = \rb_{oc}(t)$.  $p$ will draw a curve on object surface if two objects keep in contact. The location and velocity of $p$ are</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\rb_{wp}^w &= \rb_{wo}^w + R_{wo}\rb_{op}^o \\
+\vb_{wp}^w &= \vb_{wo}^w + [\omegab_o^w \times] R_{wo}\rb_{op}^o + R_{wo}\vb_{op}^o
+\end{align}</script><p>Now consider two objects $o$ and $f$, rolling on each other without sliding. It introduces three constraints:</p>
+<ul>
+<li>The position of the point of contact</li>
+<li>The velocity of the point of contact</li>
+<li>The surface normals at the point of contact</li>
+</ul>
+<p>We use these first-order constraints to deterdmine the evolution of the contact point.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\vb_{wo}^w + [\omegab_{o}^w \times] R_{wo} \rb_{op_o}^o &= \vb_{wf}^w + [\omegab_{f}^w \times] R_{wf} \rb_{fp_f}^f \\
+R_{wo}\,\vb_{op_o}^o &= R_{wf}\,\vb_{fp_f}^f \\
+R_{wo}\hat{\nb}_o^{o} &= -R_{wf}\hat{\nb}_f^{f}
+\end{align}</script><p>If we use the map $f: U \mapsto \mathbb{R}^3$ to represent the object surface patch around the point of contact, let $\ub = f^{-1}(\pb)$ , we get</p>
+<script type="math/tex; mode=display">
+R_{wo}\vb_{op_o}^o = R_{wo} \frac{\partial \pb_o}{\partial \ub_o} \dot{\ub}_o</script><p>and hence the second constraint becomes </p>
+<script type="math/tex; mode=display">
+R_{wo} \frac{\partial \pb_o}{\partial \ub_o} \dot{\ub}_o = R_{wf} \frac{\partial \pb_f}{\partial \ub_f} \dot{\ub}_f</script><p>Also, by differentiating the third constraint, we have</p>
+<script type="math/tex; mode=display">
+[\omegab_{o}^w\times] R_{wo}\,\hat{\nb}_o^o + R_{wo} \frac{\partial \hat{\nb}_o}{\partial \ub_o}\dot{\ub}_o = -[\omegab_{f}^w\times] R_{wf}\,\hat{\nb}_f^f - R_{wf} \frac{\partial \hat{\nb}_f}{\partial \ub_f}\dot{\ub}_f</script><p>Combine the above two differential equations, we may able to solve $\dot{\ub}_o, \dot{\ub}_f$ given $\omegab_o^w$ and $\omegab_f^w$.</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+R_{wo} \frac{\partial \pb_o}{\partial \ub_o} &
+-R_{wf} \frac{\partial \pb_f}{\partial \ub_f} \\
+R_{wo} \frac{\partial \hat{\nb}_o}{\partial \ub_o} &
+R_{wf} \frac{\partial \hat{\nb}_f}{\partial \ub_f}
+\end{bmatrix} \begin{bmatrix} \dot{\ub}_o \\ \dot{\ub}_f \end{bmatrix}
+=
+\begin{bmatrix}
+0 & 0 \\
+R_{wo} \hat{\nb}^o_o \times &
+R_{wf} \hat{\nb}^f_f \times
+\end{bmatrix}
+\begin{bmatrix}
+\omegab_o^w \\ \omegab_f^w
+\end{bmatrix}</script><p>They represents six equations but only provide four independent constraints.</p>
+<script type="math/tex; mode=display">
+\|\hat{\nb}_o\| = \|\hat{\nb}_f\| = 1</script><h2 id="Grasping-and-Manipulability"><a href="#Grasping-and-Manipulability" class="headerlink" title="Grasping and Manipulability"></a>Grasping and Manipulability</h2><h4 id="Finger-side"><a href="#Finger-side" class="headerlink" title="Finger side"></a>Finger side</h4><script type="math/tex; mode=display">
+\begin{align}
+\begin{bmatrix} \vb_{f_i} \\ \omegab_{fi} \end{bmatrix} &= J_i (\qb_i) \dot{\qb}_i \\
+\\
+\vb_{c_i} &= \begin{bmatrix} I & -R_{wf}\,\cb_f \times\end{bmatrix}\begin{bmatrix} \vb_{f_i} \\ \omegab_{fi} \end{bmatrix} = U_{f_i} J_i (\qb_i) \dot{\qb}_i \\
+&= \tilde{J}_i(\qb_i) \dot{\qb}_i \\
+%
+\\
+\vb_c &= \begin{bmatrix} \tilde{J}_1 & & \\ & \ddots & \\ & & \tilde{J}_m  \end{bmatrix} \begin{bmatrix}\dot{\qb}_1 \\ \vdots \\ \dot{\qb}_m \end{bmatrix} = \tilde{J} \dot{\qb} \\
+%
+\\
+\taub &= \tilde{J}^\top \fb_c
+\end{align}</script><h4 id="Object-side"><a href="#Object-side" class="headerlink" title="Object side"></a>Object side</h4><script type="math/tex; mode=display">
+\begin{align}
+\vb_{c_i} &= \begin{bmatrix} I & -R_{wo}\, \cb_o \times \end{bmatrix} \begin{bmatrix} \vb_o \\ \omegab_o \end{bmatrix} \\
+&= U_{o_i} \begin{bmatrix} \vb_o \\ \omegab_o \end{bmatrix} \\
+%
+\\
+\vb_c &= \begin{bmatrix} U_{o_1} \\ \vdots \\ U_{o_m} \end{bmatrix}  \begin{bmatrix} \vb_o \\ \omegab_o \end{bmatrix} 
+= \color{red} G^\top \begin{bmatrix} \vb_o \\ \omegab_o \end{bmatrix} \\
+%
+\\
+\begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix} &= \color{red} G \begin{bmatrix} \fb_{c_1} \\ \vdots \\ \fb_{c_m} \end{bmatrix} 
+\end{align}</script><p><em>Note: Suppose the grasp map $G$ has full rank, then prehensility ($\text{null}(G) \,\cap\, FC \neq \emptyset $) implies force closure.</em></p>
+<script type="math/tex; mode=display">
+G^\top \begin{bmatrix} \vb_o \\ \omegab_o\end{bmatrix} = \tilde{J} \dot{\qb}</script><h2 id="Dynamics-and-Control"><a href="#Dynamics-and-Control" class="headerlink" title="Dynamics and Control"></a>Dynamics and Control</h2><h4 id="Control-objectives"><a href="#Control-objectives" class="headerlink" title="Control objectives:"></a>Control objectives:</h4><ul>
+<li><strong>Tracking</strong>: object center of mass follow desired trajectory</li>
+<li><strong>Maintain contact with No Slipping</strong>: none zero contact force within friction cone</li>
+</ul>
+<h4 id="Object-Dynamics"><a href="#Object-Dynamics" class="headerlink" title="Object Dynamics"></a>Object Dynamics</h4><p>Newton-Euler equation of the object (world frame)</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix} \begin{bmatrix} \ddot{\rb}_o \\ \dot{\omegab}_o \end{bmatrix} +
+\begin{bmatrix} 0 \\ \omegab_o \times I_w \omegab_o \end{bmatrix}
+&=
+\begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}
+\end{align}</script><p>where $I_w = R_{wo}\, I_o\, R_{wo}^\top$ is the object inertia matrix in the world frame.</p>
+<p>Suppose the orientation of the object can be parameterized locally (no singularity) by $\gammab_o \in \mathbb{R}^3$, such that $R_o = R(\gamma)$, there exists a linear transformation $P(\gammab_o)$ so that</p>
+<script type="math/tex; mode=display">
+\omegab_o = P(\gammab_o) \dot{\gammab}_o</script><p>Let $X_o = [\xb_o^\top , \gammab_o^\top]^\top$, the object dynamics can be rewritten as</p>
+<script type="math/tex; mode=display">
+M_o \tilde{P}_o \ddot{X}_o + N_o = F_o</script><p>where </p>
+<script type="math/tex; mode=display">
+M_o = \begin{bmatrix} m_o I & 0 \\ 0 & I_w \end{bmatrix},\,
+\tilde{P} = \begin{bmatrix} I & 0 \\ 0 & P \end{bmatrix},\,
+N_o = \begin{bmatrix} 0 \\ (P\dot{\gammab_o}) \times I_w (P \dot{\gammab}_o) + I_w (\dot{P} \dot{\gammab}_o) \end{bmatrix}, \, 
+F_o = \begin{bmatrix} \fb_o \\ \taub_o \end{bmatrix}</script><h4 id="Finger-Dynamics"><a href="#Finger-Dynamics" class="headerlink" title="Finger Dynamics"></a>Finger Dynamics</h4><script type="math/tex; mode=display">
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \fb_c</script><h4 id="System-Dynamics"><a href="#System-Dynamics" class="headerlink" title="System Dynamics"></a>System Dynamics</h4><p>Object dynamics and finger dynamics are connected by forces at finger contact points</p>
+<script type="math/tex; mode=display">
+F_o = G \fb_c</script><p><u>Assuming force closure</u> of grasp $G$, the required contact force equals</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\fb_c 
+&= G^\dagger F_o + \fb_{\rm null} \\
+&= G^\dagger \left( M_o \tilde{P}\ddot{X}_o + N_o \right) + \fb_{\rm null}
+\end{align}</script><p>where $\fb_{\rm null}$ is any internal force belonging to null space of $G$, and $G^\dagger$ is the pseudo inverse of $G$.</p>
+<p>Combining the object and finger dynamics, we have</p>
+<script type="math/tex; mode=display">
+M(\qb) \ddot{\qb} + N(\qb, \qbdot) = \taub - J^\top \Big(G^\dagger \left( M_o \tilde{P}\ddot{X}_o + N_o \right) + \fb_{\rm null} \Big)</script><p>To satisfy the pure rolling constraint, we let</p>
+<script type="math/tex; mode=display">
+\begin{align}
+J\qbdot &= G^\top \tilde{P} \dot{X}_o \\
+\dot{J} \qbdot + J \ddot{\qb} &= \dot{G}^\top \tilde{P}\dot{X}_o + G^\top \dot{\tilde{P}} \dot{X}_o + G^\top \tilde{P} \ddot{X}_o
+\end{align}</script><p>Assuming system will not go through singular configuration, $J^{-1}$ will exist such that</p>
+<script type="math/tex; mode=display">
+\require{color}
+\begin{align}
+{\color{red} \Big(MJ^{-1}G^\top} & {\color{red} + J^\top G^\dagger M_o\Big)\tilde{P}}\ddot{X}_o =  \\
+& \taub {\color{purple} - N - MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) - J^\top \big( G^\dagger N_o  \big)} + {\color{Blue} J^\top \fb_{\rm null}}
+\end{align}</script><h4 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h4><ol>
+<li><p>Nonlinearity cancellation term</p>
+<script type="math/tex; mode=display">
+N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big)</script></li>
+<li><p>Error feedback term</p>
+<script type="math/tex; mode=display">
+\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  (\ddot{X}_d + K_d \dot{X}_e + K_p X_e)</script></li>
+<li><p>Internal grasp force term (within friction cone)</p>
+<script type="math/tex; mode=display">
+J^\top \fb_{\rm null}</script></li>
+</ol>
+<p>Control output:</p>
+<script type="math/tex; mode=display">
+\require{color}
+\begin{align}
+\taub = & \, N + MJ^{-1} \Big(\left(\dot{G}^\top \tilde{P} + G^\top \dot{\tilde{P}} \right) \dot{X}_o - \dot{J} \qbdot  \Big) + J^\top \big( G^\dagger N_o  \big) \\
+&+\, \Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_d + K_d \dot{X}_e + K_p X_e)} \\
+&+ \, J^\top \fb_{\rm null}
+\end{align}</script><h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p>First plug the control law to the dynamic equation, we get</p>
+<script type="math/tex; mode=display">
+\Big( MJ^{-1}G^\top + J^\top G^\dagger M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_e + K_d \dot{X}_e + K_p X_e)} = J^\top \fb_{\rm null}</script><p>which is a $m$ dimensional equation ($m &gt; 6$ is the number of joints). To show the objective errors are orthogonal to the arbitrary internal force $\fb_{\rm null}$, we premultiply $GJ^{-\top}$ to both sides of the above equation, and we get</p>
+<script type="math/tex; mode=display">
+\Big( GJ^{-\top} MJ^{-1}G^\top + M_o\Big) \tilde{P}  {\color{red} (\ddot{X}_e + K_d \dot{X}_e + K_p X_e)} = 0.</script><p>The $\fb_{\rm null}$ is eliminated since $\fb_{\rm null}$ lies in the null space of $G$. Now, $M_o$ is positive definite and $GJ^{-\top}MJ^{-1}G^\top$ is semidefinite, and $\tilde{P}$ is nonsingular by assumption, so that </p>
+<script type="math/tex; mode=display">
+\ddot{X}_d + K_d \dot{X}_e + K_p X_e = 0</script><p>Appropriate selection of $K_d$ and $K_p$ implies that $X_e, \dot{X}_e \rightarrow 0$.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

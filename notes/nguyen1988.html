@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Nguyen, Van-Duc. “Constructing force-closure grasps.” The International Journal of Robotics Research 7.3 (1988): 3-16.  Construct force-closure grasps based on the shape of the grasped object. Define">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Constructing force-closure grasps">
+<meta property="og:url" content="http://xueyuechuan.me/notes/nguyen1988.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Nguyen, Van-Duc. “Constructing force-closure grasps.” The International Journal of Robotics Research 7.3 (1988): 3-16.  Construct force-closure grasps based on the shape of the grasped object. Define">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
+<meta property="og:updated_time" content="2019-09-26T17:42:58.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Constructing force-closure grasps">
+<meta name="twitter:description" content="Nguyen, Van-Duc. “Constructing force-closure grasps.” The International Journal of Robotics Research 7.3 (1988): 3-16.  Construct force-closure grasps based on the shape of the grasped object. Define">
+<meta name="twitter:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Constructing force-closure grasps</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="content index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>Yuechuan&#39;s Blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/archives/">Writing</a></li>
+       
+        <li><a href="/categories/">Category</a></li>
+       
+        <li><a href="/links/">Links</a></li>
+       
+        <li><a href="/notes/">Notes</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <blockquote>
+<p>Nguyen, Van-Duc. “Constructing force-closure grasps.” <em>The International Journal of Robotics Research</em> 7.3 (1988): 3-16.</p>
+</blockquote>
+<p><strong>Construct force-closure grasps based on the shape of the grasped object.</strong></p>
+<div class="content-box bfb1"><span class="title">Define: Grasp</span>
+<p>
+  Combination of individual primitive contacts (hard/soft point contacts with/without friction).
+  </p>
+</div>
+
+<p>Any complex contact can be described as a convex sum of the primitive contacts:</p>
+<ul>
+<li><p>Edge contact without friction</p>
+<p><em>Convex sum of two frictionless contact points (at one end of the edge contact)</em></p>
+</li>
+<li><p>Face contact</p>
+<p><em>Convex sum of three contacts at the vertices</em></p>
+</li>
+</ul>
+<div class="content-box bfb1"><span class="title">Theorem: Vector Closure (Goldman & Tucker)</span>
+  <p>In an $n$-dimensional vector space, a set of vectos $V$ is vector-closure if and only if $V$ has at least $n+1$ vectos, such that</p>
+<ol>
+  <li>$n$ of the $n+1$ vectors are linearly independent.</li>
+  <li><p>A strictly positive combination of the $n+1$ vectos is the zeros vector.</p><p>$$ \sum_{i=1}^{n+1} \alpha_i \boldsymbol{v}_i = \boldsymbol{0}, \quad \alpha_i > 0.$$</p></li>
+</ol></div>
+
+<h2 id="Force-closure"><a href="#Force-closure" class="headerlink" title="Force closure"></a>Force closure</h2><h4 id="1-Force-direction-closure"><a href="#1-Force-direction-closure" class="headerlink" title="1.  Force direction closure"></a>1.  Force direction closure</h4><p>Now consider the synthesis of 2D force closure grasp.</p>
+<div class="content-box bfb1"><span class="title">Theorem: Force-direction Closure</span>
+  <p>
+    A set of plannar wrenches $W$ can generate force in any direction iff there exists a three-tuple of wrenches $(\wb_1, \wb_2, \wb_3)$ whose respective force directions $\fb_1, \fb_2, \fb_3$ satisfy
+  </p>
+  <ol>
+    <li>Two of the three directions $\fb_1, \fb_2, \fb_3$ are independent.</li>
+    <li>A strictly positive combination of the three directions is zero: $\alpha \fb_1 + \beta \fb_2 + \gamma \fb_3 = \boldsymbol{0}$.</li>
+  </ol>
+</div>
+
+<h4 id="2-Torque-closure"><a href="#2-Torque-closure" class="headerlink" title="2. Torque closure"></a>2. Torque closure</h4><p>Achieve torque closure with only pure forces.</p>
+<div class="content-box bfb1"><span class="title">Theorem: Torque Closure</span>
+  <p>
+    A set of plannar wrenches $W$ can generate clockwise and counterclockwise torques iff there exists a <b>four-tuple</b> of forces $(\wb_1, \wb_2, \wb_3, \wb_4)$ such taht the following hold
+  </p>
+  <ol>
+    <li>Three of the four forces have lines of action that do not intersect at a common point or at infinity. </li>
+    <li><p>
+      Lef $\fb_1, \cdots, \fb_4$ be the force directions of $\wb_1, \cdots, \wb_4$. Let $\pb_{12}$ be the point where the lines of action of $\wb_1$ and $\wb_2$ intersect. There exists $\alpha, \beta, \gamma, \delta > 0$ such that
+      </p><p>
+      $$\pb_{34} - \pb_{12} = \pm(\alpha \fb_1 + \beta \fb_2) = \mp (\gamma \fb_3 + \delta \fb_4).$$
+      </p></li>
+  </ol>
+</div>
+
+<h2 id="Finding-Force-Closure-Grasps"><a href="#Finding-Force-Closure-Grasps" class="headerlink" title="Finding Force-Closure Grasps"></a>Finding Force-Closure Grasps</h2><h4 id="Two-Opposing-Fingers"><a href="#Two-Opposing-Fingers" class="headerlink" title="Two Opposing Fingers"></a>Two Opposing Fingers</h4><div class="content-box bfb1"><span class="title">Corollary</span>
+  <p>
+    Two point contacts with friction at $P$ and $Q$ forms a plannar force-closure grasp iff ${\rm arg}(P - Q) \in \pm(\mathcal{C}_1 \cap - \mathcal{C}_2)$ where $\mathcal{C}_1$ and $\mathcal{C}_1$ are the two friction cone.
+</p></div>
+
+<p><img src="nguyen1988/two-finger-grasp.png" width="200"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
