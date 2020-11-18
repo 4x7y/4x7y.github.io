@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xueyuechuan.me/"/>
-  <updated>2019-08-27T19:54:40.992Z</updated>
+  <updated>2020-11-18T17:13:04.469Z</updated>
   <id>http://xueyuechuan.me/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Robotics Terms</title>
+    <link href="http://xueyuechuan.me/2020/11/17/Terms/"/>
+    <id>http://xueyuechuan.me/2020/11/17/Terms/</id>
+    <published>2020-11-17T18:59:05.000Z</published>
+    <updated>2020-11-18T17:13:04.469Z</updated>
+    
+    <content type="html"><![CDATA[<div class="table-container"><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>finger gait</td><td>A periodic sequence of finger relocations.</td><td>Hong et al. 1990</td></tr><tr><td>grasping finger</td><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;finger gait&lt;/td&gt;
+&lt;td&gt;A peri
+      
+    
+    </summary>
+    
+      <category term="robotics" scheme="http://xueyuechuan.me/categories/robotics/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hybrid Control</title>
@@ -481,27 +516,6 @@ Ax^2 + By^2 + Cz^2 + 2Dxy + 2Exz + 2Fyz
       <category term="algorithm" scheme="http://xueyuechuan.me/categories/algorithm/"/>
     
       <category term="tree" scheme="http://xueyuechuan.me/categories/algorithm/tree/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode Problem Hints</title>
-    <link href="http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/"/>
-    <id>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</id>
-    <published>2018-12-16T16:28:20.000Z</published>
-    <updated>2018-12-17T16:25:31.762Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/spoiler.css&quot; type=&quot;text/css&quot;&gt;&lt;script src=&quot;/js/spoiler.js&quot; type=&quot;text/javascript&quot; async&gt;&lt;/script&gt;
-      
-    
-    </summary>
     
     
   </entry>
