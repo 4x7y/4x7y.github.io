@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xueyuechuan.me/"/>
-  <updated>2020-11-18T17:13:04.469Z</updated>
+  <updated>2020-11-18T17:29:05.869Z</updated>
   <id>http://xueyuechuan.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://xueyuechuan.me/2020/11/17/Terms/"/>
     <id>http://xueyuechuan.me/2020/11/17/Terms/</id>
     <published>2020-11-17T18:59:05.000Z</published>
-    <updated>2020-11-18T17:13:04.469Z</updated>
+    <updated>2020-11-18T17:29:05.869Z</updated>
     
-    <content type="html"><![CDATA[<div class="table-container"><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>finger gait</td><td>A periodic sequence of finger relocations.</td><td>Hong et al. 1990</td></tr><tr><td>grasping finger</td><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    <content type="html"><![CDATA[<div class="table-container"><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>Finger Gait</td><td>A periodic sequence of finger relocations.</td><td>Hong et al., 1990</td></tr><tr><td>Regrasping</td><td>The object is released and regrouped in order to change its position and orientation within the grasp.</td><td>Ma &amp; Dollar, 2011</td></tr><tr><td>In-Grasp Manipulation</td><td>This type of manipulation utilizes the kinematic redundancy of fingers to make small changes to the object’s orientation and position while maintaining fingertip contact with the object.</td><td>Ma &amp; Dollar, 2011</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
     
     <summary type="html">
     
@@ -40,7 +40,7 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;finger gait&lt;/td&gt;
+&lt;td&gt;Finger Gait&lt;/td&gt;
 &lt;td&gt;A peri
       
     
