@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
+    <loc>http://xueyuechuan.me/notes/sintov2020.html</loc>
     
-    <lastmod>2020-11-18T17:29:05.869Z</lastmod>
+    <lastmod>2020-11-24T21:28:24.647Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/taylor2020.html</loc>
+    
+    <lastmod>2020-11-24T21:28:24.647Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/wijayarathne2020.html</loc>
+    
+    <lastmod>2020-11-24T21:28:24.647Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://xueyuechuan.me/notes/index.html</loc>
     
-    <lastmod>2020-07-04T17:38:32.442Z</lastmod>
+    <lastmod>2020-11-24T21:28:24.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
+    
+    <lastmod>2020-11-24T21:28:24.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/11/17/Zhihu/</loc>
+    
+    <lastmod>2020-11-24T21:28:24.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/links/index.html</loc>
+    
+    <lastmod>2020-11-24T21:28:24.644Z</lastmod>
     
   </url>
   
@@ -96,13 +131,6 @@
     <loc>http://xueyuechuan.me/2019/08/24/mj-jacobian/</loc>
     
     <lastmod>2019-08-26T20:49:31.700Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/links/index.html</loc>
-    
-    <lastmod>2019-08-26T18:50:30.608Z</lastmod>
     
   </url>
   
