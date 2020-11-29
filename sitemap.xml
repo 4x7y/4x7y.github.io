@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    
+    <lastmod>2020-11-29T23:59:24.284Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/murooka2020.html</loc>
+    
+    <lastmod>2020-11-29T23:59:24.284Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/sintov2020.html</loc>
     
     <lastmod>2020-11-24T21:28:24.647Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://xueyuechuan.me/notes/wijayarathne2020.html</loc>
     
     <lastmod>2020-11-24T21:28:24.647Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
-    
-    <lastmod>2020-11-24T21:28:24.646Z</lastmod>
     
   </url>
   
@@ -919,14 +926,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
+    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2018/12/16/LeetCode-Problem-Hints/</loc>
+    <loc>http://xueyuechuan.me/2018/12/04/Dynamic-Programming-Tree/</loc>
     
     <lastmod>2018-12-17T16:25:31.762Z</lastmod>
     

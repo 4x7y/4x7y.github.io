@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Han, L., Guan, Y. S., Li, Z. X., Shi, Q., &amp;amp; Trinkle, J. C. (n.d.). Dextrous manipulation with rolling contacts. Proceedings of International Conference on Robotics and Automation. doi:10.1109/rob">
+    <meta name="description" content="Murooka, Takayuki, Kei Okada, and Masayuki Inaba. “Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation.” International Conference on Int">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dextrous manipulation with rolling contacts">
-<meta property="og:url" content="http://xueyuechuan.me/notes/han1997.html">
+<meta property="og:title" content="Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation">
+<meta property="og:url" content="http://xueyuechuan.me/notes/murooka2020.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Han, L., Guan, Y. S., Li, Z. X., Shi, Q., &amp;amp; Trinkle, J. C. (n.d.). Dextrous manipulation with rolling contacts. Proceedings of International Conference on Robotics and Automation. doi:10.1109/rob">
+<meta property="og:description" content="Murooka, Takayuki, Kei Okada, and Masayuki Inaba. “Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation.” International Conference on Int">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-07-08T19:18:51.024Z">
+<meta property="og:updated_time" content="2020-11-29T23:59:24.284Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dextrous manipulation with rolling contacts">
-<meta name="twitter:description" content="Han, L., Guan, Y. S., Li, Z. X., Shi, Q., &amp;amp; Trinkle, J. C. (n.d.). Dextrous manipulation with rolling contacts. Proceedings of International Conference on Robotics and Automation. doi:10.1109/rob">
+<meta name="twitter:title" content="Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation">
+<meta name="twitter:description" content="Murooka, Takayuki, Kei Okada, and Masayuki Inaba. “Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation.” International Conference on Int">
     
     
         
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Dextrous manipulation with rolling contacts</title>
+    <title>Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -91,19 +91,15 @@
   <div class="content" itemprop="articleBody">
       
           <blockquote>
-<p>Han, L., Guan, Y. S., Li, Z. X., Shi, Q., &amp; Trinkle, J. C. (n.d.). Dextrous manipulation with rolling contacts. Proceedings of International Conference on Robotics and Automation. doi:10.1109/robot.1997.614264</p>
+<p>Murooka, Takayuki, Kei Okada, and Masayuki Inaba. “Diabolo Orientation Stabilization by Learning Predictive Model for Unstable Unknown-Dynamics Juggling Manipulation.” <em>International Conference on Intelligent Robots and Systems. IEEE/RSJ</em>. 2020.</p>
 </blockquote>
-<p>Key points:</p>
+<p><strong>Estimation of Diabolo State</strong></p>
 <ul>
-<li>Contact kinematics [6]</li>
-<li>Non-holonomic motion planning [2] [7]</li>
-<li>Grasp stability [8]</li>
+<li>Depth camera to obtain point cloud</li>
+<li>State represented by pitch and yaw angle (roll angle does not affect diabolo’s orientation)</li>
+<li>Low pass filter to smooth the state</li>
 </ul>
-<p>Contact coordinate $\eta = (\alpha_f, \alpha_o, \psi)$ where $\alpha_f = (u_f, v_f)$ and $\alpha_o = (u_o, v_o)$ are local coordinates of finger frame $F$ and object frame $O$, $\psi$ is the angle of contact.</p>
-<h4 id="Nonholonomic-Motion-Planning"><a href="#Nonholonomic-Motion-Planning" class="headerlink" title="Nonholonomic Motion Planning"></a>Nonholonomic Motion Planning</h4><p>A driftless nonlinear control system:</p>
-<script type="math/tex; mode=display">
-\dot{q} = g_1 (q)u_1 + g_2(q)u_2 + \cdots + g_m(q)u_m</script><p>where $q \in \mathbb{R}^n$ represents the states, $u = (u_1, \cdots,  u_m), m &lt; n$ represents the control inputs, $g_1, \cdots, g_m$ defines a nonholonomic distribution in the C-space of the system.</p>
-<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>
