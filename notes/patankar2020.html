@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hand-Object Contact Force Synthesis for Manipulating Objects byExploiting Environment">
+    <meta name="description" content="Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”  Problem:  Motors are not powerful enough to balanc">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment">
 <meta property="og:url" content="http://xueyuechuan.me/notes/patankar2020.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”  Problem:  Motors are not powerful enough to balanc">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2020-12-01T17:07:48.130Z">
+<meta property="og:updated_time" content="2020-12-01T22:26:19.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hand-Object Contact Force Synthesis for Manipulating Objects byExploiting Environment">
+<meta name="twitter:title" content="Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment">
+<meta name="twitter:description" content="Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”  Problem:  Motors are not powerful enough to balanc">
     
     
         
@@ -33,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Hand-Object Contact Force Synthesis for Manipulating Objects byExploiting Environment</title>
+    <title>Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -89,7 +92,43 @@
 
   <div class="content" itemprop="articleBody">
       
-          <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+          <blockquote>
+<p>Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”</p>
+</blockquote>
+<p>Problem:</p>
+<ul>
+<li>Motors are not powerful enough to balance the weight of the object.</li>
+<li>Find the optimal contact forces by exploiting object-environment contacts.</li>
+</ul>
+<p>Assumptions:</p>
+<ul>
+<li>Soft-finger contacts</li>
+<li>Quasi-static manipulation</li>
+</ul>
+<p>Constraints:</p>
+<ul>
+<li>Friction cone constraints (formulated as Second order cone) at manipulator and environment contacts.</li>
+<li>Upper bounds for the normal contact forces.</li>
+<li>Force equilibrium (Quasi-static assumption).</li>
+</ul>
+<p>Objective:</p>
+<ul>
+<li>Grasping force optimization problem (GFOP) <ul>
+<li>$\min \max_i (F_{n, i})$</li>
+<li>$\min \max_i (|F_{n, i}|)$</li>
+</ul>
+</li>
+<li>Torque optimization problem (TOP) $$<ul>
+<li>$\min \max_i (\tau_i)$</li>
+</ul>
+</li>
+</ul>
+<p>Formulated as a second order cone problem (SOCP), which is a convex optimization problem and can be solved by CVX toolbox.</p>
+<p>Future works:</p>
+<ul>
+<li>Trajectory planning for heavy object pivoting.</li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>

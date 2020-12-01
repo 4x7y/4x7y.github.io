@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/notes/patankar2020.html</loc>
+    
+    <lastmod>2020-12-01T22:26:19.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
+    
+    <lastmod>2020-12-01T22:26:19.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/notes/zou2020.html</loc>
     
     <lastmod>2020-12-01T17:07:48.131Z</lastmod>
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/patankar2020.html</loc>
-    
-    <lastmod>2020-12-01T17:07:48.130Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/stouraitis2020.html</loc>
     
     <lastmod>2020-12-01T17:07:48.130Z</lastmod>
@@ -37,14 +44,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/iskandar2020.html</loc>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
     
     <lastmod>2020-12-01T17:07:48.129Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    <loc>http://xueyuechuan.me/notes/iskandar2020.html</loc>
     
     <lastmod>2020-12-01T17:07:48.129Z</lastmod>
     
@@ -89,13 +96,6 @@
     <loc>http://xueyuechuan.me/notes/wijayarathne2020.html</loc>
     
     <lastmod>2020-11-24T21:28:24.647Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
-    
-    <lastmod>2020-11-24T21:28:24.645Z</lastmod>
     
   </url>
   
