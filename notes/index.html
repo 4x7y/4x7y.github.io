@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="NotesIROS/RA-L 2020              &amp;hearts; Simultaneous Trajectory Optimization and Force Control with Soft Contact Mechanics [Wijayarathne et al., 2020]                       “Simultaneous Trajectory">
+    <meta name="description" content="NotesPower Grasp              &amp;hearts; General formulation for force distribution in power grasp [Mirza, Orin, 1994]                      Problem:  The formulation of the force distribution problem fo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Notes">
 <meta property="og:url" content="http://xueyuechuan.me/notes/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="NotesIROS/RA-L 2020              &amp;hearts; Simultaneous Trajectory Optimization and Force Control with Soft Contact Mechanics [Wijayarathne et al., 2020]                       “Simultaneous Trajectory">
+<meta property="og:description" content="NotesPower Grasp              &amp;hearts; General formulation for force distribution in power grasp [Mirza, Orin, 1994]                      Problem:  The formulation of the force distribution problem fo">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/Sarkar1996/coordinates.png">
@@ -47,10 +48,10 @@
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img1.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img2.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/kpiece/img3.png">
-<meta property="og:updated_time" content="2020-12-01T17:07:48.129Z">
+<meta property="og:updated_time" content="2020-12-03T17:45:23.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes">
-<meta name="twitter:description" content="NotesIROS/RA-L 2020              &amp;hearts; Simultaneous Trajectory Optimization and Force Control with Soft Contact Mechanics [Wijayarathne et al., 2020]                       “Simultaneous Trajectory">
+<meta name="twitter:description" content="NotesPower Grasp              &amp;hearts; General formulation for force distribution in power grasp [Mirza, Orin, 1994]                      Problem:  The formulation of the force distribution problem fo">
 <meta name="twitter:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
     <meta name="robots" content="noindex, follow">
     
@@ -127,7 +128,171 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><h4 id="IROS-RA-L-2020"><a href="#IROS-RA-L-2020" class="headerlink" title="IROS/RA-L 2020"></a>IROS/RA-L 2020</h4>
+          <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><h4 id="Power-Grasp"><a href="#Power-Grasp" class="headerlink" title="Power Grasp"></a>Power Grasp</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>General formulation for force distribution in power grasp</b> [<i>Mirza, Orin</i>, 1994]</div>
+        <div class="spoiler-content">
+            <p>Problem:</p>
+<ul>
+<li>The formulation of the force distribution problem for precision grasps (with fingertips only) has been well studied, but little research has been done on power grasps.</li>
+<li>Determination of joint torques for optimum force distribution in power grasps.</li>
+</ul>
+<p>Difficulties:</p>
+<ul>
+<li>High degree of static indeterminacy due to multiplicity of contacts.</li>
+<li>Friction constraints leads to a large number of slip mode permutations.</li>
+<li>Evaluation of the stability properties of power grasps.</li>
+</ul>
+<p>Methodology:</p>
+<ul>
+<li>The force distribution equations formulated include the <strong>inertial effects of the fingers</strong> along with the <strong>physical limits on the actuator torques</strong>, using inverse dynamics and Jacobian relationships.</li>
+<li>The formulation is then transformed to a <strong>constrained optimization problem</strong> and is represented in a concise matrix form which can be solved using the <strong>linear programming</strong> method.</li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Definition and force distribution of power grasps</b> [<i>Zhang, Gruver</i>, 1995]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Zhang, Yuru, and William A. Gruver. “Definition and force distribution of power grasps.” Proceedings of 1995 IEEE International Conference on Robotics and Automation. Vol. 2. IEEE, 1995.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Optimization of robot hand power grasp</b> [<i>Yu, Takeuchi, Yoshikawa</i>, 1998]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yu, Yong, Kenichi Takeuchi, and Tsuneo Yoshikawa. <em>“Optimization of robot hand power grasps.”</em> Proceedings. 1998 IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1998.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  A Sufficient Condition for Manipulation of Envelope Family</b> [<i>Kaneko et al.</i>, 2000]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Harada, Kensuke, and Makoto Kaneko. <em>“A sufficient condition for manipulation of envelope family.”</em> IEEE Transactions on Robotics and Automation 18.4 (2002): 597-607.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Optimization of power grasps for multiple objects</b> [<i>Yoshikawa, Watanabe, Daito</i>, 2001]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yoshikawa, Tsuneo, Tetsuyou Watanabe, and Mutsuo Daito. <em>“Optimization of power grasps for multiple objects.”</em> Proceedings 2001 ICRA. IEEE International Conference on Robotics and Automation. Vol. 2. IEEE, 2001.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Grasping optimization using a required external force set</b> [<i>Watanabe, Yoshikawa</i>, 2007]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Watanabe, Tetsuyou, and Tsuneo Yoshikawa. <em>“Grasping optimization using a required external force set.”</em> IEEE Transactions on Automation Science and Engineering 4.1 (2007): 52-66.</p>
+</blockquote>
+<p>Problem:</p>
+<ul>
+<li>The required external force set is given based on a task<ul>
+<li>Origin in in the interior of the set =&gt; force-closure grasp</li>
+<li>Dimension of the set is one =&gt; equilibrium grasp</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Grasp input optimization taking contact position and object information uncertainties into consideration</b> [<i>Fungtammasan, Watanabe</i>, 2012]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fungtammasan, Papat, and Tetsuyou Watanabe. <em>“Grasp input optimization taking contact position and object information uncertainties into consideration.”</em> IEEE transactions on robotics 28.5 (2012): 1170-1177.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Joint torque optimization for quasi-static graspless manipulation</b> [<i>Makita, Maeda</i>, 2013]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Makita, Satoshi, and Yusuke Maeda. “Joint torque optimization for quasi-static graspless manipulation.” 2013 IEEE International Conference on Robotics and Automation. IEEE, 2013.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Optimization of robot hand power grasp</b> [<i>Yu, Takeuchi, Yoshikawa</i>, 1998]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yu, Yong, Kenichi Takeuchi, and Tsuneo Yoshikawa. <em>“Optimization of robot hand power grasps.”</em> Proceedings. 1998 IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1998.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Pivoting"><a href="#Pivoting" class="headerlink" title="Pivoting"></a>Pivoting</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Joint torque optimization for quasi-static graspless manipulation</b> [<i>Makita, Maeda</i>, 2013]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Makita, Satoshi, and Yusuke Maeda. “Joint torque optimization for quasi-static graspless manipulation.” 2013 IEEE International Conference on Robotics and Automation. IEEE, 2013.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment</b> [<i>Patankar et al.</i>, 2020]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”</p>
+</blockquote>
+<p>Problem:</p>
+<ul>
+<li>Motors are not powerful enough to balance the weight of the object.</li>
+<li>Find the optimal contact forces by exploiting object-environment contacts.</li>
+</ul>
+<p>Assumptions:</p>
+<ul>
+<li>Soft-finger contacts</li>
+<li>Quasi-static manipulation</li>
+</ul>
+<p>Constraints:</p>
+<ul>
+<li>Friction cone constraints (formulated as Second order cone) at manipulator and environment contacts.</li>
+<li>Upper bounds for the normal contact forces.</li>
+<li>Force equilibrium (Quasi-static assumption).</li>
+</ul>
+<p>Objective:</p>
+<ul>
+<li>Grasping force optimization problem (GFOP) <ul>
+<li>$\min \max_i (F_{n, i})$</li>
+<li>$\min \max_i (|F_{n, i}|)$</li>
+</ul>
+</li>
+<li>Torque optimization problem (TOP) $$<ul>
+<li>$\min \max_i (\tau_i)$</li>
+</ul>
+</li>
+</ul>
+<p>Formulated as a second order cone problem (SOCP), which is a convex optimization problem and can be solved by CVX toolbox.</p>
+<p>Future works:</p>
+<ul>
+<li>Trajectory planning for heavy object pivoting.</li>
+</ul>
+
+        </div>
+    </div>
+<h4 id="IROS-RA-L-2020"><a href="#IROS-RA-L-2020" class="headerlink" title="IROS/RA-L 2020"></a>IROS/RA-L 2020</h4>
     <div class="spoiler collapsed">
         <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Simultaneous Trajectory Optimization and Force Control with Soft Contact Mechanics</b> [<i>Wijayarathne et al.</i>, 2020]</div>
         <div class="spoiler-content">
@@ -206,51 +371,17 @@
     </div>
 
     <div class="spoiler collapsed">
-        <div class="spoiler-title"><b>  Multi-mode trajectory optimization for impact-aware manipulation</b> [<i>Stouraitis et al.</i>, 2020]</div>
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Multi-mode trajectory optimization for impact-aware manipulation</b> [<i>Stouraitis et al.</i>, 2020]</div>
         <div class="spoiler-content">
-            
-        </div>
-    </div>
-
-    <div class="spoiler collapsed">
-        <div class="spoiler-title"><b>  Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment</b> [<i>Patankar et al.</i>, 2020]</div>
-        <div class="spoiler-content">
-            <blockquote>
-<p>Patankar, Aditya, Amin Fakhari, and Nilanjan Chakraborty. “Hand-Object Contact Force Synthesis for Manipulating Objects by Exploiting Environment.”</p>
-</blockquote>
-<p>Problem:</p>
+            <p>Problem:</p>
 <ul>
-<li>Motors are not powerful enough to balance the weight of the object.</li>
-<li>Find the optimal contact forces by exploiting object-environment contacts.</li>
-</ul>
-<p>Assumptions:</p>
-<ul>
-<li>Soft-finger contacts</li>
-<li>Quasi-static manipulation</li>
-</ul>
-<p>Constraints:</p>
-<ul>
-<li>Friction cone constraints (formulated as Second order cone) at manipulator and environment contacts.</li>
-<li>Upper bounds for the normal contact forces.</li>
-<li>Force equilibrium (Quasi-static assumption).</li>
-</ul>
-<p>Objective:</p>
-<ul>
-<li>Grasping force optimization problem (GFOP) <ul>
-<li>$\min \max_i (F_{n, i})$</li>
-<li>$\min \max_i (|F_{n, i}|)$</li>
-</ul>
+<li>Regulating the transitions between free motion and motion in contact.</li>
+<li><p>Dealing with imprecise timing of the transition in the reference motion.</p>
 </li>
-<li>Torque optimization problem (TOP) $$<ul>
-<li>$\min \max_i (\tau_i)$</li>
-</ul>
+<li><p>Consistent contact can be maintained during and after the impact, even for tasks with contact at speed.</p>
 </li>
 </ul>
-<p>Formulated as a second order cone problem (SOCP), which is a convex optimization problem and can be solved by CVX toolbox.</p>
-<p>Future works:</p>
-<ul>
-<li>Trajectory planning for heavy object pivoting.</li>
-</ul>
+<p>Hybrid control is useful when deadling with systems that require multiple seperate controllers.</p>
 
         </div>
     </div>
