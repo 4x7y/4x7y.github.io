@@ -7,19 +7,17 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.“ 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Precision grasp planning:  Det">
+    <meta name="description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.” 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Problem:  Solving the inverse">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Finding all valid hand configurations for a given precision grasp">
 <meta property="og:url" content="http://xueyuechuan.me/notes/rosales2008.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.“ 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Precision grasp planning:  Det">
+<meta property="og:description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.” 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Problem:  Solving the inverse">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://xueyuechuan.me/notes/rosales2008/finger-kinematics.png">
-<meta property="og:updated_time" content="2019-06-28T23:15:46.588Z">
+<meta property="og:updated_time" content="2020-12-06T19:22:08.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Finding all valid hand configurations for a given precision grasp">
-<meta name="twitter:description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.“ 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Precision grasp planning:  Det">
-<meta name="twitter:image" content="http://xueyuechuan.me/notes/rosales2008/finger-kinematics.png">
+<meta name="twitter:description" content="Rosales, Carlos, et al. “Finding all valid hand configurations for a given precision grasp.” 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.  Problem:  Solving the inverse">
     
     
         
@@ -96,49 +94,18 @@
   <div class="content" itemprop="articleBody">
       
           <blockquote>
-<p>Rosales, Carlos, et al. “<a href="https://ieeexplore.ieee.org/iel5/4534525/4543169/04543435.pdf" target="_blank" rel="noopener">Finding all valid hand configurations for a given precision grasp.</a>“ <em>2008 IEEE International Conference on Robotics and Automation</em>. IEEE, 2008.</p>
+<p>Rosales, Carlos, et al. <em>“Finding all valid hand configurations for a given precision grasp.”</em> 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.</p>
 </blockquote>
-<p>Precision grasp planning:</p>
-<ol>
-<li>Determine contact points</li>
-<li><strong>Inverse kinematics</strong></li>
-</ol>
-<p><em>Local convergence method</em> for IK,</p>
+<p>Problem:</p>
 <ul>
-<li>may fail to converge,</li>
-<li>depend on initial estimation, and</li>
-<li>provide only one solution</li>
+<li>Solving the inverse kinematics of a robot hand given a grasp</li>
+<li>This problem has only been tackled with local convergence methods, which provides only one solution or fails though solution exists.</li>
 </ul>
-<p>This paper presents a new method to find <strong>all possible</strong> configurations that reach the specified contact points.</p>
-<hr>
+<p>Contribution:</p>
+<ul>
+<li>This paper proposed a complete method to solve the kinematics<br>of anthropomorphic hands.</li>
+</ul>
 <p>Assumptions:</p>
-<ul>
-<li>Pre-specified contact points are force/form closure</li>
-<li>Hand is attached to a 6-DoF arm $\Rightarrow$  Computing the possible object pose relative to the hand</li>
-<li>Anthropomorphic hand, each finger has <strong>four</strong> joints (<strong>independently actuated</strong> - MA-I; <strong>some of them coupled</strong> - Shadow, Robonaut, DLR; <strong>or locked</strong> - UB-3)</li>
-</ul>
-<p><img src="./rosales2008/finger-kinematics.png" width="450"></p>
-<p>Hand-Object system:</p>
-<ul>
-<li>Contact point $\Rightarrow$ Revolute joint, joint axis along common normal</li>
-<li><strong>Equivalent to $n$-URRR parallel robot</strong></li>
-<li>Need to find a technique robust to singularities</li>
-</ul>
-<p>Constraints:</p>
-<script type="math/tex; mode=display">
-\begin{align}
-    x_j &= (o_1, o_2, o_3) \cdot \hat{x}_j ,\\
-    q_{j, 4} &= (r_{j, 4}, p_{j, 4}, t_{j, 4}) \cdot \hat{q}_{j, 4}, \\
-    r_{j, 2} &= r_{j, 3} = r_{j, 4}, \\
-    (r_{j, 4}, p_{j, 4}, t_{j, 4})\hat{m}_j &= (o_1, o_2, o_3) \hat{n}_j, \\
-    x_j - \sum_{i=1}^4 q_{j, i} &= x_k - \sum_{i=1}^4 q_{k, i} , \\
-    \|r_{j, i}\| &= 1, \\
-  \cdots
-\end{align}</script><p>Observation:</p>
-<ul>
-<li>All of equations contain only linear, quadratic, or bilinear monomials ($x_i$, $x_i^2$ or $x_i x_j$) since the joint axis are aligned for the last three joints of a finger.</li>
-<li>Can be completely solved via <strong>linear relaxation method</strong> [<a href="https://ieeexplore.ieee.org/document/4781553" target="_blank" rel="noopener">Porta et al. 2008</a>]</li>
-</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>

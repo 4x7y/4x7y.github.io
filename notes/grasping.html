@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grasping">
+<meta property="og:url" content="http://xueyuechuan.me/notes/grasping.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/config.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/cspace.png">
+<meta property="og:updated_time" content="2020-12-06T19:22:08.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grasping">
+<meta name="twitter:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+<meta name="twitter:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Grasping</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="content index py4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>Yuechuan&#39;s Blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/archives/">Writing</a></li>
+       
+        <li><a href="/categories/">Category</a></li>
+       
+        <li><a href="/links/">Links</a></li>
+       
+        <li><a href="/notes/">Notes</a></li>
+       
+        <li><a href="/reading/">Reading List</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <h1 id="Grasping"><a href="#Grasping" class="headerlink" title="Grasping"></a>Grasping</h1><p>Main Problems</p>
+<ul>
+<li>Finding a feasible grasp on a given object<ul>
+<li>Object surface geometry representation<ul>
+<li>Bezier surface</li>
+<li>Point set</li>
+</ul>
+</li>
+<li>Finding the optimal grasp on a given object<ul>
+<li>Task based</li>
+<li>Grasp evaluation (grasp metric)</li>
+</ul>
+</li>
+<li>Grasp classification</li>
+</ul>
+</li>
+<li>Solving the inverse kinematics for a multi-fingered hand<ul>
+<li>Finding grasp configurations<ul>
+<li>Precision grasp<ul>
+<li>Local convergence methods (single solution, or fail if one exists)</li>
+</ul>
+</li>
+<li>Power grasp</li>
+</ul>
+</li>
+<li>Optimizing grasp configurations</li>
+<li>Accounting for compliance</li>
+</ul>
+</li>
+<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
+<li>Grasping control</li>
+</ul>
+<h4 id="Power-Grasp"><a href="#Power-Grasp" class="headerlink" title="Power Grasp"></a>Power Grasp</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>General formulation for force distribution in power grasp</b> [<i>Mirza, Orin</i>, 1994]</div>
+        <div class="spoiler-content">
+            <p>Problem:</p>
+<ul>
+<li>The formulation of the force distribution problem for precision grasps (with fingertips only) has been well studied, but little research has been done on power grasps.</li>
+<li>Determination of joint torques for optimum force distribution in power grasps.</li>
+</ul>
+<p>Difficulties:</p>
+<ul>
+<li>High degree of static indeterminacy due to multiplicity of contacts.</li>
+<li>Friction constraints leads to a large number of slip mode permutations.</li>
+<li>Evaluation of the stability properties of power grasps.</li>
+</ul>
+<p>Methodology:</p>
+<ul>
+<li>The force distribution equations formulated include the <strong>inertial effects of the fingers</strong> along with the <strong>physical limits on the actuator torques</strong>, using inverse dynamics and Jacobian relationships.</li>
+<li>The formulation is then transformed to a <strong>constrained optimization problem</strong> and is represented in a concise matrix form which can be solved using the <strong>linear programming</strong> method.</li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Definition and force distribution of power grasps</b> [<i>Zhang, Gruver</i>, 1995]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Zhang, Yuru, and William A. Gruver. “Definition and force distribution of power grasps.” Proceedings of 1995 IEEE International Conference on Robotics and Automation. Vol. 2. IEEE, 1995.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Optimization of robot hand power grasp</b> [<i>Yu, Takeuchi, Yoshikawa</i>, 1998]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yu, Yong, Kenichi Takeuchi, and Tsuneo Yoshikawa. <em>“Optimization of robot hand power grasps.”</em> Proceedings. 1998 IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1998.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  A Sufficient Condition for Manipulation of Envelope Family</b> [<i>Kaneko et al.</i>, 2000]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Harada, Kensuke, and Makoto Kaneko. <em>“A sufficient condition for manipulation of envelope family.”</em> IEEE Transactions on Robotics and Automation 18.4 (2002): 597-607.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Optimization of power grasps for multiple objects</b> [<i>Yoshikawa, Watanabe, Daito</i>, 2001]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yoshikawa, Tsuneo, Tetsuyou Watanabe, and Mutsuo Daito. <em>“Optimization of power grasps for multiple objects.”</em> Proceedings 2001 ICRA. IEEE International Conference on Robotics and Automation. Vol. 2. IEEE, 2001.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Grasping optimization using a required external force set</b> [<i>Watanabe, Yoshikawa</i>, 2007]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Watanabe, Tetsuyou, and Tsuneo Yoshikawa. <em>“Grasping optimization using a required external force set.”</em> IEEE Transactions on Automation Science and Engineering 4.1 (2007): 52-66.</p>
+</blockquote>
+<p>Problem:</p>
+<ul>
+<li>The required external force set is given based on a task<ul>
+<li>Origin is in the interior of the set =&gt; force-closure grasp</li>
+<li>Dimension of the set is one =&gt; equilibrium grasp</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Grasp input optimization taking contact position and object information uncertainties into consideration</b> [<i>Fungtammasan, Watanabe</i>, 2012]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fungtammasan, Papat, and Tetsuyou Watanabe. <em>“Grasp input optimization taking contact position and object information uncertainties into consideration.”</em> IEEE transactions on robotics 28.5 (2012): 1170-1177.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Joint torque optimization for quasi-static graspless manipulation</b> [<i>Makita, Maeda</i>, 2013]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Makita, Satoshi, and Yusuke Maeda. “Joint torque optimization for quasi-static graspless manipulation.” 2013 IEEE International Conference on Robotics and Automation. IEEE, 2013.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Optimization of robot hand power grasp</b> [<i>Yu, Takeuchi, Yoshikawa</i>, 1998]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Yu, Yong, Kenichi Takeuchi, and Tsuneo Yoshikawa. <em>“Optimization of robot hand power grasps.”</em> Proceedings. 1998 IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1998.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Inverse-Kinematics"><a href="#Inverse-Kinematics" class="headerlink" title="Inverse Kinematics"></a>Inverse Kinematics</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Calculating hand configurations for precision and pinch grasps</b> [<i>Borst et al.</i>, 2002]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Borst, Ch, Max Fischer, and Gerd Hirzinger. “<a href="https://ieeexplore.ieee.org/abstract/document/1043976/" target="_blank" rel="noopener">Calculating hand configurations for precision and pinch grasps.</a>“ <em>IEEE/RSJ International Conference on Intelligent Robots and Systems</em>. Vol. 2. IEEE, 2002.</p>
+</blockquote>
+<p>The grasp inverse kinematics problem is formualted as a set of unconstrained optimization problems where the contact and kinematic constraints and the joint limits are introduced as penalty terms in the objective function.</p>
+<p><strong><u>Precision grasp</u>:</strong></p>
+<ul>
+<li>Only fingertip is in contact with the object</li>
+<li>One contact per finger</li>
+<li>Non-deformable object</li>
+<li>Fingertip model<ul>
+<li><strong>3-DoF Universal Joint (spherical fingertip model)</strong>, or</li>
+<li><strong>1-DoF Revolute Joint</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong><u>Pinch grasp</u>:</strong></p>
+<ul>
+<li><p><strong>Cylindrical fingertip model</strong></p>
+<p><em>Reason: Humans use the pad of their fingertips to <strong>increase stability</strong> when they manipulate or pick up small and light object.</em></p>
+</li>
+<li><p><strong>Cylinder axis is perpendicular to object surface normal</strong></p>
+<p><img src="borst2002/pinch-grasp.png" width="400"></p>
+</li>
+<li><p><strong>2-DoF = Prismatic + Revolute along $Z_{\rm tip}$</strong></p>
+</li>
+</ul>
+<p><strong><u>Problem Formulation</u>:</strong></p>
+<ul>
+<li><p>Each finger has four free parameters ($\theta_1,\theta_2, \theta_3, l$)</p>
+</li>
+<li><p>Equality constraints for the contact terms $h_i(\boldsymbol{x}) = 0$</p>
+<p><em>Corresponding penalty function:</em></p>
+<script type="math/tex; mode=display">
+S_k(\boldsymbol{x}, p_k^e) = p_k^e h^2(\boldsymbol{x})</script></li>
+<li><p>Inequality constraints for the joint limits $g_j(\boldsymbol{x}) \leq 0$</p>
+<p><em>Corresponding penalty function:</em></p>
+<script type="math/tex; mode=display">
+S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k^b \,(\theta - \theta_{\rm up})}</script></li>
+<li><p>Penalty function are chosen so that</p>
+<script type="math/tex; mode=display">
+\lim_{p_k \rightarrow \infty} S_k(\boldsymbol{x}, p_k) \left\{\begin{array}{ll} \rightarrow C & \text{if}\quad x \in \text{Solution Set} \\ \rightarrow \infty & \text{if}\quad x \notin \text{Solution Set}  \end{array} \right.</script><p>Parameter $p_k$ increases in each step.</p>
+</li>
+<li><p>Optimization problem</p>
+<script type="math/tex; mode=display">
+\min H(\boldsymbol{x}, p) = \sum_k S_k(\boldsymbol{x}, p_k)</script><p>Solved by Mathematica builtin Levenberg-Marquardt minimizer.</p>
+</li>
+</ul>
+<p><strong><u>Pipeline</u>:</strong></p>
+<ol>
+<li>Choose contact points randomly on the object </li>
+<li>Calculate a kinematically valid hand configuration using an optimization approach; Start at (1) if there is none. </li>
+<li>Perform a collision test to see if geometric constraints fail; Start at (1) in case of a collision. </li>
+<li>Compute a quality measure for the grasp.</li>
+<li>Store the grasp in a list sorted by the grasp quality and start at (1) until there are enough grasps in the list or a given time limit is exceeded.</li>
+</ol>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Finding all valid hand configurations for a given precision grasp</b> [<i>Rosales et al.</i>, 2008]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Rosales, Carlos, et al. <em>“Finding all valid hand configurations for a given precision grasp.”</em> 2008 IEEE International Conference on Robotics and Automation. IEEE, 2008.</p>
+</blockquote>
+<p>Problem:</p>
+<ul>
+<li>Solving the inverse kinematics of a robot hand given a grasp</li>
+<li>This problem has only been tackled with local convergence methods, which provides only one solution or fails though solution exists.</li>
+</ul>
+<p>Contribution:</p>
+<ul>
+<li>This paper proposed a complete method to solve the kinematics<br>of anthropomorphic hands.</li>
+</ul>
+<p>Assumptions:</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Integrated grasp and motion planning</b> [<i>Vahrenkamp et al.</i>, 2010]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Vahrenkamp, Nikolaus, et al. <em>“Integrated grasp and motion planning.”</em> 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.</p>
+</blockquote>
+<p>Problems:</p>
+<ul>
+<li>Finding a feasible grasp</li>
+<li>Solving the inverse kinematics</li>
+<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
+</ul>
+<p>Settings:</p>
+<ul>
+<li>No explicit target configuration</li>
+<li></li>
+</ul>
+<p>Methodology:</p>
+<ul>
+<li>Combines the search for a collision-free motion with the <strong>online</strong> search for a feasible grasp.</li>
+<li></li>
+<li><p>Hand is modeled as a combination of a <strong>grasping point</strong> and an <strong>approach direction</strong>. </p>
+</li>
+</ul>
+<p>Approach direction: </p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Synthesizing grasp configurations with specified contact regions</b> [<i>Rosales et al.</i>, 2011]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Rosales, Carlos, et al. “<a href="https://journals.sagepub.com/doi/pdf/10.1177/0278364910370218" target="_blank" rel="noopener">Synthesizing grasp configurations with specified contact regions.</a>“ <em>The International Journal of Robotics Research</em> 30.4 (2011): 431-443.</p>
+</blockquote>
+<p>The robot verifies that the grasp is kinematically feasible, i.e. that the hand can be moved to a configuration that realizes those contacts</p>
+
+        </div>
+    </div>
+<h4 id="Planning"><a href="#Planning" class="headerlink" title="Planning"></a>Planning</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Hierarchical fingertip space: a unified framework for grasp planning and in-hand grasp adaptation</b> [<i>Hang et al.</i>, 2016]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Hang, Kaiyu, et al. <em>“Hierarchical fingertip space: A unified framework for grasp planning and in-hand grasp adaptation.”</em> IEEE Transactions on robotics 32.4 (2016): 960-972.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Pre-Grasp Sliding Manipulation of Thin Objects Using Soft, Compliant, or Underactuated Hands</b> [<i>Hang, Morgan, Dollar</i>, 2019]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Hang, Kaiyu, Andrew S. Morgan, and Aaron M. Dollar. “<a href="https://www.eng.yale.edu/grablab/pubs/Hang_RAL2019.pdf" target="_blank" rel="noopener">Pre-Grasp Sliding Manipulation of Thin Objects Using Soft, Compliant, or Underactuated Hands.</a>“ IEEE Robotics and Automation Letters 4.2 (2019): 662-669.</p>
+</blockquote>
+<h3 id="Why-soft-or-under-actuated-hands"><a href="#Why-soft-or-under-actuated-hands" class="headerlink" title="Why soft or under-actuated hands?"></a>Why soft or under-actuated hands?</h3><ul>
+<li><strong>Fingers can adaptively reconfigure when external force are applied</strong></li>
+<li>Do not require force or tactile sensing</li>
+<li>Convert force control to motion control</li>
+<li>Enables integrated grasp and motion planning</li>
+<li>Allows violation of the environment constraints (Touching depth tolerance)</li>
+</ul>
+<p><img src="hang2019/finger.png" width="500"></p>
+<h3 id="Start-and-goal-configurations"><a href="#Start-and-goal-configurations" class="headerlink" title="Start and goal configurations"></a>Start and goal configurations</h3><p><img src="hang2019/config.png" width="500"></p>
+<ul>
+<li>The start-goal pair determines whether the object graspable in the end</li>
+<li>Many pairs can not be connected by an arm motion due to the environment constraints</li>
+<li>Inefficient to sample and check before motion planning</li>
+</ul>
+<h3 id="Sample-able-Regions-for-an-Integrated-Solution"><a href="#Sample-able-Regions-for-an-Integrated-Solution" class="headerlink" title="Sample-able Regions for an Integrated Solution"></a>Sample-able Regions for an Integrated Solution</h3><ol>
+<li>Sampling start and goral configuration</li>
+<li>Connecting the two sample forests bidirectionally</li>
+<li>Projecting configurations to the constraint manifold</li>
+<li>Validating the connected pairs once connected</li>
+</ol>
+<p><img src="hang2019/cspace.png" width="500"></p>
+
+        </div>
+    </div>
+<h4 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation</b> [<i>Sundaralingam, Hermans</i>, 2018]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Sundaralingam, Balakumar, and Tucker Hermans. <em>“Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation.”</em> 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.</p>
+</blockquote>
+
+        </div>
+    </div>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading List</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
