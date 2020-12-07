@@ -7,17 +7,17 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Vahrenkamp, Nikolaus, et al. “Integrated grasp and motion planning.” 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.N. Vahrenkamp, T. Asfour and R. Dillmann, “Simultaneous">
+    <meta name="description" content="Fan, Y., Gao, W., Chen, W., &amp;amp; Tomizuka, M. (2017). Real-time finger gaits planning for dexterous manipulation.IFAC-PapersOnLine, 50(1), 12765-12772.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Integrated grasp and motion planning">
-<meta property="og:url" content="http://xueyuechuan.me/notes/vahrenkamp2010.html">
+<meta property="og:title" content="Real-time finger gaits planning for dexterous manipulation">
+<meta property="og:url" content="http://xueyuechuan.me/notes/fan2017.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Vahrenkamp, Nikolaus, et al. “Integrated grasp and motion planning.” 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.N. Vahrenkamp, T. Asfour and R. Dillmann, “Simultaneous">
+<meta property="og:description" content="Fan, Y., Gao, W., Chen, W., &amp;amp; Tomizuka, M. (2017). Real-time finger gaits planning for dexterous manipulation.IFAC-PapersOnLine, 50(1), 12765-12772.">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2020-12-07T07:35:07.544Z">
+<meta property="og:updated_time" content="2020-12-07T07:35:07.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Integrated grasp and motion planning">
-<meta name="twitter:description" content="Vahrenkamp, Nikolaus, et al. “Integrated grasp and motion planning.” 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.N. Vahrenkamp, T. Asfour and R. Dillmann, “Simultaneous">
+<meta name="twitter:title" content="Real-time finger gaits planning for dexterous manipulation">
+<meta name="twitter:description" content="Fan, Y., Gao, W., Chen, W., &amp;amp; Tomizuka, M. (2017). Real-time finger gaits planning for dexterous manipulation.IFAC-PapersOnLine, 50(1), 12765-12772.">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>Integrated grasp and motion planning</title>
+    <title>Real-time finger gaits planning for dexterous manipulation</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -94,41 +94,8 @@
   <div class="content" itemprop="articleBody">
       
           <blockquote>
-<p>Vahrenkamp, Nikolaus, et al. <em>“Integrated grasp and motion planning.”</em> 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.<br>N. Vahrenkamp, T. Asfour and R. Dillmann, <em>“Simultaneous Grasp and Motion Planning: Humanoid Robot ARMAR-III,”</em> in IEEE Robotics &amp; Automation Magazine, vol. 19, no. 2, pp. 43-57, June 2012.</p>
+<p>Fan, Y., Gao, W., Chen, W., &amp; Tomizuka, M. (2017). <em>Real-time finger gaits planning for dexterous manipulation.</em>IFAC-PapersOnLine, 50(1), 12765-12772.</p>
 </blockquote>
-<p>Problems:</p>
-<ul>
-<li>Finding a feasible grasp</li>
-<li>Solving the inverse kinematics</li>
-<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
-</ul>
-<p>Contributions:</p>
-<ul>
-<li>The Grasp–RRT algorithm is able to find suitable solutions quickly while having the advantage that no IK solver, no reachability information, and no dedicated grasp planner<br>must be present for the robot.</li>
-</ul>
-<p>Settings:</p>
-<ul>
-<li>No explicit target configuration</li>
-<li>An anthropomorphic hand driven by a 6-DOF arm</li>
-</ul>
-<p>Methodology:</p>
-<ul>
-<li>Combines the search for a collision-free motion with the <strong>online</strong> search for a feasible grasp.</li>
-<li><strong>Hand</strong> = grasping center point (GCP) + approach direction (mandually defined).</li>
-<li><strong>Hand State</strong> = palm’s pose (SE3) + joint configuration</li>
-<li>Move hand towards the object, then close the fingers.<ul>
-<li>Let the arm drive the hand towards the object via a RRT based planning approach. Move towards the nearest point on the object surface. Move a small step each iteration through the arm’s inverse kinematics.</li>
-<li>Closing the hand is performed by iteratively moving the finger joints with small steps until (self-)collisions are detected.</li>
-<li>Evaluate the grasp quality based on a certain metric.</li>
-</ul>
-</li>
-<li>To let the hand uniformly approach the object:<ul>
-<li>An ApproachSphere sphere is used to encode the distribution of the nodes on the RRT.</li>
-<li>An ApproachSphere is a sphere that is located at the object’s center of mass.</li>
-<li>A newly generated node will be projected onto the surface of the ApproachSphere.</li>
-</ul>
-</li>
-</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>

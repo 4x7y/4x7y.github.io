@@ -7,21 +7,21 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+    <meta name="description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Grasping">
 <meta property="og:url" content="http://xueyuechuan.me/notes/grasping.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+<meta property="og:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/config.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/cspace.png">
-<meta property="og:updated_time" content="2020-12-06T19:22:08.035Z">
+<meta property="og:updated_time" content="2020-12-07T07:35:07.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grasping">
-<meta name="twitter:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Bezier surface Point set   Finding the optimal grasp on a given object Task based Grasp evaluat">
+<meta name="twitter:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
 <meta name="twitter:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
     
     
@@ -100,10 +100,10 @@
       
           <h1 id="Grasping"><a href="#Grasping" class="headerlink" title="Grasping"></a>Grasping</h1><p>Main Problems</p>
 <ul>
-<li>Finding a feasible grasp on a given object<ul>
+<li><strong>Finding a feasible grasp on a given object</strong><ul>
 <li>Object surface geometry representation<ul>
-<li>Bezier surface</li>
-<li>Point set</li>
+<li>Parametric surface</li>
+<li>Surface points and their normals</li>
 </ul>
 </li>
 <li>Finding the optimal grasp on a given object<ul>
@@ -114,7 +114,7 @@
 <li>Grasp classification</li>
 </ul>
 </li>
-<li>Solving the inverse kinematics for a multi-fingered hand<ul>
+<li><strong>Solving the inverse kinematics for a multi-fingered hand</strong><ul>
 <li>Finding grasp configurations<ul>
 <li>Precision grasp<ul>
 <li>Local convergence methods (single solution, or fail if one exists)</li>
@@ -127,8 +127,8 @@
 <li>Accounting for compliance</li>
 </ul>
 </li>
-<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
-<li>Grasping control</li>
+<li><strong>Searching a collision-free trajectory that brings the hand to the grasping pose</strong></li>
+<li><strong>Grasping control</strong></li>
 </ul>
 <h4 id="Power-Grasp"><a href="#Power-Grasp" class="headerlink" title="Power Grasp"></a>Power Grasp</h4>
     <div class="spoiler collapsed">
@@ -241,7 +241,7 @@
 
         </div>
     </div>
-<h4 id="Inverse-Kinematics"><a href="#Inverse-Kinematics" class="headerlink" title="Inverse Kinematics"></a>Inverse Kinematics</h4>
+<h4 id="Robotic-Hand-IK"><a href="#Robotic-Hand-IK" class="headerlink" title="Robotic Hand IK"></a>Robotic Hand IK</h4>
     <div class="spoiler collapsed">
         <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Calculating hand configurations for precision and pinch grasps</b> [<i>Borst et al.</i>, 2002]</div>
         <div class="spoiler-content">
@@ -325,30 +325,12 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
     </div>
 
     <div class="spoiler collapsed">
-        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Integrated grasp and motion planning</b> [<i>Vahrenkamp et al.</i>, 2010]</div>
+        <div class="spoiler-title"><b>  Prediction of fingers posture using artificial neural networks</b> [<i>Rezzoug, Gorce</i>, 2008]</div>
         <div class="spoiler-content">
             <blockquote>
-<p>Vahrenkamp, Nikolaus, et al. <em>“Integrated grasp and motion planning.”</em> 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.</p>
+<p>Rezzoug, Nasser, and Philippe Gorce. <em>“Prediction of fingers posture using artificial neural networks.”</em> Journal of biomechanics 41.12 (2008): 2743-2749.</p>
 </blockquote>
-<p>Problems:</p>
-<ul>
-<li>Finding a feasible grasp</li>
-<li>Solving the inverse kinematics</li>
-<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
-</ul>
-<p>Settings:</p>
-<ul>
-<li>No explicit target configuration</li>
-<li></li>
-</ul>
-<p>Methodology:</p>
-<ul>
-<li>Combines the search for a collision-free motion with the <strong>online</strong> search for a feasible grasp.</li>
-<li></li>
-<li><strong>Hand</strong> = grasping center point (GCP) + approach direction (mandually defined).</li>
-<li></li>
-</ul>
-<p>Approach direction: </p>
+<p>In this paper, a technique based on neural networks is proposed to learn the inverse kinematics mapping between the fingertip 3D position and the corresponding joint angles. Finger movements are obtained by an instrumented glove and are mapped to a multichain model of the hand. From the fingertip desired position, the neural networks allow predicting the corresponding finger joint angles keeping the specific subject coordination patterns. Two sets of movements are considered in this study. The first one, the training set, consisting of free fingers movements is used to construct the mapping between fingertip position and joint angles. The second one, constructed for testing purposes, is composed of a sequence of grasping tasks of everyday-life objects. The maximal mean error between fingertip measured position and fingertip position obtained from simulated joint angles and forward kinematics is 0.99±0.76 mm for the training set and 1.49±1.62 mm for the test set. Also, the maximal RMS error of joint angles prediction is 2.85° and 5.10° for the training and test sets respectively, while the maximal mean joint angles prediction error is −0.11±4.34° and −2.52±6.71° for the training and test sets, respectively. Results relative to the learning and generalization capabilities of this architecture are also presented and discussed.</p>
 
         </div>
     </div>
@@ -363,12 +345,218 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
 
         </div>
     </div>
-<h4 id="Planning"><a href="#Planning" class="headerlink" title="Planning"></a>Planning</h4>
+<h4 id="Grasp-Planning-Contact-Points"><a href="#Grasp-Planning-Contact-Points" class="headerlink" title="Grasp Planning (Contact Points)"></a>Grasp Planning (Contact Points)</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Planning optimal grasps</b> [<i>Ferrari, Canny</i>, 1992]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Ferrari, Carlo, and John F. Canny. <em>“Planning optimal grasps.”</em> ICRA. Vol. 3. 1992.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Determining force-closure grasps reachable by a given hand</b> [<i>Gilart, Suárez</i>, 2012]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Gilart, Fidel, and Raúl Suárez. <em>“Determining force-closure grasps reachable by a given hand.”</em> IFAC Proceedings Volumes 45.22 (2012): 235-240.</p>
+</blockquote>
+<p>The paper presents an approach to find contact points on an object surface that are reachable by a given hand and such that the resulting grasp satisfies the force-closure condition. This is a very common problem that still requires a practical solution. The proposed method is based on the computation of a set of independent contact regions on the object boundary such that a finger contact on each region produce a force-closure grasp, and then this set of regions is iteratively recomputed while looking for a set of contact points that are reachable by a given hand. The search is done guided by a cost function that indicates the proximity of the hand fingertips to a candidate set of grasping contact points.</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Computing the Globally Optimal Frictionless Fixture in a Discrete Point Set</b> [<i>Zheng</i>, 2016]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Zheng, Yu. <em>“Computing the globally optimal frictionless fixture in a discrete point set.”</em> IEEE Transactions on Robotics 32.4 (2016): 1026-1032.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Real-time grasp planning for multi-fingered hands by finger splitting</b> [<i>Fan et al.</i>, 2018]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fan, Y., Tang, T., Lin, H. C., &amp; Tomizuka, M. (2018, October). <em>Real-time grasp planning for multi-fingered hands by finger splitting.</em> In 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (pp. 4045-4052). IEEE.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Planning-for-Grasp-and-Hand-Configuration"><a href="#Planning-for-Grasp-and-Hand-Configuration" class="headerlink" title="Planning for Grasp and Hand Configuration"></a>Planning for Grasp and Hand Configuration</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>A Criteria-Based Approach to Grasp Synthesis</b> [<i>Hester, et al.</i>, 1999]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Hester, R. D., et al. <em>“A criteria-based approach to grasp synthesis.”</em> Proceedings 1999 IEEE International Conference on Robotics and Automation (Cat. No. 99CH36288C). Vol. 2. IEEE, 1999.</p>
+</blockquote>
+<p>A synthesis approach has been introduced for grasp planning problem of robotic hands. The approach tries to decompose the synthesis problem into two interconnected problems in finger and hand levels, preliminary and final grasp, respectively. At each level, a grasp configuration is selected using different performance criteria. In the case of preliminary grasp, the selected configuration is fed into the final grasp phase, which constitutes a starting point for the grasp optimization. The finger and hand level criteria are connected, so the two-phase approach is justified.</p>
+<p>Settings:</p>
+<ul>
+<li>Limited to precision grasp</li>
+<li>No rollinga and sliding occurs at the contact point</li>
+</ul>
+<p>Methodology:</p>
+<ul>
+<li>Preliminary Grasp</li>
+<li>Grasp Optimization</li>
+</ul>
+
+        </div>
+    </div>
+<h4 id="Planning-for-Grasp-Trajectory"><a href="#Planning-for-Grasp-Trajectory" class="headerlink" title="Planning for Grasp Trajectory"></a>Planning for Grasp Trajectory</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Integrated grasp and motion planning</b> [<i>Vahrenkamp et al.</i>, 2010]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Vahrenkamp, Nikolaus, et al. <em>“Integrated grasp and motion planning.”</em> 2010 IEEE International Conference on Robotics and Automation. IEEE, 2010.<br>N. Vahrenkamp, T. Asfour and R. Dillmann, <em>“Simultaneous Grasp and Motion Planning: Humanoid Robot ARMAR-III,”</em> in IEEE Robotics &amp; Automation Magazine, vol. 19, no. 2, pp. 43-57, June 2012.</p>
+</blockquote>
+<p>Problems:</p>
+<ul>
+<li>Finding a feasible grasp</li>
+<li>Solving the inverse kinematics</li>
+<li>Searching a collision-free trajectory that brings the hand to the grasping pose</li>
+</ul>
+<p>Contributions:</p>
+<ul>
+<li>The Grasp–RRT algorithm is able to find suitable solutions quickly while having the advantage that no IK solver, no reachability information, and no dedicated grasp planner<br>must be present for the robot.</li>
+</ul>
+<p>Settings:</p>
+<ul>
+<li>No explicit target configuration</li>
+<li>An anthropomorphic hand driven by a 6-DOF arm</li>
+</ul>
+<p>Methodology:</p>
+<ul>
+<li>Combines the search for a collision-free motion with the <strong>online</strong> search for a feasible grasp.</li>
+<li><strong>Hand</strong> = grasping center point (GCP) + approach direction (mandually defined).</li>
+<li><strong>Hand State</strong> = palm’s pose (SE3) + joint configuration</li>
+<li>Move hand towards the object, then close the fingers.<ul>
+<li>Let the arm drive the hand towards the object via a RRT based planning approach. Move towards the nearest point on the object surface. Move a small step each iteration through the arm’s inverse kinematics.</li>
+<li>Closing the hand is performed by iteratively moving the finger joints with small steps until (self-)collisions are detected.</li>
+<li>Evaluate the grasp quality based on a certain metric.</li>
+</ul>
+</li>
+<li>To let the hand uniformly approach the object:<ul>
+<li>An ApproachSphere sphere is used to encode the distribution of the nodes on the RRT.</li>
+<li>An ApproachSphere is a sphere that is located at the object’s center of mass.</li>
+<li>A newly generated node will be projected onto the surface of the ApproachSphere.</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Visual grasp planning for unknown objects using a multifingered robotic hand</b> [<i>Lippiello et al.</i>, 2012]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Lippiello, Vincenzo, et al. <em>“Visual grasp planning for unknown objects using a multifingered robotic hand.”</em> IEEE/ASME Transactions on Mechatronics 18.3 (2012): 1050-1059.</p>
+</blockquote>
+
+        </div>
+    </div>
+
     <div class="spoiler collapsed">
         <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Hierarchical fingertip space: a unified framework for grasp planning and in-hand grasp adaptation</b> [<i>Hang et al.</i>, 2016]</div>
         <div class="spoiler-content">
             <blockquote>
 <p>Hang, Kaiyu, et al. <em>“Hierarchical fingertip space: A unified framework for grasp planning and in-hand grasp adaptation.”</em> IEEE Transactions on robotics 32.4 (2016): 960-972.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Planning-for-Finger-Gaits"><a href="#Planning-for-Finger-Gaits" class="headerlink" title="Planning for Finger Gaits"></a>Planning for Finger Gaits</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Finger Gaits Planning for Multifingered Manipulation</b> [<i>Xu, Koo, Li</i>, 2007]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, T. John Koo, and Zexiang Li. “<a href="https://ieeexplore.ieee.org/abstract/document/4399189" target="_blank" rel="noopener">Finger gaits planning for multifingered manipulation.</a>“ 2007 IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE, 2007.</p>
+</blockquote>
+<p>A robotic hand may change its grasp status and relocate some of its fingers in order to perform a large scale manipulation. Such a strategy is called a finger gait. In this paper, a randomized manipulation planning algorithm is proposed to solving the finger gait planning problem. One of the most used finger gaiting primitives, finger substitution, is introduced. Because of its discrete-continuous characteristics, the kinematics model of a finger substitution is formulated into a hybrid automaton. Considering the discrete and continuous topology of the automaton, both the discrete metric and continuous metric are defined on the state space. An improved RRT based planner is proposed to find a feasible finger substitution. Finally, simulation results verify the validity of the proposed finger gait planner.</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  A Kinematic Model of Finger Gaits by Multifingered Hand as Hybrid Automaton</b> [<i>Xu, Li</i>, 2008]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, and Zexiang Li. “A kinematic model of finger gaits by multifingered hand as hybrid automaton.” <em>IEEE Transactions on Automation Science and Engineering</em> 5.3 (2008): 467-479.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Sampling-based finger gaits planning for multifingered robotic hand</b> [<i>Xu, Koo, Li</i>, 2009]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, Tak-Kuen John Koo, and Zexiang Li. “<a href="https://link.springer.com/article/10.1007/s10514-009-9164-5" target="_blank" rel="noopener">Sampling-based finger gaits planning for multifingered robotic hand.</a>“ <em>Autonomous Robots</em> 28.4 (2010): 385-402.</p>
+</blockquote>
+<p>How to generate a feasible sequence of different grasp status to accomplish the manipulation task.</p>
+<p><strong>Finger gaits hybrid nature</strong>:</p>
+<ul>
+<li>Discontinuity caused by the relocation of the fingers</li>
+<li>Continuity maintained by the manipulation of objects</li>
+</ul>
+<p>Finger gaiting primitives:</p>
+<ul>
+<li>Finger substitution [Hong et al. 1990; Han and Trinkle 1998; Xu and Li 2006]<ul>
+<li>Grasping fingers</li>
+<li>Free fingers (stay at pre-described configuration and perform the substitution)</li>
+</ul>
+</li>
+</ul>
+<p>Assumptions:</p>
+<ol>
+<li>Rigid body</li>
+<li>Finger tip point contact</li>
+<li>No sliding or rolling</li>
+</ol>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Real-time finger gaits planning for dexterous manipulation</b> [<i>Fan et al.</i>, 2017]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fan, Y., Gao, W., Chen, W., &amp; Tomizuka, M. (2017). <em>Real-time finger gaits planning for dexterous manipulation.</em>IFAC-PapersOnLine, 50(1), 12765-12772.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Grasp-Taxonomy"><a href="#Grasp-Taxonomy" class="headerlink" title="Grasp Taxonomy"></a>Grasp Taxonomy</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  On grasp choice, grasp models, and the design of hands for manufacturing tasks</b> [<i>Cutkosky</i>, 1989]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Cutkosky, Mark R. “<a href="https://www.researchgate.net/profile/Mark_Cutkosky/publication/3298011_On_grasp_choice_grasp_models_and_the_design_of_hands_for_manufacturing_tasks/links/56299aa008ae518e347cc538.pdf" target="_blank" rel="noopener">On grasp choice, grasp models, and the design of hands for manufacturing tasks.</a>“ IEEE Transactions on robotics and automation 5.3 (1989): 269-279.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>The GRASP Taxonomy of Human Grasp Types</b> [<i>Feix, et al.</i>, 2016]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Feix, Thomas, et al. <em>“The grasp taxonomy of human grasp types.”</em> IEEE Transactions on human-machine systems 46.1 (2015): 66-77.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation</b> [<i>Sundaralingam, Hermans</i>, 2018]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Sundaralingam, Balakumar, and Tucker Hermans. <em>“Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation.”</em> 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.</p>
 </blockquote>
 
         </div>
@@ -404,17 +592,16 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
 
         </div>
     </div>
-<h4 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h4>
+<h4 id="Grasp-Control"><a href="#Grasp-Control" class="headerlink" title="Grasp Control"></a>Grasp Control</h4>
     <div class="spoiler collapsed">
-        <div class="spoiler-title"><b>  Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation</b> [<i>Sundaralingam, Hermans</i>, 2018]</div>
+        <div class="spoiler-title"><b>  Computing and controlling compliance of a robotic hand</b> [<i>Cutkosky, Kao</i>, 1989]</div>
         <div class="spoiler-content">
             <blockquote>
-<p>Sundaralingam, Balakumar, and Tucker Hermans. <em>“Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation.”</em> 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.</p>
+<p>Cutkosky, Mark R., and Imin Kao. “<a href="https://ieeexplore.ieee.org/abstract/document/88036/" target="_blank" rel="noopener">Computing and controlling compliance of a robotic hand.</a>“ IEEE transactions on robotics and automation 5.2 (1989): 151-165.</p>
 </blockquote>
 
         </div>
-    </div>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>
