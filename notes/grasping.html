@@ -15,10 +15,11 @@
 <meta property="og:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/config.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/cspace.png">
-<meta property="og:updated_time" content="2020-12-09T00:02:54.930Z">
+<meta property="og:updated_time" content="2020-12-09T23:52:06.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grasping">
 <meta name="twitter:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
@@ -54,7 +55,8 @@
     
 </head>
 
-<body class="max-width mx-auto px3 ltr">    
+<body class="max-width mx-auto px3 ltr">
+    
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="content index py4">
         
           <header id="header">
@@ -113,6 +115,12 @@
 </li>
 <li>Grasp classification</li>
 </ul>
+<hr>
+<ul>
+<li>Determine if a grasp is force closure, given a set of contact points and contact model</li>
+<li>Determine if the fingers are able to apply a specified resultant wrench on the object, given a grasp, joint torque limits, and hand kinematic structure.</li>
+<li>Compute the optimal contact forces</li>
+</ul>
 </li>
 <li><strong>Solving the inverse kinematics for a multi-fingered hand</strong><ul>
 <li>Finding grasp configurations<ul>
@@ -150,6 +158,7 @@
 <li>The force distribution equations formulated include the <strong>inertial effects of the fingers</strong> along with the <strong>physical limits on the actuator torques</strong>, using inverse dynamics and Jacobian relationships.</li>
 <li>The formulation is then transformed to a <strong>constrained optimization problem</strong> and is represented in a concise matrix form which can be solved using the <strong>linear programming</strong> method.</li>
 </ul>
+<p>Not finished yet.</p>
 
         </div>
     </div>
@@ -170,7 +179,33 @@
             <blockquote>
 <p>Yu, Yong, Kenichi Takeuchi, and Tsuneo Yoshikawa. <em>“Optimization of robot hand power grasps.”</em> Proceedings. 1998 IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1998.</p>
 </blockquote>
-
+<p>Problem:</p>
+<ul>
+<li>Plan the optimal power grasp for a multifingered hand on a convex polyhedron.</li>
+</ul>
+<p>Assumptions:</p>
+<ul>
+<li>The object is a convex polyhedron</li>
+<li>Point contact with friction</li>
+<li>The palm is in contact with the object’s apex</li>
+<li>At most one contact on each link</li>
+</ul>
+<h4 id="Equalibrium-condition"><a href="#Equalibrium-condition" class="headerlink" title="Equalibrium condition:"></a>Equalibrium condition:</h4><p>For $M$ contact points, let $G \in \mathbb{R}^{3M\times 6}$ be the grasp matrix and $\fb \in \mathbb{R}^{3M}$ be the contact forces. $\wb \in \mathbb{R}^6$ is the external force and torque to the object. $J$ is the Jacobian evaluated at all the contact points.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    G^\top \fb &= -\wb, \\
+    J^\top \fb &= \taub.
+\end{align}</script><p>Solving the above equation and we have</p>
+<script type="math/tex; mode=display">
+\fb = (J^\dagger)^\top \taub + (I_{3M} - JJ^\dagger) \kb</script><p>where $\kb \in \mathbb{R}^6$ is an arbitrary vector.</p>
+<p>For a given joint torque $\taub = \taub_0$, the set of the possible generated contact force is</p>
+<script type="math/tex; mode=display">
+\mathcal{F}_J = \{\fb \mid \fb = (J^\dagger)^\top \taub_0 + (I_{3M} -JJ^\dagger) \kb\}.</script><p>Under the friction cone constraints, the set of contact force vector $\fb$ is</p>
+<script type="math/tex; mode=display">
+\mathcal{F}_W = \{\fb \mid N^\top \fb \geq \mub \bar{\fb} \}</script><p>where the set $\mathcal{F}_W$ can be proved to be a convex cone.</p>
+<p>Thus the gerneatable contact force must be in the space</p>
+<script type="math/tex; mode=display">
+\mathcal{F}_J \cap \mathcal{F}_W</script>
         </div>
     </div>
 
@@ -227,6 +262,16 @@
         <div class="spoiler-content">
             <blockquote>
 <p>Makita, Satoshi, and Yusuke Maeda. “Joint torque optimization for quasi-static graspless manipulation.” 2013 IEEE International Conference on Robotics and Automation. IEEE, 2013.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Contact-Model"><a href="#Contact-Model" class="headerlink" title="Contact Model"></a>Contact Model</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Interpretation of contact geometries from force measurements</b> [<i>Salisbury</i>, 1984]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Salisbury, Jr. <em>“Interpretation of contact geometries from force measurements.”</em> Proceedings. 1984 IEEE International Conference on Robotics and Automation. Vol. 1. IEEE, 1984.</p>
 </blockquote>
 
         </div>
@@ -347,6 +392,91 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
     </div>
 
     <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Easily computable optimum grasps in 2-D and 3-D</b> [<i>Mirtich, Canny</i>, 1994]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Mirtich, Brian, and John Canny. <em>“Easily computable optimum grasps in 2-D and 3-D.”</em> Proceedings of the 1994 IEEE International Conference on Robotics and Automation. IEEE, 1994.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Constructing force-closure grasps</b> [<i>V.D. Nguyen</i>, 1988]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Nguyen, Van-Duc. “Constructing force-closure grasps.” <em>The International Journal of Robotics Research</em> 7.3 (1988): 3-16.</p>
+</blockquote>
+<p><strong>Construct force-closure grasps based on the shape of the grasped object.</strong></p>
+<div class="content-box bfb1"><span class="title">Define: Grasp</span>
+<p>
+  Combination of individual primitive contacts (hard/soft point contacts with/without friction).
+  </p>
+</div>
+
+<p>Any complex contact can be described as a convex sum of the primitive contacts:</p>
+<ul>
+<li><p>Edge contact without friction</p>
+<p><em>Convex sum of two frictionless contact points (at one end of the edge contact)</em></p>
+</li>
+<li><p>Face contact</p>
+<p><em>Convex sum of three contacts at the vertices</em></p>
+</li>
+</ul>
+<div class="content-box bfb1"><span class="title">Theorem: Vector Closure (Goldman & Tucker)</span>
+  <p>In an $n$-dimensional vector space, a set of vectos $V$ is vector-closure if and only if $V$ has at least $n+1$ vectos, such that</p>
+<ol>
+  <li>$n$ of the $n+1$ vectors are linearly independent.</li>
+  <li><p>A strictly positive combination of the $n+1$ vectos is the zeros vector.</p><p>$$ \sum_{i=1}^{n+1} \alpha_i \boldsymbol{v}_i = \boldsymbol{0}, \quad \alpha_i > 0.$$</p></li>
+</ol></div>
+
+<h2 id="Force-closure"><a href="#Force-closure" class="headerlink" title="Force closure"></a>Force closure</h2><h4 id="1-Force-direction-closure"><a href="#1-Force-direction-closure" class="headerlink" title="1.  Force direction closure"></a>1.  Force direction closure</h4><p>Now consider the synthesis of 2D force closure grasp.</p>
+<div class="content-box bfb1"><span class="title">Theorem: Force-direction Closure</span>
+  <p>
+    A set of plannar wrenches $W$ can generate force in any direction iff there exists a three-tuple of wrenches $(\wb_1, \wb_2, \wb_3)$ whose respective force directions $\fb_1, \fb_2, \fb_3$ satisfy
+  </p>
+  <ol>
+    <li>Two of the three directions $\fb_1, \fb_2, \fb_3$ are independent.</li>
+    <li>A strictly positive combination of the three directions is zero: $\alpha \fb_1 + \beta \fb_2 + \gamma \fb_3 = \boldsymbol{0}$.</li>
+  </ol>
+</div>
+
+<h4 id="2-Torque-closure"><a href="#2-Torque-closure" class="headerlink" title="2. Torque closure"></a>2. Torque closure</h4><p>Achieve torque closure with only pure forces.</p>
+<div class="content-box bfb1"><span class="title">Theorem: Torque Closure</span>
+  <p>
+    A set of plannar wrenches $W$ can generate clockwise and counterclockwise torques iff there exists a <b>four-tuple</b> of forces $(\wb_1, \wb_2, \wb_3, \wb_4)$ such taht the following hold
+  </p>
+  <ol>
+    <li>Three of the four forces have lines of action that do not intersect at a common point or at infinity. </li>
+    <li><p>
+      Lef $\fb_1, \cdots, \fb_4$ be the force directions of $\wb_1, \cdots, \wb_4$. Let $\pb_{12}$ be the point where the lines of action of $\wb_1$ and $\wb_2$ intersect. There exists $\alpha, \beta, \gamma, \delta > 0$ such that
+      </p><p>
+      $$\pb_{34} - \pb_{12} = \pm(\alpha \fb_1 + \beta \fb_2) = \mp (\gamma \fb_3 + \delta \fb_4).$$
+      </p></li>
+  </ol>
+</div>
+
+<h2 id="Finding-Force-Closure-Grasps"><a href="#Finding-Force-Closure-Grasps" class="headerlink" title="Finding Force-Closure Grasps"></a>Finding Force-Closure Grasps</h2><h4 id="Two-Opposing-Fingers"><a href="#Two-Opposing-Fingers" class="headerlink" title="Two Opposing Fingers"></a>Two Opposing Fingers</h4><div class="content-box bfb1"><span class="title">Corollary</span>
+  <p>
+    Two point contacts with friction at $P$ and $Q$ forms a plannar force-closure grasp iff ${\rm arg}(P - Q) \in \pm(\mathcal{C}_1 \cap - \mathcal{C}_2)$ where $\mathcal{C}_1$ and $\mathcal{C}_1$ are the two friction cone.
+</p></div>
+
+<p><img src="nguyen1988/two-finger-grasp.png" width="200"></p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Task-oriented optimal grasping by multifingered robot hands</b> [<i>Li, Sastry</i>, 1988]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Li, Zexiang, and S. Shankar Sastry. <em>“Task-oriented optimal grasping by multifingered robot hands.”</em> IEEE Journal on Robotics and Automation 4.1 (1988): 32-44.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
         <div class="spoiler-title"><b>  Determining force-closure grasps reachable by a given hand</b> [<i>Gilart, Suárez</i>, 2012]</div>
         <div class="spoiler-content">
             <blockquote>
@@ -372,6 +502,27 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
         <div class="spoiler-content">
             <blockquote>
 <p>Fan, Y., Tang, T., Lin, H. C., &amp; Tomizuka, M. (2018, October). <em>Real-time grasp planning for multi-fingered hands by finger splitting.</em> In 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (pp. 4045-4052). IEEE.</p>
+</blockquote>
+
+        </div>
+    </div>
+<h4 id="Grasp-Analysis"><a href="#Grasp-Analysis" class="headerlink" title="Grasp Analysis"></a>Grasp Analysis</h4>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Dextrous hand grasping force optimization</b> [<i>Buss et al.</i>, 1996]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Buss, Martin, Hideki Hashimoto, and John B. Moore. <em>“Dextrous hand grasping force optimization.”</em> IEEE transactions on robotics and automation 12.3 (1996): 406-418.</p>
+</blockquote>
+<p>Transforms the nonlinear friction cone constraints into positive definiteness constraints imposed on certainy symmetric matrices.</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Grasp analysis as linear matrix inequality problems</b> [<i>Han, Trinkle</i>, 2000]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Han, Li, Jeffrey C. Trinkle, and Zexiang X. Li. <em>“Grasp analysis as linear matrix inequality problems.”</em> IEEE Transactions on Robotics and Automation 16.6 (2000): 663-674.</p>
 </blockquote>
 
         </div>
@@ -624,155 +775,7 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
   </div>
 </footer>
 
-    </div>
- <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        },
-        TeX: {
-            Macros: {
-                ab: "\\boldsymbol{a}",
-                bb: "\\boldsymbol{b}",
-                cb: "\\boldsymbol{c}",
-                db: "\\boldsymbol{d}",
-                eb: "\\boldsymbol{e}",
-                fb: "\\boldsymbol{f}",
-                gb: "\\boldsymbol{g}",
-                hb: "\\boldsymbol{h}",
-                ib: "\\boldsymbol{i}",
-                jb: "\\boldsymbol{j}",
-                kb: "\\boldsymbol{k}",
-                lb: "\\boldsymbol{l}",
-                mb: "\\boldsymbol{m}",
-                nb: "\\boldsymbol{n}",
-                ob: "\\boldsymbol{o}",
-                pb: "\\boldsymbol{p}",
-                qb: "\\boldsymbol{q}",
-                rb: "\\boldsymbol{r}",
-                sb: "\\boldsymbol{s}",
-                tb: "\\boldsymbol{t}",
-                ub: "\\boldsymbol{u}",
-                vb: "\\boldsymbol{v}",
-                wb: "\\boldsymbol{w}",
-                xb: "\\boldsymbol{x}",
-                yb: "\\boldsymbol{y}",
-                zb: "\\boldsymbol{z}",
-                abdot: "\\dot{\\boldsymbol{a}}",
-                bbdot: "\\dot{\\boldsymbol{b}}",
-                cbdot: "\\dot{\\boldsymbol{c}}",
-                dbdot: "\\dot{\\boldsymbol{d}}",
-                ebdot: "\\dot{\\boldsymbol{e}}",
-                fbdot: "\\dot{\\boldsymbol{f}}",
-                gbdot: "\\dot{\\boldsymbol{g}}",
-                hbdot: "\\dot{\\boldsymbol{h}}",
-                ibdot: "\\dot{\\boldsymbol{i}}",
-                jbdot: "\\dot{\\boldsymbol{j}}",
-                kbdot: "\\dot{\\boldsymbol{k}}",
-                lbdot: "\\dot{\\boldsymbol{l}}",
-                mbdot: "\\dot{\\boldsymbol{m}}",
-                nbdot: "\\dot{\\boldsymbol{n}}",
-                obdot: "\\dot{\\boldsymbol{o}}",
-                pbdot: "\\dot{\\boldsymbol{p}}",
-                qbdot: "\\dot{\\boldsymbol{q}}",
-                rbdot: "\\dot{\\boldsymbol{r}}",
-                sbdot: "\\dot{\\boldsymbol{s}}",
-                tbdot: "\\dot{\\boldsymbol{t}}",
-                ubdot: "\\dot{\\boldsymbol{u}}",
-                vbdot: "\\dot{\\boldsymbol{v}}",
-                wbdot: "\\dot{\\boldsymbol{w}}",
-                xbdot: "\\dot{\\boldsymbol{x}}",
-                ybdot: "\\dot{\\boldsymbol{y}}",
-                zbdot: "\\dot{\\boldsymbol{z}}",
-                abbar: "\\bar{\\boldsymbol{a}}",
-                bbbar: "\\bar{\\boldsymbol{b}}",
-                cbbar: "\\bar{\\boldsymbol{c}}",
-                dbbar: "\\bar{\\boldsymbol{d}}",
-                ebbar: "\\bar{\\boldsymbol{e}}",
-                fbbar: "\\bar{\\boldsymbol{f}}",
-                gbbar: "\\bar{\\boldsymbol{g}}",
-                hbbar: "\\bar{\\boldsymbol{h}}",
-                ibbar: "\\bar{\\boldsymbol{i}}",
-                jbbar: "\\bar{\\boldsymbol{j}}",
-                kbbar: "\\bar{\\boldsymbol{k}}",
-                lbbar: "\\bar{\\boldsymbol{l}}",
-                mbbar: "\\bar{\\boldsymbol{m}}",
-                nbbar: "\\bar{\\boldsymbol{n}}",
-                obbar: "\\bar{\\boldsymbol{o}}",
-                pbbar: "\\bar{\\boldsymbol{p}}",
-                qbbar: "\\bar{\\boldsymbol{q}}",
-                rbbar: "\\bar{\\boldsymbol{r}}",
-                sbbar: "\\bar{\\boldsymbol{s}}",
-                tbbar: "\\bar{\\boldsymbol{t}}",
-                ubbar: "\\bar{\\boldsymbol{u}}",
-                vbbar: "\\bar{\\boldsymbol{v}}",
-                wbbar: "\\bar{\\boldsymbol{w}}",
-                xbbar: "\\bar{\\boldsymbol{x}}",
-                ybbar: "\\bar{\\boldsymbol{y}}",
-                zbbar: "\\bar{\\boldsymbol{z}}",
-                abhat: "\\hat{\\boldsymbol{a}}",
-                bbhat: "\\hat{\\boldsymbol{b}}",
-                cbhat: "\\hat{\\boldsymbol{c}}",
-                dbhat: "\\hat{\\boldsymbol{d}}",
-                ebhat: "\\hat{\\boldsymbol{e}}",
-                fbhat: "\\hat{\\boldsymbol{f}}",
-                gbhat: "\\hat{\\boldsymbol{g}}",
-                hbhat: "\\hat{\\boldsymbol{h}}",
-                ibhat: "\\hat{\\boldsymbol{i}}",
-                jbhat: "\\hat{\\boldsymbol{j}}",
-                kbhat: "\\hat{\\boldsymbol{k}}",
-                lbhat: "\\hat{\\boldsymbol{l}}",
-                mbhat: "\\hat{\\boldsymbol{m}}",
-                nbhat: "\\hat{\\boldsymbol{n}}",
-                obhat: "\\hat{\\boldsymbol{o}}",
-                pbhat: "\\hat{\\boldsymbol{p}}",
-                qbhat: "\\hat{\\boldsymbol{q}}",
-                rbhat: "\\hat{\\boldsymbol{r}}",
-                sbhat: "\\hat{\\boldsymbol{s}}",
-                tbhat: "\\hat{\\boldsymbol{t}}",
-                ubhat: "\\hat{\\boldsymbol{u}}",
-                vbhat: "\\hat{\\boldsymbol{v}}",
-                wbhat: "\\hat{\\boldsymbol{w}}",
-                xbhat: "\\hat{\\boldsymbol{x}}",
-                ybhat: "\\hat{\\boldsymbol{y}}",
-                zbhat: "\\hat{\\boldsymbol{z}}",
-                alphab: "\\boldsymbol{\\alpha}",
-                betab: "\\boldsymbol{\\beta}",
-                gammab: "\\boldsymbol{\\gamma}",
-                deltab: "\\boldsymbol{\\delta}",
-                epsilonb: "\\boldsymbol{\\epsilon}",
-                zetab: "\\boldsymbol{\\zeta}",
-                etab: "\\boldsymbol{\\eta}",
-                thetab: "\\boldsymbol{\\theta}",
-                iotab: "\\boldsymbol{\\iota}",
-                kappab: "\\boldsymbol{\\kappa}",
-                lambdab: "\\boldsymbol{\\lambda}",
-                mub: "\\boldsymbol{\\mu}",
-                nub: "\\boldsymbol{\\nu}",
-                xib: "\\boldsymbol{\\xi}",
-                omikronb: "\\boldsymbol{\\omikron}",
-                pib: "\\boldsymbol{\\pi}",
-                rhob: "\\boldsymbol{\\rho}",
-                sigmab: "\\boldsymbol{\\sigma}",
-                taub: "\\boldsymbol{\\tau}",
-                upsilionb: "\\boldsymbol{\\upsilion}",
-                phib: "\\boldsymbol{\\phi}",
-                hib: "\\boldsymbol{\\hi}",
-                psib: "\\boldsymbol{\\psi}",
-                omegab: "\\boldsymbol{\\omega}",
-                bold: ["{\\boldsymbol #1}",1]
-            }
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
