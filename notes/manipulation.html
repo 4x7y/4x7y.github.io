@@ -7,20 +7,23 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="ManipulationPivoting                Joint torque optimization for quasi-static graspless manipulation [Makita, Maeda, 2013]                       Makita, Satoshi, and Yusuke Maeda. “Joint torque optim">
+    <meta name="description" content="Manipulation              &amp;hearts; Robot grasp synthesis algorithms: A survey [Shimoga, 1996]                       Shimoga, Karun B. “Robot grasp synthesis algorithms: A survey.” The International Jo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Manipulation">
 <meta property="og:url" content="http://xueyuechuan.me/notes/manipulation.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="ManipulationPivoting                Joint torque optimization for quasi-static graspless manipulation [Makita, Maeda, 2013]                       Makita, Satoshi, and Yusuke Maeda. “Joint torque optim">
+<meta property="og:description" content="Manipulation              &amp;hearts; Robot grasp synthesis algorithms: A survey [Shimoga, 1996]                       Shimoga, Karun B. “Robot grasp synthesis algorithms: A survey.” The International Jo">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/config.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/cspace.png">
-<meta property="og:updated_time" content="2020-12-09T00:02:54.931Z">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hong1990/3-finger-planar.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hong1996/canonical-grasp.png">
+<meta property="og:image" content="http://xueyuechuan.me/notes/hong1996/gtg.png">
+<meta property="og:updated_time" content="2020-12-09T07:30:43.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manipulation">
-<meta name="twitter:description" content="ManipulationPivoting                Joint torque optimization for quasi-static graspless manipulation [Makita, Maeda, 2013]                       Makita, Satoshi, and Yusuke Maeda. “Joint torque optim">
+<meta name="twitter:description" content="Manipulation              &amp;hearts; Robot grasp synthesis algorithms: A survey [Shimoga, 1996]                       Shimoga, Karun B. “Robot grasp synthesis algorithms: A survey.” The International Jo">
 <meta name="twitter:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
     
     
@@ -97,7 +100,115 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h1 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h1><h4 id="Pivoting"><a href="#Pivoting" class="headerlink" title="Pivoting"></a>Pivoting</h4>
+          <h1 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h1>
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Robot grasp synthesis algorithms: A survey</b> [<i>Shimoga</i>, 1996]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Shimoga, Karun B. “Robot grasp synthesis algorithms: A survey.” The International Journal of Robotics Research 15.3 (1996): 230-266.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Hands for dexterous manipulation and robust grasping: A difficult road toward simplicity</b> [<i>Bicchi</i>, 2000]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Bicchi, Antonio. “<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=897777" target="_blank" rel="noopener">Hands for dexterous manipulation and robust grasping: A difficult road toward simplicity.</a>“ <em>IEEE Transactions on robotics and automation</em> 16.6 (2000): 652-662.</p>
+</blockquote>
+<p><strong><em>Minimalistic Principal</em></strong> <em>: Use the least number of actuators, the simplest set of sensors, etc., for a given task.</em></p>
+<p><strong>Complexity reduction</strong> is especially important in terms of hardware components of the system. Designing simple and effective devices for executing nontrivial tasks is actually much more difficult than contriving very complex systems for the same job.</p>
+<h2 id="Manipulative-Dexterity"><a href="#Manipulative-Dexterity" class="headerlink" title="Manipulative Dexterity"></a>Manipulative Dexterity</h2><div class="content-box bfb1"><span class="title">Manipulative Dexterity</span>
+  <p>The capability of the hand to change the position and orientation of the manipulated object from a given reference configuration to a different one, arbitrarily chosen within the hand workspace.</p>
+</div>
+
+<h3 id="Classical-Designs"><a href="#Classical-Designs" class="headerlink" title="Classical Designs"></a>Classical Designs</h3><p>Design assumptions</p>
+<ul>
+<li><strong>Rigid, hard-finger</strong></li>
+<li><strong>Non-rolling and non-sliding contacts</strong></li>
+<li>Number of actuators ranges between 9 ~ 32</li>
+</ul>
+<p>The <strong>minimum DoF to achieve dexterity</strong> under above conditions is 9 [Salisbury 1985]. To let finger tip track contact point location in 3D, 3 DoFs per finger are strictly necessary.</p>
+<ul>
+<li><p><strong>Three-joint, three-finger design</strong> </p>
+<p><em>Salisbury Hand, optimize a measure of individual manipulability of the finger</em></p>
+</li>
+<li><p><strong>More joints per finger, some are coupled</strong></p>
+<p><em>Technical University of Munchen Hand</em></p>
+</li>
+<li><p><strong>Four- and five- fingered hands</strong></p>
+<p><em>Utah/MIT Hand</em></p>
+</li>
+</ul>
+<h3 id="Alternative-Designs"><a href="#Alternative-Designs" class="headerlink" title="Alternative Designs"></a>Alternative Designs</h3><p>Other design assumptions:</p>
+<ul>
+<li><p><strong>Soft Finger</strong> (4 DoFs are needed to achieve dexterity)</p>
+</li>
+<li><p><strong>Regrasping and Finger Gaiting</strong></p>
+<p><strong><em>Hybrid system</em></strong> <em>: Involves both continuous dynamic systems (kinematics and dynamics of manipulation, effects of gravity, slipping, etc.), and discrete-event system. (Open problem)</em></p>
+</li>
+<li><p><strong>Sliding and Rolling</strong></p>
+<p><strong><em>Manipulation by sliding</em></strong></p>
+<p><em>Open Problem: 1. Determine margin of stability for contact from sensor reading. 2. Grasp synthesis for selectively preventing and allowing slippage motions of grasped objects.</em></p>
+</li>
+</ul>
+<p>Open Issues:</p>
+<ol>
+<li>Planning sliding and rolling motions among obstacles</li>
+<li>Stabilize the pose of a general rolling object with an efficient feedback law</li>
+<li>Analysis of the sensitivity of planning and control to modeling errors</li>
+<li>Generalization of useful notion (manipulability, dexterous workspace, etc.) for nonholonomic systems</li>
+</ol>
+<h2 id="Grasp-Robustness"><a href="#Grasp-Robustness" class="headerlink" title="Grasp Robustness"></a>Grasp Robustness</h2><div class="content-box bfb1"><span class="title">Grasp Robustness</span>
+  <p>
+    The capability of keeping hold of manipulated objects in spite of all possible distrubances (unexpected forces, erroneous estimates of the object characteristics, etc.) while maintaining a gentle enough grip not to cause any damage.
+  </p>
+</div>
+
+<h3 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h3><ul>
+<li>Task dependent</li>
+<li>Precision grasp, Power grasp</li>
+<li>Designed to manipulate objects by using inner surfaces</li>
+</ul>
+<h3 id="Grasp-Properties"><a href="#Grasp-Properties" class="headerlink" title="Grasp Properties"></a>Grasp Properties</h3><ul>
+<li><p>Force closure</p>
+</li>
+<li><p>Form closure</p>
+</li>
+<li><p>Force distribution problem</p>
+<p>Imposing grasping forces that guarantee slippage avoidance</p>
+</li>
+<li><p>Stability</p>
+<p><em>Def 1 (Lyapunov theory): trend to come back to reference point.</em></p>
+<p><em>Def 2 (Lagrange): local minimum of the potential energy for a conservative system.</em></p>
+</li>
+</ul>
+<h3 id="Grasping-and-the-Kinematics-of-the-Hand"><a href="#Grasping-and-the-Kinematics-of-the-Hand" class="headerlink" title="Grasping and the Kinematics of the Hand"></a>Grasping and the Kinematics of the Hand</h3><h2 id="Human-Operability"><a href="#Human-Operability" class="headerlink" title="Human Operability"></a>Human Operability</h2><div class="content-box bfb1"><span class="title">Human Operability</span>
+  <p>
+    Allowance for an easy and friendly interface with the human operator.
+  </p>
+</div>
+
+<h3 id="Anthropomorphic-hand"><a href="#Anthropomorphic-hand" class="headerlink" title="Anthropomorphic hand"></a>Anthropomorphic hand</h3><h4 id="Pros"><a href="#Pros" class="headerlink" title="Pros:"></a>Pros:</h4><ul>
+<li>Easy for human operator mapping via sensorized gloves</li>
+<li>Taught by demonstrating </li>
+<li>Tele-manipulation (master and slave hand)</li>
+</ul>
+<h4 id="Cons"><a href="#Cons" class="headerlink" title="Cons:"></a>Cons:</h4><ul>
+<li>Complex kinematic structure</li>
+<li>High number of actuators</li>
+<li>Sophistication of sensing systems</li>
+</ul>
+<p>lead to worse</p>
+<ul>
+<li>Cost-effectiveness</li>
+<li>Reliability</li>
+</ul>
+
+        </div>
+    </div>
+<h4 id="Pivoting"><a href="#Pivoting" class="headerlink" title="Pivoting"></a>Pivoting</h4>
     <div class="spoiler collapsed">
         <div class="spoiler-title"><b>  Joint torque optimization for quasi-static graspless manipulation</b> [<i>Makita, Maeda</i>, 2013]</div>
         <div class="spoiler-content">
@@ -150,13 +261,23 @@
 
         </div>
     </div>
-<h4 id="Manipulation-1"><a href="#Manipulation-1" class="headerlink" title="Manipulation"></a>Manipulation</h4>
+<h4 id="Sliding-amp-Rolling"><a href="#Sliding-amp-Rolling" class="headerlink" title="Sliding &amp; Rolling"></a>Sliding &amp; Rolling</h4>
     <div class="spoiler collapsed">
-        <div class="spoiler-title"><b>  Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation</b> [<i>Sundaralingam, Hermans</i>, 2018]</div>
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Dextrous manipulation with rolling contacts</b> [<i>Han, Guan, Li, Shi, Trinkle</i>, 1997]</div>
         <div class="spoiler-content">
             <blockquote>
-<p>Sundaralingam, Balakumar, and Tucker Hermans. <em>“Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation.”</em> 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.</p>
+<p>Han, L., Guan, Y. S., Li, Z. X., Shi, Q., &amp; Trinkle, J. C. (n.d.). Dextrous manipulation with rolling contacts. Proceedings of International Conference on Robotics and Automation. doi:10.1109/robot.1997.614264</p>
 </blockquote>
+<p>Key points:</p>
+<ul>
+<li>Contact kinematics [6]</li>
+<li>Non-holonomic motion planning [2] [7]</li>
+<li>Grasp stability [8]</li>
+</ul>
+<p>Contact coordinate $\eta = (\alpha_f, \alpha_o, \psi)$ where $\alpha_f = (u_f, v_f)$ and $\alpha_o = (u_o, v_o)$ are local coordinates of finger frame $F$ and object frame $O$, $\psi$ is the angle of contact.</p>
+<h4 id="Nonholonomic-Motion-Planning"><a href="#Nonholonomic-Motion-Planning" class="headerlink" title="Nonholonomic Motion Planning"></a>Nonholonomic Motion Planning</h4><p>A driftless nonlinear control system:</p>
+<script type="math/tex; mode=display">
+\dot{q} = g_1 (q)u_1 + g_2(q)u_2 + \cdots + g_m(q)u_m</script><p>where $q \in \mathbb{R}^n$ represents the states, $u = (u_1, \cdots,  u_m), m &lt; n$ represents the control inputs, $g_1, \cdots, g_m$ defines a nonholonomic distribution in the C-space of the system.</p>
 
         </div>
     </div>
@@ -191,7 +312,233 @@
 
         </div>
     </div>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h4 id="Regrasping"><a href="#Regrasping" class="headerlink" title="Regrasping"></a>Regrasping</h4><blockquote>
+<p>Manipulation by regrasping involves a sequence of grasps on the object, alternated with phases in which the object is left alone on a work table. [Bicchi, 2000]</p>
+</blockquote>
+<h4 id="Finger-Gaiting"><a href="#Finger-Gaiting" class="headerlink" title="Finger Gaiting"></a>Finger Gaiting</h4><blockquote>
+<p>Finger gaiting involves the use of three or more fingers, whereof one at a time is repositioned on the surface of the object, while the remaining fingers manipulate the object locally. [Bicchi, 2000]</p>
+</blockquote>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large">&hearts; </font>Fine Manipulation with Multifinger Hands</b> [<i>Hong, et al.</i>, 1990]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Hong, Jiawei, et al. “<a href="https://ieeexplore.ieee.org/abstract/document/126232" target="_blank" rel="noopener">Fine manipulation with multifinger hands.</a>“ <em>Proceedings., IEEE International Conference on Robotics and Automation.</em> IEEE, 1990. </p>
+</blockquote>
+<p>Finger gaits: Periodic sequence of finger relocation.</p>
+<p>Assumptions:</p>
+<ol>
+<li>Smooth object (no corner)</li>
+<li>Isolated points finger model</li>
+<li>Friction cone at point of contact</li>
+<li>Any pair of fingers has angle limitation $ \theta_{ij}^l \leq {\rm ang}(\boldsymbol{r}_{ij}, \hat{\boldsymbol{x}}) \leq \theta_{ij}^u)$</li>
+<li>Ordering of fingers on the boundary of the object keeps same</li>
+</ol>
+<h3 id="Three-Fingers-Planar-Manipulation"><a href="#Three-Fingers-Planar-Manipulation" class="headerlink" title="Three Fingers Planar Manipulation"></a>Three Fingers Planar Manipulation</h3><p><img src="hong1990/3-finger-planar.png" width="400"></p>
+<hr>
+<p><strong>Proposition:</strong> Under assumption 1-3, there exists a two finger force closure grasp of object, regardless of convexity.</p>
+<p><em>Proof:</em></p>
+<p>Force closure conditions:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(P_1 - P_2)^\top \hat{\boldsymbol{t}}_1 &= 0  \qquad \text{(antipodal point)} \\
+(P_2 - P_1)^\top \hat{\boldsymbol{t}}_2 &= 0 \qquad \text{(antipodal point)} \\
+\hat{\boldsymbol{n}}_1 + \hat{\boldsymbol{n}}_2 &= 0 \qquad \text{(opposing to each other)}
+\end{align}</script><p>Let $\gamma(s): S^1 \rightarrow \partial A$ be a diffeomorphism that represents a point on the object boundary. The distance between two boundary points is defined as</p>
+<script type="math/tex; mode=display">
+f(s_1, s_2) = \| \gamma(s_1) - \gamma(s_2) \|</script><p>Let $(\bar{s}_1, \bar{s}_2)$ be the maximum of $f$, then we have</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial f}{\partial s_1} (s_1, s_2) = 2(\gamma(s_1) - \gamma(s_2))^\top \dot{\gamma}(s_1) = 0 \\
+\frac{\partial f}{\partial s_2} (s_1, s_2) = 2(\gamma(s_1) - \gamma(s_2))^\top \dot{\gamma}(s_2) = 0 \\
+\dot{\gamma}(s_1) \neq 0 \\
+\dot{\gamma}(s_2) \neq 0 
+\end{align}</script><p>Therefore, $P_1 = \gamma(s_1), P_2 = \gamma(s_2)$ satisfy the first two conditions. The third condition is simultaneously achieved since $P_1, P_2$ are maximizing the distance.</p>
+<hr>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Reorienting objects with a robot hand using grasp gaits</b> [<i>Leveroni, Salisbury</i>, 1996]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Leveroni, Susanna, and Kenneth Salisbury. “Reorienting objects with a robot hand using grasp gaits.” Robotics Research. Springer, London, 1996. 39-51.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Dextrous Manipulation Planning by Grasp Transform</b> [<i>Zhang, Tanie, Maekawa</i>, 1996]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Zhang, Hong, Kazuo Tanie, and Hitoshi Maekawa. “<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=509176" target="_blank" rel="noopener">Dextrous manipulation planning by grasp transformation.</a>“ Proceedings of IEEE International Conference on Robotics and Automation. Vol. 4. IEEE, 1996.</p>
+</blockquote>
+<h4 id="Outline"><a href="#Outline" class="headerlink" title="Outline:"></a>Outline:</h4><p>Dexterous manipulation planning framework:</p>
+<ul>
+<li><p>Identify <strong>canonical grasps</strong></p>
+<p><em>Defined in terms of contact pairs between topological features of the hand and the object.</em></p>
+</li>
+<li><p>Obtain possible <strong>transitions between the grasps</strong></p>
+<p><em>Result expressed in the form of a grasp transformation graph.</em></p>
+</li>
+<li><p><strong>Manipulation planning</strong> by searching the grasp</p>
+<p><em>Connecting initial and goal configuration.</em></p>
+</li>
+</ul>
+<p>Study dexterous manipulation through a process of decomposition.</p>
+<h4 id="Task-modeling"><a href="#Task-modeling" class="headerlink" title="Task modeling:"></a>Task modeling:</h4><p><strong>Topological feature</strong> (TF):</p>
+<p>Geometry and geometric attributes</p>
+<ul>
+<li>Rect: surface, edge, vertex</li>
+<li>Cylinder: surface, surface patch, curved edge</li>
+<li>Ellipsoid: surface patch</li>
+</ul>
+<p>The set of the TF’s of the hand or the object ($h_\alpha$ is the instance of TF’s):</p>
+<script type="math/tex; mode=display">
+F^R = \{h_\alpha \},\quad F^P = \{o_\beta \}</script><p><em>Example</em> $F^R = \{ \text{edge 1}, \text{edge 2}, \cdots , \text{surface patch 6} \}$</p>
+<p><strong>Grasp</strong>: defined as a contact state with $m$ contact pairs</p>
+<script type="math/tex; mode=display">
+g = \{ c_1, c_2, \cdots , c_m \}</script><p><em>Example</em> $g = \{ (h_1, o_2), (h_3, o_3)\}$</p>
+<p><strong>Grasp taxonomy</strong>: a set of grasps</p>
+<script type="math/tex; mode=display">
+\mathcal{G} = \{g_1, g_2, \cdots, g_n \}</script><p><em>Note: Grasp taxonomy need to be manually specified.</em></p>
+<h4 id="Grasp-Transition-Graph"><a href="#Grasp-Transition-Graph" class="headerlink" title="Grasp Transition Graph"></a>Grasp Transition Graph</h4><ul>
+<li><strong>Vertex</strong>: canonical grasp defined above</li>
+<li><strong>Edge</strong>: valid transition from one grasp to another, <strong>directed</strong></li>
+<li><strong>Control strategy</strong>: employed for transition<ul>
+<li>Depend on nature of transition</li>
+<li>Sensor information</li>
+<li>Capability of hand</li>
+</ul>
+</li>
+</ul>
+<h4 id="Manipulation-Planning"><a href="#Manipulation-Planning" class="headerlink" title="Manipulation Planning"></a>Manipulation Planning</h4><ul>
+<li>Optimal path (optimality measure for all feasible paths)</li>
+<li>Offline evaluation</li>
+<li>Save result ($g_i \rightarrow g_k$) in a $n\times n$ matrix for online lookup</li>
+</ul>
+<hr>
+<p>Grasp Taxonomy example:</p>
+<p><img src="hong1996/canonical-grasp.png" width="450"></p>
+<p>Graph example:</p>
+<p><img src="hong1996/gtg.png" width="450"></p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Dexterous Manipulation by Rolling and Finger Gaiting</b> [<i>Han, Trinkle</i>, 1998]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Han, Li, and Jeffrey C. Trinkle. “Dextrous manipulation by rolling and finger gaiting.” <em>Proceedings. 1998 IEEE International Conference on Robotics and Automation (Cat. No. 98CH36146)</em>. Vol. 1. IEEE, 1998.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Motion Planning for Kinematic Stratified Systems with Application to Quasi-static Legged Locomotion and Finger Gaiting</b> [<i>Goodwine et al.</i>, 2002]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Goodwine, Bill, and Joel W. Burdick. “<a href="http://lars.mec.ua.pt/public/LAR%20Projects/Humanoid/2004_LuisRego_RenatoBarbosa/Pesquisa/Pesquisa%20Padr%C3%B5es%20de%20Locomo%C3%A7%C3%A3o/httprobotics.caltech.edupapers.html/RA.PDF" target="_blank" rel="noopener">Motion planning for kinematic stratified systems with application to quasi-static legged locomotion and finger gaiting.</a>“ <em>IEEE Transactions on robotics and automation</em> 18.2 (2002): 209-222.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Finger Gaits Planning for Multifingered Manipulation</b> [<i>Xu, Koo, Li</i>, 2007]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, T. John Koo, and Zexiang Li. “<a href="https://ieeexplore.ieee.org/abstract/document/4399189" target="_blank" rel="noopener">Finger gaits planning for multifingered manipulation.</a>“ 2007 IEEE/RSJ International Conference on Intelligent Robots and Systems. IEEE, 2007.</p>
+</blockquote>
+<p>A robotic hand may change its grasp status and relocate some of its fingers in order to perform a large scale manipulation. Such a strategy is called a finger gait. In this paper, a randomized manipulation planning algorithm is proposed to solving the finger gait planning problem. One of the most used finger gaiting primitives, finger substitution, is introduced. Because of its discrete-continuous characteristics, the kinematics model of a finger substitution is formulated into a hybrid automaton. Considering the discrete and continuous topology of the automaton, both the discrete metric and continuous metric are defined on the state space. An improved RRT based planner is proposed to find a feasible finger substitution. Finally, simulation results verify the validity of the proposed finger gait planner.</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  A Kinematic Model of Finger Gaits by Multifingered Hand as Hybrid Automaton</b> [<i>Xu, Li</i>, 2008]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, and Zexiang Li. “A kinematic model of finger gaits by multifingered hand as hybrid automaton.” <em>IEEE Transactions on Automation Science and Engineering</em> 5.3 (2008): 467-479.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b><font size="x-large" color="grey">&hearts; </font>Sampling-based finger gaits planning for multifingered robotic hand</b> [<i>Xu, Koo, Li</i>, 2009]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Xu, Jijie, Tak-Kuen John Koo, and Zexiang Li. “<a href="https://link.springer.com/article/10.1007/s10514-009-9164-5" target="_blank" rel="noopener">Sampling-based finger gaits planning for multifingered robotic hand.</a>“ <em>Autonomous Robots</em> 28.4 (2010): 385-402.</p>
+</blockquote>
+<p>How to generate a feasible sequence of different grasp status to accomplish the manipulation task.</p>
+<p><strong>Finger gaits hybrid nature</strong>:</p>
+<ul>
+<li>Discontinuity caused by the relocation of the fingers</li>
+<li>Continuity maintained by the manipulation of objects</li>
+</ul>
+<p>Finger gaiting primitives:</p>
+<ul>
+<li>Finger substitution [Hong et al. 1990; Han and Trinkle 1998; Xu and Li 2006]<ul>
+<li>Grasping fingers</li>
+<li>Free fingers (stay at pre-described configuration and perform the substitution)</li>
+</ul>
+</li>
+</ul>
+<p>Assumptions:</p>
+<ol>
+<li>Rigid body</li>
+<li>Finger tip point contact</li>
+<li>No sliding or rolling</li>
+</ol>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Randomized multi-modal motion planning for a humanoid robot manipulation task</b> [<i>Hauser, Ng-Thow-Hing</i>, 2011]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Hauser, Kris, and Victor Ng-Thow-Hing. “Randomized multi-modal motion planning for a humanoid robot manipulation task.” The International Journal of Robotics Research 30.6 (2011): 678-698.</p>
+</blockquote>
+<p>Planning for a hybrid system.</p>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Real-time finger gaits planning for dexterous manipulation</b> [<i>Fan et al.</i>, 2017]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fan, Y., Gao, W., Chen, W., &amp; Tomizuka, M. (2017). <em>Real-time finger gaits planning for dexterous manipulation.</em>IFAC-PapersOnLine, 50(1), 12765-12772.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Real-time grasp planning for multi-fingered hands by finger splitting</b> [<i>Fan et al.</i>, 2018]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Fan, Y., Tang, T., Lin, H. C., &amp; Tomizuka, M. (2018, October). <em>Real-time grasp planning for multi-fingered hands by finger splitting.</em> In 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (pp. 4045-4052). IEEE.</p>
+</blockquote>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation</b> [<i>Sundaralingam, Hermans</i>, 2018]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Sundaralingam, Balakumar, and Tucker Hermans. <em>“Geometric in-hand regrasp planning: Alternating optimization of finger gaits and in-grasp manipulation.”</em> 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.</p>
+</blockquote>
+
+        </div>
+    </div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
 </article>

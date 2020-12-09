@@ -2,14 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    <loc>http://xueyuechuan.me/notes/manipulation.html</loc>
     
-    <lastmod>2020-12-09T00:02:54.931Z</lastmod>
+    <lastmod>2020-12-09T07:30:43.421Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/manipulation.html</loc>
+    <loc>http://xueyuechuan.me/notes/shimoga1996.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.421Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/han1998.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/hauser2011.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/leveroni1996.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/han1997.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.419Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
+    
+    <lastmod>2020-12-09T07:30:43.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/borst2004.html</loc>
+    
+    <lastmod>2020-12-09T07:30:43.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
     
     <lastmod>2020-12-09T00:02:54.931Z</lastmod>
     
@@ -65,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/fan2018.html</loc>
+    <loc>http://xueyuechuan.me/notes/fan2017.html</loc>
     
     <lastmod>2020-12-07T07:35:07.540Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/feix2016.html</loc>
+    <loc>http://xueyuechuan.me/notes/fan2018.html</loc>
     
     <lastmod>2020-12-07T07:35:07.540Z</lastmod>
     
@@ -86,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/fan2017.html</loc>
+    <loc>http://xueyuechuan.me/notes/feix2016.html</loc>
     
     <lastmod>2020-12-07T07:35:07.540Z</lastmod>
     
@@ -149,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/yu1998.html</loc>
+    <loc>http://xueyuechuan.me/notes/zhang1995.html</loc>
     
     <lastmod>2020-12-03T17:45:23.180Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/zhang1995.html</loc>
+    <loc>http://xueyuechuan.me/notes/yu1998.html</loc>
     
     <lastmod>2020-12-03T17:45:23.180Z</lastmod>
     
@@ -219,13 +268,6 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/2020/11/17/Terms/</loc>
-    
-    <lastmod>2020-12-01T22:26:19.107Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/zou2020.html</loc>
     
     <lastmod>2020-12-01T17:07:48.131Z</lastmod>
@@ -261,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/taylor2020.html</loc>
+    <loc>http://xueyuechuan.me/notes/sintov2020.html</loc>
     
     <lastmod>2020-11-24T21:28:24.647Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/sintov2020.html</loc>
+    <loc>http://xueyuechuan.me/notes/taylor2020.html</loc>
     
     <lastmod>2020-11-24T21:28:24.647Z</lastmod>
     
@@ -737,13 +779,6 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/han1997.html</loc>
-    
-    <lastmod>2019-07-08T19:18:51.024Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/montana1992.html</loc>
     
     <lastmod>2019-07-08T18:44:45.209Z</lastmod>
@@ -1027,13 +1062,6 @@
     <loc>http://xueyuechuan.me/notes/dam1998.html</loc>
     
     <lastmod>2019-06-29T02:17:08.073Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/notes/han1998.html</loc>
-    
-    <lastmod>2019-06-29T02:02:09.221Z</lastmod>
     
   </url>
   
