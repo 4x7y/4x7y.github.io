@@ -7,22 +7,17 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Yim, Justin K., Eric K. Wang, and Ronald S. Fearing. “Drift-free Roll and Pitch Estimation for High-acceleration Hopping.“ IEEE International Conference on Robotics and Automation (2019)   Motivation">
+    <meta name="description" content="Roa Garzón, Máximo, and Raúl Suárez Feijóo. “Grasp quality measures: review and performance.” Autonomous robots 38.1 (2015): 65-88.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Drift-free Roll and Pitch Estimation for High-acceleration Hopping">
-<meta property="og:url" content="http://xueyuechuan.me/notes/yim2019.html">
+<meta property="og:title" content="Grasp quality measures: review and performance.">
+<meta property="og:url" content="http://xueyuechuan.me/notes/roa2015.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="Yim, Justin K., Eric K. Wang, and Ronald S. Fearing. “Drift-free Roll and Pitch Estimation for High-acceleration Hopping.“ IEEE International Conference on Robotics and Automation (2019)   Motivation">
+<meta property="og:description" content="Roa Garzón, Máximo, and Raúl Suárez Feijóo. “Grasp quality measures: review and performance.” Autonomous robots 38.1 (2015): 65-88.">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://xueyuechuan.me/notes/yim2019/robot.png">
-<meta property="og:image" content="http://xueyuechuan.me/notes/yim2019/control-diagram.png">
-<meta property="og:image" content="http://xueyuechuan.me/notes/yim2019/attitude-error.png">
-<meta property="og:image" content="http://xueyuechuan.me/notes/yim2019/calibration.png">
-<meta property="og:updated_time" content="2019-06-30T05:24:40.028Z">
+<meta property="og:updated_time" content="2021-02-03T02:44:24.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Drift-free Roll and Pitch Estimation for High-acceleration Hopping">
-<meta name="twitter:description" content="Yim, Justin K., Eric K. Wang, and Ronald S. Fearing. “Drift-free Roll and Pitch Estimation for High-acceleration Hopping.“ IEEE International Conference on Robotics and Automation (2019)   Motivation">
-<meta name="twitter:image" content="http://xueyuechuan.me/notes/yim2019/robot.png">
+<meta name="twitter:title" content="Grasp quality measures: review and performance.">
+<meta name="twitter:description" content="Roa Garzón, Máximo, and Raúl Suárez Feijóo. “Grasp quality measures: review and performance.” Autonomous robots 38.1 (2015): 65-88.">
     
     
         
@@ -42,7 +37,7 @@
         
     
     <!-- title -->
-    <title>Drift-free Roll and Pitch Estimation for High-acceleration Hopping</title>
+    <title>Grasp quality measures: review and performance.</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -99,45 +94,8 @@
   <div class="content" itemprop="articleBody">
       
           <blockquote>
-<p>Yim, Justin K., Eric K. Wang, and Ronald S. Fearing. “<a href="https://people.eecs.berkeley.edu/~ronf/PAPERS/jyim-icra2019.pdf" target="_blank" rel="noopener">Drift-free Roll and Pitch Estimation for High-acceleration Hopping.</a>“ IEEE International Conference on Robotics and Automation (2019)</p>
+<p>Roa Garzón, Máximo, and Raúl Suárez Feijóo. “Grasp quality measures: review and performance.” Autonomous robots 38.1 (2015): 65-88.</p>
 </blockquote>
-<p><img src="yim2019/robot.png" width="450"></p>
-<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation:"></a>Motivation:</h3><ul>
-<li>Runners that operate like Spring Loaded Inverted Pendulums (SLIP) rely on accurate attitude for running control.</li>
-<li>Accelerometer-based attitude drift compensation is difficult in hopping free-fall flight and high-acceleration stance.</li>
-<li><strong>SHOVE</strong> estimates attitude using SLIP-like dynamics without any exteroceptive sensing.</li>
-</ul>
-<h3 id="Estimation-and-Control-Block-Diagram"><a href="#Estimation-and-Control-Block-Diagram" class="headerlink" title="Estimation and Control Block Diagram"></a>Estimation and Control Block Diagram</h3><p><img src="yim2019/control-diagram.png" width="450"></p>
-<h3 id="SLIP-Hopping-Orientation-and-Velocity-Estimation-SHOVE"><a href="#SLIP-Hopping-Orientation-and-Velocity-Estimation-SHOVE" class="headerlink" title="SLIP Hopping Orientation and Velocity Estimation (SHOVE)"></a>SLIP Hopping Orientation and Velocity Estimation (SHOVE)</h3><ul>
-<li><p>Intended trajectory</p>
-</li>
-<li><p>Trajectory with attitude error</p>
-<p><img src="yim2019/attitude-error.png" width="450"></p>
-</li>
-<li><p>Attitude correction</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\theta_d \approx \theta_s &= K_x \hat{v}_{ex} - K_e (\hat{\theta} - \theta_c) \\
-\phi_d \approx \phi_s &= -K_y \hat{v}_{ey} + K_e (\hat{\phi} - \phi_c)
-\end{align}</script></li>
-</ul>
-<h3 id="Estimation-and-Control-Algorithm"><a href="#Estimation-and-Control-Algorithm" class="headerlink" title="Estimation and Control Algorithm"></a>Estimation and Control Algorithm</h3><ul>
-<li><p><strong>While the robot is in the air</strong>:</p>
-<ol>
-<li>Estimate Euler angles $\hat{\theta}$ and $\hat{\phi}$ by integrating rate gyroscopes</li>
-<li>Deadbeat velocity controller commands touchdown attitudes $\theta_c$ and $\phi_c$ to control lift-off velocity $v_{LO}$</li>
-</ol>
-</li>
-<li><p><strong>While the robot lifts off</strong>:</p>
-<ol>
-<li>Estimate lift-off velocity $\hat{v}_{LO}$ using leg encoders and calibrated leg model</li>
-<li>Compute attitude corrections $\theta_s$ and $\phi_s$ from horizontal velocity errors $\hat{v}_{ex}$ and $\hat{v}_{ey}$</li>
-<li>Correct attitude estimates $\hat{\theta}$ and $\hat{\phi}$ by subtracting $\theta_s$ and $\phi_s$ from them (SHOVE does not try to correct yaw)</li>
-<li>Repeat for the next jump</li>
-</ol>
-</li>
-</ul>
-<h3 id="Velocity-Estimation-and-Calibration"><a href="#Velocity-Estimation-and-Calibration" class="headerlink" title="Velocity Estimation and Calibration"></a>Velocity Estimation and Calibration</h3><p><img src="yim2019/calibration.png" width="450"></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
         
   </div>
