@@ -7,22 +7,22 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
+    <meta name="description" content="GraspingMain Problems  Grasp Planning Object surface geometry representation Parametric surface Surface points and their normals   Determination of finger contact points Determination of hand configur">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Grasping">
 <meta property="og:url" content="http://xueyuechuan.me/notes/grasping.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
+<meta property="og:description" content="GraspingMain Problems  Grasp Planning Object surface geometry representation Parametric surface Surface points and their normals   Determination of finger contact points Determination of hand configur">
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/nguyen1988/two-finger-grasp.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/finger.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/config.png">
 <meta property="og:image" content="http://xueyuechuan.me/notes/hang2019/cspace.png">
-<meta property="og:updated_time" content="2021-02-03T02:44:26.356Z">
+<meta property="og:updated_time" content="2021-02-03T03:43:08.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grasping">
-<meta name="twitter:description" content="GraspingMain Problems  Finding a feasible grasp on a given object Object surface geometry representation Parametric surface Surface points and their normals   Finding the optimal grasp on a given obje">
+<meta name="twitter:description" content="GraspingMain Problems  Grasp Planning Object surface geometry representation Parametric surface Surface points and their normals   Determination of finger contact points Determination of hand configur">
 <meta name="twitter:image" content="http://xueyuechuan.me/notes/borst2002/pinch-grasp.png">
     
     
@@ -101,10 +101,18 @@
       
           <h1 id="Grasping"><a href="#Grasping" class="headerlink" title="Grasping"></a>Grasping</h1><p>Main Problems</p>
 <ul>
-<li><strong>Finding a feasible grasp on a given object</strong><ul>
+<li><strong>Grasp Planning</strong><ul>
 <li>Object surface geometry representation<ul>
 <li>Parametric surface</li>
 <li>Surface points and their normals</li>
+</ul>
+</li>
+<li>Determination of finger contact points</li>
+<li>Determination of hand configuration</li>
+<li>Grasp classification</li>
+<li>Grasp quality measures<ul>
+<li>Contact points location only</li>
+<li>Hand configuration</li>
 </ul>
 </li>
 <li>Finding the optimal grasp on a given object<ul>
@@ -112,10 +120,6 @@
 <li>Grasp evaluation (grasp metric)</li>
 </ul>
 </li>
-<li>Grasp classification</li>
-</ul>
-<hr>
-<ul>
 <li>Determine if a grasp is force closure, given a set of contact points and contact model</li>
 <li>Determine if the fingers are able to apply a specified resultant wrench on the object, given a grasp, joint torque limits, and hand kinematic structure.</li>
 <li>Compute the optimal contact forces</li>
@@ -564,6 +568,16 @@ S_k(\boldsymbol{x}, p_k^b) = e^{\,p_k^b \,(\theta_{\rm lb} - \theta)} + e^{\,p_k
 <li>Preliminary Grasp</li>
 <li>Grasp Optimization</li>
 </ul>
+
+        </div>
+    </div>
+
+    <div class="spoiler collapsed">
+        <div class="spoiler-title"><b>  Integrating motion and hierarchical fingertip grasp planning</b> [<i>Haustein, Hang, Kragic</i>, 2017]</div>
+        <div class="spoiler-content">
+            <blockquote>
+<p>Haustein, Joshua A., Kaiyu Hang, and Danica Kragic. “Integrating motion and hierarchical fingertip grasp planning.” 2017 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2017.    </p>
+</blockquote>
 
         </div>
     </div>
