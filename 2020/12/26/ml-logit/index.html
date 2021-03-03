@@ -7,17 +7,19 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+    <meta name="description" content="Logistic Regression and Maximum EntropyLogistic Regression ModelLogistic DistributionProbability density function and Cumulative distribution function are  \begin{align} f(x) &amp;= \frac{e^{-(x-\mu) / \g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zhihu Collection">
-<meta property="og:url" content="http://xueyuechuan.me/2020/11/17/Zhihu/index.html">
+<meta property="og:title" content="Machine Learning - Logit (MaxEntropy)">
+<meta property="og:url" content="http://xueyuechuan.me/2020/12/26/ml-logit/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+<meta property="og:description" content="Logistic Regression and Maximum EntropyLogistic Regression ModelLogistic DistributionProbability density function and Cumulative distribution function are  \begin{align} f(x) &amp;= \frac{e^{-(x-\mu) / \g">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2020-11-24T21:28:24.645Z">
+<meta property="og:image" content="http://xueyuechuan.me/2020/12/26/ml-logit/logistic-distribution.png">
+<meta property="og:updated_time" content="2021-03-03T02:48:35.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhihu Collection">
-<meta name="twitter:description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+<meta name="twitter:title" content="Machine Learning - Logit (MaxEntropy)">
+<meta name="twitter:description" content="Logistic Regression and Maximum EntropyLogistic Regression ModelLogistic DistributionProbability density function and Cumulative distribution function are  \begin{align} f(x) &amp;= \frac{e^{-(x-\mu) / \g">
+<meta name="twitter:image" content="http://xueyuechuan.me/2020/12/26/ml-logit/logistic-distribution.png">
     
     
         
@@ -37,7 +39,7 @@
         
     
     <!-- title -->
-    <title>Zhihu Collection</title>
+    <title>Machine Learning - Logit (MaxEntropy)</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -78,10 +80,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/12/17/ml-overview/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/27/ml-svm/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/11/17/Terms/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/20/ml-decision-tree/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -94,21 +96,21 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/11/17/Zhihu/&text=Zhihu Collection"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/11/17/Zhihu/&is_video=false&description=Zhihu Collection"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Zhihu Collection&body=Check out this article: http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/11/17/Zhihu/&name=Zhihu Collection&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/26/ml-logit/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/26/ml-logit/&text=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/26/ml-logit/&is_video=false&description=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Logit (MaxEntropy)&body=Check out this article: http://xueyuechuan.me/2020/12/26/ml-logit/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/26/ml-logit/&name=Machine Learning - Logit (MaxEntropy)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Logistic-Regression-and-Maximum-Entropy"><span class="toc-number">1.</span> <span class="toc-text">Logistic Regression and Maximum Entropy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Logistic-Regression-Model"><span class="toc-number">1.1.</span> <span class="toc-text">Logistic Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Logistic-Distribution"><span class="toc-number">1.1.1.</span> <span class="toc-text">Logistic Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binomial-Logistic-Regression-Model"><span class="toc-number">1.1.2.</span> <span class="toc-text">Binomial Logistic Regression Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-nominal-Logistic-Regression-Model"><span class="toc-number">1.1.3.</span> <span class="toc-text">Multi-nominal Logistic Regression Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-Entropy-Model"><span class="toc-number">1.2.</span> <span class="toc-text">Maximum Entropy Model</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -120,7 +122,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Zhihu Collection
+        Machine Learning - Logit (MaxEntropy)
     </h1>
 
 
@@ -131,11 +133,16 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2020-11-17T20:59:05.000Z" itemprop="datePublished">2020-11-17</time>
+        <time datetime="2020-12-26T18:59:05.000Z" itemprop="datePublished">2020-12-26</time>
     </div>
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
 
       
 
@@ -144,21 +151,49 @@
   
 
   <div class="content" itemprop="articleBody">
-    <ul>
-<li><a href="https://www.zhihu.com/question/35484429/answer/62964898" target="_blank" rel="noopener">现在的 Linux 内核和 Linux 2.6 的内核有多大区别</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/31981912" target="_blank" rel="noopener">我为什么不使用ROS？</a></li>
-<li><a href="https://www.zhihu.com/question/41549666/answer/154092609" target="_blank" rel="noopener">KUKA LBR iiwa 机械手是如何实现精密力控制的？</a></li>
-<li><a href="https://www.zhihu.com/question/48356514/answer/123290631" target="_blank" rel="noopener">自动微分法（Automatic differentiation）是如何用C++实现的？</a></li>
-<li><a href="https://www.zhihu.com/question/35116055/answer/62001013" target="_blank" rel="noopener">orb-slam在众多SLAM方法中处于怎样的地位？</a></li>
-<li><a href="https://www.zhihu.com/question/19813460/answer/13042143" target="_blank" rel="noopener">为什么局域网的IP普遍是192.168开头？</a></li>
-<li><a href="https://www.zhihu.com/question/35186064/answer/69699924" target="_blank" rel="noopener">学习SLAM需要哪些预备知识？</a></li>
-<li><a href="https://www.zhihu.com/question/26743347/answer/34235147" target="_blank" rel="noopener">网易云音乐的歌单推荐算法是怎样的？</a></li>
-<li><a href="https://www.zhihu.com/question/20962240/answer/33438846" target="_blank" rel="noopener">如何用简单易懂的例子解释隐马尔可夫模型？</a></li>
-<li><a href="https://www.zhihu.com/question/29434085/answer/53196878" target="_blank" rel="noopener">刚刚开始做机器人，打算做SLAM，不知道机器人定位领域现在有哪些比较新的算法？希望大家推荐推荐</a></li>
-<li><a href="https://www.zhihu.com/question/24696366/answer/29189700" target="_blank" rel="noopener">如何理解关系型数据库的常见设计范式？</a></li>
-<li><a href="https://www.zhihu.com/question/23643049/answer/28018472" target="_blank" rel="noopener">机器人操作平台 (ROS) 的软件开发流程是什么？</a></li>
-<li><a href="https://www.zhihu.com/question/22943856/answer/27122267" target="_blank" rel="noopener">模糊化或者马赛克化处理后的图像可以再复原吗？</a></li>
+    <h1 id="Logistic-Regression-and-Maximum-Entropy"><a href="#Logistic-Regression-and-Maximum-Entropy" class="headerlink" title="Logistic Regression and Maximum Entropy"></a>Logistic Regression and Maximum Entropy</h1><h2 id="Logistic-Regression-Model"><a href="#Logistic-Regression-Model" class="headerlink" title="Logistic Regression Model"></a>Logistic Regression Model</h2><h3 id="Logistic-Distribution"><a href="#Logistic-Distribution" class="headerlink" title="Logistic Distribution"></a>Logistic Distribution</h3><p>Probability density function and Cumulative distribution function are</p>
+<script type="math/tex; mode=display">
+\begin{align}
+f(x) &= \frac{e^{-(x-\mu) / \gamma}}{\gamma (1 + e^{-(x-\mu)/\gamma})^2} \\
+F(x) &= \frac{1}{1+e^{-(x-\mu)/\gamma}}
+\end{align}</script><p><img src="../ml-logit/logistic-distribution.png" width="50%"></p>
+<center>Logistic Distribution</center>
+
+<p><code>Sigmoid Function</code></p>
+<script type="math/tex; mode=display">
+f(x) = \frac{1}{1 + e^{-x}}</script><h3 id="Binomial-Logistic-Regression-Model"><a href="#Binomial-Logistic-Regression-Model" class="headerlink" title="Binomial Logistic Regression Model"></a>Binomial Logistic Regression Model</h3><p>Binomial logistic regression model is a classification model that is represented by conditional probability $P(Y \mid X)$ and formulated by paramterized logistic distribution.</p>
+<p><strong>What is the Sigmoid Function?</strong></p>
+<p>In order to map predicted values to probabilities, we use the Sigmoid function. The function maps any real value into another value between 0 and 1. In machine learning, we use sigmoid to map predictions to probabilities.</p>
+<p><strong>Model</strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(Y=0\mid x) = \frac{1}{1+\exp(\wb \cdot \xb + b)} \\[1em]
+P(Y=1\mid x) = \frac{\exp(\wb \cdot \xb + b)}{1+\exp(\wb \cdot \xb + b)}
+\end{align}</script><p>For a given binary logistic regression model with parameters $\wb$ and $b$, an input $\xb$ can be classified by comparing the above two probabilities.</p>
+<p><strong>How to determine $\wb$ and $b$?</strong></p>
+<p><code>Likelihood Function</code></p>
+<script type="math/tex; mode=display">
+\prod_{i=1}^N [\pi(\xb_i)]^{y_i} [1 - \pi(\xb_i)]^{1 - y_i}</script><p><code>Log-likelihood Function</code></p>
+<script type="math/tex; mode=display">
+\begin{align}
+L(\wb) 
+&= \sum_{i=1}^N \left[ y_i \log \pi(\xb_i) + (1 - y_i) \log(1-\pi(\xb_i)) \right] \\[1em]
+&= \sum_{i=1}^N \left[ y_i \log \frac{\pi(\xb_i)}{1-\pi(\xb_i)} + \log(1-\pi(\xb_i)) \right] \\[1em]
+&= \sum_{i=1}^N \left[ y_i \big(\wb \cdot \xb_i + b\big) - \log\big(1 + (\wb \cdot \xb_i + b)\big) \right] 
+\end{align}</script><p>Maximize $L(\wb, b)$ with respect to parameters $\wb$ and $b$. </p>
+<h3 id="Multi-nominal-Logistic-Regression-Model"><a href="#Multi-nominal-Logistic-Regression-Model" class="headerlink" title="Multi-nominal Logistic Regression Model"></a>Multi-nominal Logistic Regression Model</h3><script type="math/tex; mode=display">
+\begin{align}
+P(Y=K\mid x) &= \frac{1}{1+\sum_{k=1}^{K-1} \exp(\wb_k \cdot \xb + b_k)} \\[1em]
+P(Y=k\mid x) &= \frac{\exp(\wb_k \cdot \xb + b_k)}{1+\sum_{k=1}^{K-1} \exp(\wb_k \cdot \xb + b_k)}, \qquad k = 1, \ldots, K-1
+\end{align}</script><h2 id="Maximum-Entropy-Model"><a href="#Maximum-Entropy-Model" class="headerlink" title="Maximum Entropy Model"></a>Maximum Entropy Model</h2><p><code>Entropy</code>: The entropy of a discrete random variable with probability mass distribution $P(X)$ is</p>
+<script type="math/tex; mode=display">
+H(X) = -\sum_{x\in X} P(x) \, \log_2 P(x)</script><ul>
+<li>Measure of uncertainty of $X$</li>
+<li>$H(X) \geq 0$</li>
+<li>Maximal for uniform distribution. For a finite support, by Jensen’s inequality:<script type="math/tex; mode=display">
+H(X) =  \sum_{x\in X} P(x) \, \log \frac{1}{P(x)} \leq  \log \sum_{x\in X} P(x) \, \frac{1}{P(x)} = \log N</script></li>
 </ul>
+<p><code>MaxEnt Principle</code>: find distribution that is closest to a prior distribution (typically uniform distribution) while verifying</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
   </div>
 </article>
@@ -190,21 +225,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Logistic-Regression-and-Maximum-Entropy"><span class="toc-number">1.</span> <span class="toc-text">Logistic Regression and Maximum Entropy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Logistic-Regression-Model"><span class="toc-number">1.1.</span> <span class="toc-text">Logistic Regression Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Logistic-Distribution"><span class="toc-number">1.1.1.</span> <span class="toc-text">Logistic Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binomial-Logistic-Regression-Model"><span class="toc-number">1.1.2.</span> <span class="toc-text">Binomial Logistic Regression Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-nominal-Logistic-Regression-Model"><span class="toc-number">1.1.3.</span> <span class="toc-text">Multi-nominal Logistic Regression Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-Entropy-Model"><span class="toc-number">1.2.</span> <span class="toc-text">Maximum Entropy Model</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/11/17/Zhihu/&text=Zhihu Collection"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/11/17/Zhihu/&is_video=false&description=Zhihu Collection"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Zhihu Collection&body=Check out this article: http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/11/17/Zhihu/&name=Zhihu Collection&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/26/ml-logit/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/26/ml-logit/&text=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/26/ml-logit/&is_video=false&description=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Logit (MaxEntropy)&body=Check out this article: http://xueyuechuan.me/2020/12/26/ml-logit/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/26/ml-logit/&title=Machine Learning - Logit (MaxEntropy)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/26/ml-logit/&name=Machine Learning - Logit (MaxEntropy)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="OverviewThe three elements of statistical learningModel + Strategy + Algorithm MODEL  Hypothesis space A set of deterministic funtions \mathcal{F} = \{ f \mid Y = f(X)\} A set of conditional probabili">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning - Overview">
+<meta property="og:url" content="http://xueyuechuan.me/2020/12/17/ml-overview/index.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="OverviewThe three elements of statistical learningModel + Strategy + Algorithm MODEL  Hypothesis space A set of deterministic funtions \mathcal{F} = \{ f \mid Y = f(X)\} A set of conditional probabili">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://xueyuechuan.me/2020/12/17/ml-overview/ml-mind-graph.png">
+<meta property="og:updated_time" content="2021-03-03T02:48:35.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning - Overview">
+<meta name="twitter:description" content="OverviewThe three elements of statistical learningModel + Strategy + Algorithm MODEL  Hypothesis space A set of deterministic funtions \mathcal{F} = \{ f \mid Y = f(X)\} A set of conditional probabili">
+<meta name="twitter:image" content="http://xueyuechuan.me/2020/12/17/ml-overview/ml-mind-graph.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Machine Learning - Overview</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/12/19/ml-perceptron/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/11/17/Zhihu/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/17/ml-overview/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/17/ml-overview/&text=Machine Learning - Overview"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/17/ml-overview/&is_video=false&description=Machine Learning - Overview"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Overview&body=Check out this article: http://xueyuechuan.me/2020/12/17/ml-overview/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/17/ml-overview/&name=Machine Learning - Overview&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-three-elements-of-statistical-learning"><span class="toc-number">1.1.</span> <span class="toc-text">The three elements of statistical learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Training"><span class="toc-number">1.2.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Supervised-Learning-Problems"><span class="toc-number">1.3.</span> <span class="toc-text">Supervised Learning Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mind-Graph"><span class="toc-number">1.4.</span> <span class="toc-text">Mind Graph</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Machine Learning - Overview
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Yuechuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-12-17T18:59:05.000Z" itemprop="datePublished">2020-12-17</time>
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><h2 id="The-three-elements-of-statistical-learning"><a href="#The-three-elements-of-statistical-learning" class="headerlink" title="The three elements of statistical learning"></a>The three elements of statistical learning</h2><p>Model + Strategy + Algorithm</p>
+<p><strong>MODEL</strong></p>
+<ul>
+<li><code>Hypothesis space</code><ul>
+<li>A set of deterministic funtions<script type="math/tex; mode=display">
+\mathcal{F} = \{ f \mid Y = f(X)\}</script></li>
+<li>A set of conditional probabilities<script type="math/tex; mode=display">
+\mathcal{F} = \{ P \mid P(Y\mid X)\}</script></li>
+</ul>
+</li>
+<li><code>Generative Model</code> and <code>Discriminative Model</code><ul>
+<li>Generative Model<ul>
+<li>Explicitly models the actual distribution of each class, i.e. the joint distribution $P(X, Y)$.</li>
+<li>$P(Y\mid X) = P(X, Y) / P(X)$</li>
+<li>Examples: Naive Bayes, Hidden Markov Model</li>
+</ul>
+</li>
+<li>Discriminative Model<ul>
+<li>Models the decision boundary between the classes.</li>
+<li>Estimate parameters of $P(Y\mid X)$ directly from training data</li>
+<li>Examples: KNN, Perception Machine, Decision Tree, Logistic Regression, Maximum Entropy Model</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>STRATEGY</strong><br>How to choose the best model?</p>
+<ul>
+<li>Loss function<br>  smaller loss function value =&gt; better model<ul>
+<li>0-1 loss function</li>
+<li>quadratic loss function</li>
+<li>absolute loss function</li>
+<li>logarithmic (log-likelihood) loss function</li>
+</ul>
+</li>
+<li><p>Risk function<br>  <code>Risk function</code> or expected loss.</p>
+<script type="math/tex; mode=display">
+  R_{exp} = \mathbb{E}_P [L(Y, f(X))] = \int_{\mathcal{X} \times \mathcal{Y}} L(y, f(x)) P(x, y) {\rm d}x{\rm d}y</script><p>  The target of machine learning is to select the model that minimizes the risk function. However, we do not know the exact distribution of $P(X, Y)$, such that $R_{exp}$ cannot be computed directly and supervised learning becomes an ill-formed problem.</p>
+<p>  <code>Empirical risk</code> or empirical loss.</p>
+<script type="math/tex; mode=display">
+  R_{emp} = \frac{1}{N} \sum_{i=1}^N L(y_i, f(x_i))</script><p>  The empirical risk is introduced to approximate the risk function $R_{exp}$. When sample size $N$ approaches infinity, according to the large number theorem, $R_{emp} \rightarrow R_{exp}$.</p>
+<p>  <code>Structural risk</code></p>
+<script type="math/tex; mode=display">
+  R_{srm} = \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)</script><p>  If the training set is small, minimization of the empirical risk may lead to ‘overfitting’. To avoid this, a penalty term $\lambda J(f)$ is added to the empirical risk. Typically, the penalty term $J(f)$ is chosen so that it has a smaller value if the model is simpler. $\lambda \geq 0$ is a coefficient that balance the empirical risk and model complexity.</p>
+</li>
+<li>Methods<ul>
+<li><code>Empirical risk minimization</code> [large enough dataset]<script type="math/tex; mode=display">
+\min_{f\in \mathcal{F}} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))</script></li>
+<li><code>Structual risk minimization</code> [<code>regularization</code>]<script type="math/tex; mode=display">
+\min_{f\in \mathcal{F}} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)</script>At times when the model begins to underfit or overfit, regularization becomes necessary. It is a regression that diverts or regularizes the coefficient estimates towards zero. It reduces flexibility and discourages learning in a model to avoid the risk of overfitting. The model complexity is reduced and it becomes better at predicting.</li>
+</ul>
+</li>
+</ul>
+<p><strong>ALGORITHM</strong><br>The statistical learning problem becomes an optimization problem.</p>
+<ul>
+<li>Closed-form optimal solution exists or not?</li>
+<li>If not, we rely on numerical methods. How to find the global optimal solution?</li>
+<li>How to make the searching process efficient?</li>
+</ul>
+<h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>Training error and testing error</p>
+<p><strong>Cross validation</strong></p>
+<ul>
+<li><p><code>Simple cross validation</code></p>
+</li>
+<li><p><code>S-fold cross validation</code></p>
+</li>
+<li><p><code>Leave-one-out cross validation</code><br>  Usually applied when data set is small.</p>
+</li>
+</ul>
+<h2 id="Supervised-Learning-Problems"><a href="#Supervised-Learning-Problems" class="headerlink" title="Supervised Learning Problems"></a>Supervised Learning Problems</h2><p><strong>Classification</strong></p>
+<ul>
+<li><code>Binary Classification</code> or <code>Multi Classification</code><ul>
+<li>$y_i \in \{0, 1\}$</li>
+<li>$y_i \in \{0, 1, \ldots, k\}$</li>
+</ul>
+</li>
+<li>Confusion Matrix<ul>
+<li>TP, FM, FP, TN</li>
+<li>[True/False] Predicted correctly or incorrectly</li>
+<li>[Positive/Negative] The result of the classifier</li>
+</ul>
+</li>
+<li>Metric<ul>
+<li><code>Accuracy</code><script type="math/tex; mode=display">
+r = \frac{1}{N}\sum_{i=1}^N I(y_i = \hat{f}(x_i))</script></li>
+<li><code>Precision</code><script type="math/tex; mode=display">
+P = \frac{TP}{TP + FP}</script></li>
+<li><code>Recall</code><script type="math/tex; mode=display">
+R = \frac{TP}{TP + FN}</script></li>
+<li>$F_1$<script type="math/tex; mode=display">
+F_1 = \cfrac{2}{\cfrac{1}{P} + \cfrac{1}{R}}</script><ul>
+<li>Harmonic mean of precision $P$ and recall $R$</li>
+<li>$F_1 \rightarrow 1$, results tending to be the best.</li>
+<li>$F_1 \rightarrow 0$, results tending to be the worst.</li>
+<li>Use it in classification tests where true negatives don’t matter much.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tagging</strong></p>
+<ul>
+<li>A generalization of the classification problem</li>
+<li>Input: a sequence of observations, i.e. a training set $T$ is a set of sequences $\{(x_1, y_1), (x_2, y_2), \ldots, (x_N, y_N) \}$, where $x_i = (x_i^1, x_i^2, \ldots, x_i^n), y_i = (y_i^1, y_i^2, \ldots, y_i^n)$ are two obseravation sequences. Typically, $n \ll N$.</li>
+<li>Goal: Searching for a sequence $y$ for a given sequence $x$, that maximizes the conditional probability $\hat{P}(Y\mid X)$.</li>
+<li>Examples: Conditional Random Fields, HMM</li>
+</ul>
+<p><strong>Regression</strong></p>
+<ul>
+<li>Statistical processes for estimating the relationships between a dependent variable and one or more independent variables (features).</li>
+<li>Training data: $x_i \in \mathbb{R}^n$, $y_i \in \mathbb{R}$.</li>
+</ul>
+<h2 id="Mind-Graph"><a href="#Mind-Graph" class="headerlink" title="Mind Graph"></a>Mind Graph</h2><p><img src="../ml-overview/ml-mind-graph.png"></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-three-elements-of-statistical-learning"><span class="toc-number">1.1.</span> <span class="toc-text">The three elements of statistical learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Training"><span class="toc-number">1.2.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Supervised-Learning-Problems"><span class="toc-number">1.3.</span> <span class="toc-text">Supervised Learning Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mind-Graph"><span class="toc-number">1.4.</span> <span class="toc-text">Mind Graph</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/17/ml-overview/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/17/ml-overview/&text=Machine Learning - Overview"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/17/ml-overview/&is_video=false&description=Machine Learning - Overview"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Overview&body=Check out this article: http://xueyuechuan.me/2020/12/17/ml-overview/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/17/ml-overview/&title=Machine Learning - Overview"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/17/ml-overview/&name=Machine Learning - Overview&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

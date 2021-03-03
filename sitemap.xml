@@ -2,6 +2,188 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xueyuechuan.me/notes/rosen1960.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.301Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/zhao1994.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.301Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/manipulation.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/planning.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/lavalle2001.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/prieur2012.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/index.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/goldfarb1969.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/inverse_kinematics.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/31/ml-regularization/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/27/ml-svm/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/notes/aristidou2018.html</loc>
+    
+    <lastmod>2021-03-03T02:48:35.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/19/ml-perceptron/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.297Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/19/ml-naive-bayes/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.295Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/30/ml-neural-network/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.295Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/17/ml-overview/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.295Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/30/ml-hmm/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.294Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/19/ml-knn/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.294Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/26/ml-logit/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.294Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/31/ml-deep-learning/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.293Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/29/ml-em/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.293Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.293Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/31/ml-crf/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/20/ml-decision-tree/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/31/ml-bias-variance/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xueyuechuan.me/2020/12/29/ml-clustering/</loc>
+    
+    <lastmod>2021-03-03T02:48:35.290Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xueyuechuan.me/links/index.html</loc>
     
     <lastmod>2021-02-03T17:41:26.535Z</lastmod>
@@ -37,13 +219,6 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/planning.html</loc>
-    
-    <lastmod>2020-12-09T23:52:06.444Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/salisbury1984.html</loc>
     
     <lastmod>2020-12-09T23:52:06.444Z</lastmod>
@@ -58,21 +233,7 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/index.html</loc>
-    
-    <lastmod>2020-12-09T23:52:06.442Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xueyuechuan.me/notes/li1988.html</loc>
-    
-    <lastmod>2020-12-09T23:52:06.442Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xueyuechuan.me/notes/manipulation.html</loc>
     
     <lastmod>2020-12-09T23:52:06.442Z</lastmod>
     
@@ -240,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/feix2016.html</loc>
+    <loc>http://xueyuechuan.me/notes/ferrari1992.html</loc>
     
     <lastmod>2020-12-07T07:35:07.540Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xueyuechuan.me/notes/ferrari1992.html</loc>
+    <loc>http://xueyuechuan.me/notes/feix2016.html</loc>
     
     <lastmod>2020-12-07T07:35:07.540Z</lastmod>
     

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="It is often found that improved performance can be obtained by combining multiple models together in some way, instead of just using a single model in isolation. For instance, we might train $L$ diffe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning - Ensemble Learning">
+<meta property="og:url" content="http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/index.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="It is often found that improved performance can be obtained by combining multiple models together in some way, instead of just using a single model in isolation. For instance, we might train $L$ diffe">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2021-03-03T02:48:35.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning - Ensemble Learning">
+<meta name="twitter:description" content="It is often found that improved performance can be obtained by combining multiple models together in some way, instead of just using a single model in isolation. For instance, we might train $L$ diffe">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Machine Learning - Ensemble Learning</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/12/29/ml-em/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/12/27/ml-svm/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&text=Machine Learning - Ensemble Learning"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&is_video=false&description=Machine Learning - Ensemble Learning"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Ensemble Learning&body=Check out this article: http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&name=Machine Learning - Ensemble Learning&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Boosting"><span class="toc-number">1.</span> <span class="toc-text">Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaBoost"><span class="toc-number">1.1.</span> <span class="toc-text">AdaBoost</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bagging-Bootstrap-Aggregating"><span class="toc-number">2.</span> <span class="toc-text">Bagging (Bootstrap Aggregating)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Random-Forest"><span class="toc-number">3.</span> <span class="toc-text">Random Forest</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Machine Learning - Ensemble Learning
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Yuechuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-12-28T18:59:05.000Z" itemprop="datePublished">2020-12-28</time>
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>It is often found that improved performance can be obtained by combining multiple models together in some way, instead of just using a single model in isolation. For instance, we might train $L$ different models and then make predictions using the average of the predictions made by each model. Such combinations of models are sometimes called <code>committees</code>.</p>
+<h1 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h1><p>One important variant of the committee method, known as <code>boosting</code>, involves training multiple models in sequence in which the error function used to train a particular model depends on the performance of the previous models. This can produce substantial improvements in performance compared to the use of a single model.</p>
+<ul>
+<li>Combine weak classifiers to obtain very strong classifier<ul>
+<li>Weak classifier – slightly better than random on training data</li>
+<li>Run the weak classifier multiple times on <strong>reweighted</strong><br>training data, then let the learned classifiers vote</li>
+<li>Resulting very strong classifier – can eventually provide zero training error</li>
+</ul>
+</li>
+<li>Voting<ul>
+<li>Ensemble methods</li>
+</ul>
+</li>
+</ul>
+<h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><p>Input: </p>
+<ul>
+<li>Data set $T = \{(\xb_1, y_1), (\xb_2, y_2), \ldots, (\xb_N, y_N)\}$</li>
+<li>Base learning algorithm $G$</li>
+<li>Number of learning rounds $M$</li>
+</ul>
+<p>Process:</p>
+<ol>
+<li>Initialize the weight distribution<script type="math/tex; mode=display">D_1 = \big(w_{1}(1), \cdots, w_1(N)\big),\quad w_1(i) = 1 / N, \quad i = 1, \ldots, N</script></li>
+<li>for $m = 1, \ldots, M$:<ol>
+<li>Train a learner $G_m(\xb)$ from $T$ using distribution $D_m$<script type="math/tex; mode=display">G_m(\xb): \mathcal{X} \rightarrow \{-1, +1\}</script></li>
+<li>Measure the error of $G_m(\xb)$ on training set $T$<script type="math/tex; mode=display">e_m = P(G_m(\xb_i) \neq y_i) = \sum_{i=1}^N w_{m}(i) \,{\Large\unicode{x1D7D9} }(G_m(\xb_i) \neq y_i)</script></li>
+<li>If $e_m &gt; 0.5$, break.</li>
+<li>Determine the weight of $G_m(\xb)$<script type="math/tex; mode=display">\alpha_m = \frac{1}{2} \ln \frac{1 - e_m}{e_m} \geq 0</script></li>
+<li>Update the distribution<script type="math/tex; mode=display">
+\begin{align}
+D_{m+1} &= \big(w_{m+1}(1), \cdots, w_{m+1}(N)\big)\\[1em]
+w_{m+1}(i)  &= \left\{\begin{array}{cc}  \cfrac{w_m(i)}{ Z_m} e^{-\alpha_m}, &\quad  \text{True} \\  \cfrac{w_m(i)}{Z_m} e^{\alpha_m} , & \quad \text{False}\end{array}\right.
+\end{align}</script>where $Z_m$ is a normalization factor<script type="math/tex; mode=display">
+Z_m = \sum_{i=1}^N w_m(i) \exp\big( -\alpha_m y_i G_m (\xb_i) \big)</script>which enables $D_{m+1}$ to be a distribution.</li>
+</ol>
+</li>
+<li>Construct the final classifier<script type="math/tex; mode=display">
+G(\xb) = \text{sign}\left( \sum_{m=1}^M \alpha_m G_m(\xb) \right)</script></li>
+</ol>
+<h1 id="Bagging-Bootstrap-Aggregating"><a href="#Bagging-Bootstrap-Aggregating" class="headerlink" title="Bagging (Bootstrap Aggregating)"></a>Bagging (Bootstrap Aggregating)</h1><p>Bagging (Bootstrap Aggregation) is a general procedure that can be used to <strong>reduce the variance</strong> for those algorithm that have high variance. An algorithm that has high variance are decision trees, like classification and regression trees (CART).</p>
+<p>Decision trees are sensitive to the specific data on which they are trained. If the training data is changed (e.g. a tree is trained on a subset of the training data) the resulting decision tree can be quite different and in turn the predictions can be quite different.</p>
+<p>Bagging is the application of the Bootstrap procedure to a high-variance machine learning algorithm, typically decision trees. For each individual classifier, the training set is selected by using a sampling with replacement method. In this way, nearly 36.8% of the training set is not sampled.</p>
+<script type="math/tex; mode=display">
+\lim_{N \rightarrow \infty} \left(1 - \frac{1}{N} \right)^N = \frac{1}{e} \approx 36.8\%</script><p>Procedure:</p>
+<ol>
+<li>Create many (e.g. 100) random sub-samples of our dataset with replacement.</li>
+<li>Train a ML model on each sub-dataset.</li>
+<li>Given a new dataset, calculate the average prediction from each model.</li>
+</ol>
+<p>For example, if we had 5 bagged decision trees that made the following class predictions for a in input sample: blue, blue, red, blue and red, we would take the most frequent class and predict blue.</p>
+<p>When bagging with decision trees, we are less concerned about individual trees overfitting the training data. For this reason and for efficiency, the individual decision trees are grown deep (e.g. few training samples at each leaf-node of the tree) and the trees are not pruned. These trees will have both high variance and low bias. These are important characteristics of sub-models when combining predictions using bagging.</p>
+<p>The <strong>only parameter</strong> when bagging decision trees is the number of samples and hence <strong>the number of trees</strong> to include. This can be chosen by increasing the number of trees on run after run until the accuracy begins to stop showing improvement (e.g. on a cross validation test harness). Very large numbers of models may take a long time to prepare, but will not overfit the training data.</p>
+<h1 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h1><p>Combining predictions from multiple models in ensembles works better if the predictions from the sub-models are uncorrelated or at best weakly correlated. However, even with Bagging, the decision trees can have a lot of structural similarities and in turn have high correlation in their predictions. This is because decision trees like CART are greedy. They choose which variable to split on using a greedy algorithm that minimizes error.</p>
+<p>Random forest changes the algorithm for the way that the sub-trees are learned so that the resulting predictions from all of the <strong>subtrees have less correlation</strong>.</p>
+<p>It is a simple tweak. In CART, when selecting a split point, the learning algorithm is allowed to look through all variables and all variable values in order to select the most optimal split-point. The random forest algorithm changes this procedure so that the learning algorithm is limited to a random sample of features of which to search.</p>
+<p>The number of features that can be searched at each split point (m) must be specified as a parameter to the algorithm. You can try different values and tune it using cross validation.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Boosting"><span class="toc-number">1.</span> <span class="toc-text">Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaBoost"><span class="toc-number">1.1.</span> <span class="toc-text">AdaBoost</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bagging-Bootstrap-Aggregating"><span class="toc-number">2.</span> <span class="toc-text">Bagging (Bootstrap Aggregating)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Random-Forest"><span class="toc-number">3.</span> <span class="toc-text">Random Forest</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&text=Machine Learning - Ensemble Learning"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&is_video=false&description=Machine Learning - Ensemble Learning"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Ensemble Learning&body=Check out this article: http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&title=Machine Learning - Ensemble Learning"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/28/ml-ensemble-learning/&name=Machine Learning - Ensemble Learning&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

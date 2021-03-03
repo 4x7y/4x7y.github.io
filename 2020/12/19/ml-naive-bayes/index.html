@@ -7,17 +7,17 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+    <meta name="description" content="Naïve BayesAssumptions The data set is generated in an i.i.d. fashion. Conditional Independence (All the features are independent) \begin{align} P(X = x \mid Y = c_k)  &amp;= P(X^{(1)} = x^{(1)}, \ldots,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zhihu Collection">
-<meta property="og:url" content="http://xueyuechuan.me/2020/11/17/Zhihu/index.html">
+<meta property="og:title" content="Machine Learning - Naïve Bayes">
+<meta property="og:url" content="http://xueyuechuan.me/2020/12/19/ml-naive-bayes/index.html">
 <meta property="og:site_name" content="Yuechuan&#39;s Blog">
-<meta property="og:description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+<meta property="og:description" content="Naïve BayesAssumptions The data set is generated in an i.i.d. fashion. Conditional Independence (All the features are independent) \begin{align} P(X = x \mid Y = c_k)  &amp;= P(X^{(1)} = x^{(1)}, \ldots,">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2020-11-24T21:28:24.645Z">
+<meta property="og:updated_time" content="2021-03-03T02:48:35.295Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhihu Collection">
-<meta name="twitter:description" content="现在的 Linux 内核和 Linux 2.6 的内核有多大区别 我为什么不使用ROS？ KUKA LBR iiwa 机械手是如何实现精密力控制的？ 自动微分法（Automatic differentiation）是如何用C++实现的？ orb-slam在众多SLAM方法中处于怎样的地位？ 为什么局域网的IP普遍是192.168开头？ 学习SLAM需要哪些预备知识？ 网易云音乐的歌单推荐算法是怎">
+<meta name="twitter:title" content="Machine Learning - Naïve Bayes">
+<meta name="twitter:description" content="Naïve BayesAssumptions The data set is generated in an i.i.d. fashion. Conditional Independence (All the features are independent) \begin{align} P(X = x \mid Y = c_k)  &amp;= P(X^{(1)} = x^{(1)}, \ldots,">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>Zhihu Collection</title>
+    <title>Machine Learning - Naïve Bayes</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -78,10 +78,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/12/17/ml-overview/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/20/ml-decision-tree/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/11/17/Terms/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/19/ml-knn/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -94,21 +94,21 @@
     <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/11/17/Zhihu/&text=Zhihu Collection"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/11/17/Zhihu/&is_video=false&description=Zhihu Collection"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Zhihu Collection&body=Check out this article: http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/11/17/Zhihu/&name=Zhihu Collection&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&text=Machine Learning - Naïve Bayes"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&is_video=false&description=Machine Learning - Naïve Bayes"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Naïve Bayes&body=Check out this article: http://xueyuechuan.me/2020/12/19/ml-naive-bayes/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&name=Machine Learning - Naïve Bayes&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Naive-Bayes"><span class="toc-number">1.</span> <span class="toc-text">Naïve Bayes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Assumptions"><span class="toc-number">1.1.</span> <span class="toc-text">Assumptions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-a-Posteriori-MAP"><span class="toc-number">1.2.</span> <span class="toc-text">Maximum a Posteriori (MAP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-Likelihood-Estimation"><span class="toc-number">1.3.</span> <span class="toc-text">Maximum Likelihood Estimation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laplace-Smoothing"><span class="toc-number">1.4.</span> <span class="toc-text">Laplace Smoothing</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -120,7 +120,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Zhihu Collection
+        Machine Learning - Naïve Bayes
     </h1>
 
 
@@ -131,11 +131,16 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2020-11-17T20:59:05.000Z" itemprop="datePublished">2020-11-17</time>
+        <time datetime="2020-12-20T01:59:05.000Z" itemprop="datePublished">2020-12-19</time>
     </div>
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
 
       
 
@@ -144,22 +149,45 @@
   
 
   <div class="content" itemprop="articleBody">
-    <ul>
-<li><a href="https://www.zhihu.com/question/35484429/answer/62964898" target="_blank" rel="noopener">现在的 Linux 内核和 Linux 2.6 的内核有多大区别</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/31981912" target="_blank" rel="noopener">我为什么不使用ROS？</a></li>
-<li><a href="https://www.zhihu.com/question/41549666/answer/154092609" target="_blank" rel="noopener">KUKA LBR iiwa 机械手是如何实现精密力控制的？</a></li>
-<li><a href="https://www.zhihu.com/question/48356514/answer/123290631" target="_blank" rel="noopener">自动微分法（Automatic differentiation）是如何用C++实现的？</a></li>
-<li><a href="https://www.zhihu.com/question/35116055/answer/62001013" target="_blank" rel="noopener">orb-slam在众多SLAM方法中处于怎样的地位？</a></li>
-<li><a href="https://www.zhihu.com/question/19813460/answer/13042143" target="_blank" rel="noopener">为什么局域网的IP普遍是192.168开头？</a></li>
-<li><a href="https://www.zhihu.com/question/35186064/answer/69699924" target="_blank" rel="noopener">学习SLAM需要哪些预备知识？</a></li>
-<li><a href="https://www.zhihu.com/question/26743347/answer/34235147" target="_blank" rel="noopener">网易云音乐的歌单推荐算法是怎样的？</a></li>
-<li><a href="https://www.zhihu.com/question/20962240/answer/33438846" target="_blank" rel="noopener">如何用简单易懂的例子解释隐马尔可夫模型？</a></li>
-<li><a href="https://www.zhihu.com/question/29434085/answer/53196878" target="_blank" rel="noopener">刚刚开始做机器人，打算做SLAM，不知道机器人定位领域现在有哪些比较新的算法？希望大家推荐推荐</a></li>
-<li><a href="https://www.zhihu.com/question/24696366/answer/29189700" target="_blank" rel="noopener">如何理解关系型数据库的常见设计范式？</a></li>
-<li><a href="https://www.zhihu.com/question/23643049/answer/28018472" target="_blank" rel="noopener">机器人操作平台 (ROS) 的软件开发流程是什么？</a></li>
-<li><a href="https://www.zhihu.com/question/22943856/answer/27122267" target="_blank" rel="noopener">模糊化或者马赛克化处理后的图像可以再复原吗？</a></li>
+    <h1 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naïve Bayes"></a>Naïve Bayes</h1><h2 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h2><ul>
+<li>The data set is generated in an i.i.d. fashion.</li>
+<li><code>Conditional Independence</code> (All the features are independent)<script type="math/tex; mode=display">
+\begin{align}
+P(X = x \mid Y = c_k) 
+&= P(X^{(1)} = x^{(1)}, \ldots, X^{(n)} = x^{(n)} \mid Y= c_k) \\
+&= \prod_{j=1}^n P(X^{(j)} = x^{(j)} \mid Y=c_k)
+\end{align}</script>Bad example: Someone likes milk and tea, but does not like milktea.</li>
 </ul>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<h2 id="Maximum-a-Posteriori-MAP"><a href="#Maximum-a-Posteriori-MAP" class="headerlink" title="Maximum a Posteriori (MAP)"></a>Maximum a Posteriori (MAP)</h2><p>With the two assumptions, applying the Bayes theorem, we have</p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(Y=c_k \mid X = \xb) 
+&= \frac{P(X=\xb, Y=c_k)}{\sum_k P(X=\xb , Y=c_k)} \\[1em]
+&= \frac{P(X=\xb \mid Y=c_k) P(Y=c_k)}{\sum_k P(X=\xb \mid Y=c_k) P(Y=c_k)} \\[1em]
+&= \frac{P(Y=c_k) \prod_{j=1}^n P(X^{(j)}=\xb^{(j)} \mid Y=c_k) }{\sum_k P(Y=c_k) \prod_{j=1}^n P(X^{(j)}=\xb^{(j)} \mid Y=c_k) }
+\end{align}</script><p>Thus, the naive bayes classifier can be represented as</p>
+<script type="math/tex; mode=display">
+\begin{align}
+y = f(\xb) 
+&= \arg \max_{c_k} \frac{P(Y=c_k) \prod_{j=1}^n P(X^{(j)}=\xb^{(j)} \mid Y=c_k) }{\sum_k P(Y=c_k) \prod_{j=1}^n P(X^{(j)}=\xb^{(j)} \mid Y=c_k) } \\[1em]
+&= \arg \max_{c_k} P(Y=c_k) \prod_{j=1}^n P(X^{(j)}=\xb^{(j)} \mid Y=c_k)
+\end{align}</script><p>In the last step, the denominator is dropped off since it has the same value for all $c_k$.</p>
+<p>Maximum a posteriori here is equivalent to <strong>minimize the risk function</strong></p>
+<script type="math/tex; mode=display">
+R_{exp}(f) = \mathbb{E}_X \sum_{k=1}^K L(c_k, f(X)) P(c_k \mid X)</script><p>where $L$ is the 0-1 loss function:</p>
+<script type="math/tex; mode=display">
+L(Y, f(X)) = \left\{\begin{array}{cc} 1, \quad Y\neq f(X)\\ 0,\quad Y = f(X) \end{array}\right.</script><h2 id="Maximum-Likelihood-Estimation"><a href="#Maximum-Likelihood-Estimation" class="headerlink" title="Maximum Likelihood Estimation"></a>Maximum Likelihood Estimation</h2><p>Given a data set, the two parameters $P(Y = c_k)$ and $P(X^{(j)} = a_{jl} \mid Y = c_k)$ are estimated using the maximum likelihood method.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(Y = c_k) &= \frac{\sum_{i=1}^N I(y_i = c_k)}{N} \\[1em]
+P(X^{(j)} = a_{jl} \mid Y = c_k) &= \frac{\sum_{i=1}^N I(X^{(j)} = a_{jl}, y_i = c_k)}{\sum_{i=1}^N I(y_i = c_k)}
+\end{align}</script><p>where $a_{jl}$ is the $l$-th value that can be taken for the $j$-th feature. $I$ is the indicator function.</p>
+<h2 id="Laplace-Smoothing"><a href="#Laplace-Smoothing" class="headerlink" title="Laplace Smoothing"></a>Laplace Smoothing</h2><p>In statistics, Laplace Smoothing is a technique to smooth categorical data. Laplace Smoothing is introduced to solve the problem of zero probability.</p>
+<p>In some cases, with maximum likelihood estimation, the estimated value may become 0. To avoid that, we add a positive number $\lambda$ to the frequency of each ramdom variable’s value.</p>
+<p>For example, for the frequency of $(X^{(j)} = a_{jl}, Y = c_k)$ and $Y = c_k$:</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^N I(X_i^{(j)} = a_{jl}, Y = c_k) \rightarrow \lambda + \sum_{i=1}^N I(X_i^{(j)} = a_{jl}, Y = c_k) \\
+\sum_{i=1}^N I(Y_i = c_k) \rightarrow \lambda + \sum_{i=1}^N I(Y_i = c_k)</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
   </div>
 </article>
 
@@ -190,21 +218,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Naive-Bayes"><span class="toc-number">1.</span> <span class="toc-text">Naïve Bayes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Assumptions"><span class="toc-number">1.1.</span> <span class="toc-text">Assumptions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-a-Posteriori-MAP"><span class="toc-number">1.2.</span> <span class="toc-text">Maximum a Posteriori (MAP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-Likelihood-Estimation"><span class="toc-number">1.3.</span> <span class="toc-text">Maximum Likelihood Estimation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laplace-Smoothing"><span class="toc-number">1.4.</span> <span class="toc-text">Laplace Smoothing</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/11/17/Zhihu/&text=Zhihu Collection"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/11/17/Zhihu/&is_video=false&description=Zhihu Collection"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Zhihu Collection&body=Check out this article: http://xueyuechuan.me/2020/11/17/Zhihu/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/11/17/Zhihu/&title=Zhihu Collection"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/11/17/Zhihu/&name=Zhihu Collection&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&text=Machine Learning - Naïve Bayes"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&is_video=false&description=Machine Learning - Naïve Bayes"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Naïve Bayes&body=Check out this article: http://xueyuechuan.me/2020/12/19/ml-naive-bayes/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&title=Machine Learning - Naïve Bayes"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/19/ml-naive-bayes/&name=Machine Learning - Naïve Bayes&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

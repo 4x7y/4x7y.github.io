@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang=En>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Decision TreeA Decision Tree is a hierarchically organized structure, with each node splitting the data space into pieces based on value of a feature. Decision Tree Model  Each internal node: test one">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning - Decision Tree">
+<meta property="og:url" content="http://xueyuechuan.me/2020/12/20/ml-decision-tree/index.html">
+<meta property="og:site_name" content="Yuechuan&#39;s Blog">
+<meta property="og:description" content="Decision TreeA Decision Tree is a hierarchically organized structure, with each node splitting the data space into pieces based on value of a feature. Decision Tree Model  Each internal node: test one">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://xueyuechuan.me/2020/12/20/ml-decision-tree/decision-tree.png">
+<meta property="og:updated_time" content="2021-03-03T02:48:35.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning - Decision Tree">
+<meta name="twitter:description" content="Decision TreeA Decision Tree is a hierarchically organized structure, with each node splitting the data space into pieces based on value of a feature. Decision Tree Model  Each internal node: test one">
+<meta name="twitter:image" content="http://xueyuechuan.me/2020/12/20/ml-decision-tree/decision-tree.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Machine Learning - Decision Tree</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/12/26/ml-logit/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/12/19/ml-naive-bayes/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/20/ml-decision-tree/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&text=Machine Learning - Decision Tree"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&is_video=false&description=Machine Learning - Decision Tree"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Decision Tree&body=Check out this article: http://xueyuechuan.me/2020/12/20/ml-decision-tree/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&name=Machine Learning - Decision Tree&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Decision-Tree"><span class="toc-number">1.</span> <span class="toc-text">Decision Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-Tree-Model"><span class="toc-number">1.1.</span> <span class="toc-text">Decision Tree Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Decision-Tree-Algorithm"><span class="toc-number">1.1.1.</span> <span class="toc-text">Decision Tree Algorithm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attribute-Selection"><span class="toc-number">1.2.</span> <span class="toc-text">Attribute Selection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Information-Gain"><span class="toc-number">1.2.1.</span> <span class="toc-text">Information Gain</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-Tree-Generation"><span class="toc-number">1.3.</span> <span class="toc-text">Decision Tree Generation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3"><span class="toc-number">1.3.1.</span> <span class="toc-text">ID3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5"><span class="toc-number">1.3.2.</span> <span class="toc-text">C4.5</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pruning"><span class="toc-number">1.4.</span> <span class="toc-text">Pruning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bottom-up-pruning"><span class="toc-number">1.4.1.</span> <span class="toc-text">Bottom-up pruning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CART-Algorithm"><span class="toc-number">1.5.</span> <span class="toc-text">CART Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interview-Questions"><span class="toc-number">1.6.</span> <span class="toc-text">Interview Questions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Explain-the-differences-between-Random-Forest-and-Gradient-Boosting-machines"><span class="toc-number">1.6.1.</span> <span class="toc-text">Explain the differences between Random Forest and Gradient Boosting machines.</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Machine Learning - Decision Tree
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Yuechuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-12-20T07:59:05.000Z" itemprop="datePublished">2020-12-20</time>
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/machine-learning/">machine learning</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>A Decision Tree is a hierarchically organized structure, with each node splitting the data space into pieces based on value of a feature.</p>
+<h2 id="Decision-Tree-Model"><a href="#Decision-Tree-Model" class="headerlink" title="Decision Tree Model"></a>Decision Tree Model</h2><p><img src="../ml-decision-tree/decision-tree.png" width="70%"></p>
+<ul>
+<li>Each internal node: test one attribute $X^{(i)}$</li>
+<li>Each branch from a node: selects one value for $X^{(i)}$</li>
+<li>Each leaf node: predict $Y$</li>
+</ul>
+<p>Decision Boundary</p>
+<ul>
+<li>Decision trees divide the feature space into axis-parallel (hyper-) rectangles</li>
+<li>Each rectangular region is labeled with one label</li>
+<li>Decision trees can represent  any function of the input attributes</li>
+</ul>
+<h3 id="Decision-Tree-Algorithm"><a href="#Decision-Tree-Algorithm" class="headerlink" title="Decision Tree Algorithm"></a>Decision Tree Algorithm</h3><p>Three steps:</p>
+<ol>
+<li>Attribute selection</li>
+<li>Tree generation</li>
+<li>Pruning</li>
+</ol>
+<p>Commonly used algorithms: </p>
+<ul>
+<li><code>ID3</code> (Iterative Dichotomiser 3)</li>
+<li><code>C4.5</code> (Implemented in C lang, 4.5 is the version)</li>
+<li><code>CART</code> (Classification And Regression Tree)</li>
+</ul>
+<h2 id="Attribute-Selection"><a href="#Attribute-Selection" class="headerlink" title="Attribute Selection"></a>Attribute Selection</h2><p>choosing which attribute to split a given set of examples</p>
+<p>Some possiblilites are</p>
+<ul>
+<li><strong>Random</strong>: Select any attribute at random </li>
+<li><strong>Least-Values</strong>: Choose the attribute with the smallest number of possible values </li>
+<li><strong>Most-Values</strong>: Choose the attribute with the largest number of possible values </li>
+<li><strong>Max-Gain</strong>: Choose the attribute that has the largest expected information gain<ul>
+<li>i.e., attribute that results in smallest expected size of subtrees rooted at its children</li>
+</ul>
+</li>
+</ul>
+<h3 id="Information-Gain"><a href="#Information-Gain" class="headerlink" title="Information Gain"></a>Information Gain</h3><p><strong>How to measure uncertainty?</strong></p>
+<ul>
+<li><code>Entropy</code><script type="math/tex; mode=display">
+  H(Y) = -\sum_{k=1}^K P(Y = y_k) \log_2 P(Y = y_k)</script></li>
+<li><code>Misclassification Error</code><script type="math/tex; mode=display">M(Y) = 1 - \max_{k = 1, \ldots, K}\{ P(Y = y_k) \}</script></li>
+<li><code>Gini Index</code><script type="math/tex; mode=display">\text{Gini}(Y) = 1 - \sum_{k=1}^K P(Y = y_k)^2</script></li>
+</ul>
+<p><strong>Entropy</strong></p>
+<ul>
+<li><p>What is the entropy of a group in which all examples belong to the same class?</p>
+<script type="math/tex; mode=display">
+-1\log_2 1 = 0</script></li>
+<li><p>What is the entropy of a group with 50% in either class?</p>
+<script type="math/tex; mode=display">
+-0.5 \log_2 0.5 - 0.5 \log_2 0.5 = 1</script></li>
+</ul>
+<p><strong>From Entropy to Information gain</strong></p>
+<p>We want to determine which attribute in a given set of training feature vectors is most useful for discriminating between the classes to be learned. <code>Information gain</code> tells us how important a given attribute of the feature vectors is. We will use it to decide the ordering of attributes in the nodes of a decision tree.</p>
+<p>Specific conditional entropy $H(Y \mid X^{(i)}=a)$ of the feature $X^{(i)} = a$:</p>
+<script type="math/tex; mode=display">
+H(Y \mid X^{(i)} = a) = - \sum_{k=1}^K P(Y = y_k \mid X^{(i)} = a)\, \log_2 P(Y = y_k \mid X^{(i)} = a)</script><p><code>Conditional Entropy</code><br>Suppose the $i$-th feature of random variable $X$ has $M_i$ different values to choose. Let $a_j$ be the $j$-th value of $X^{(i)}$.</p>
+<script type="math/tex; mode=display">
+H(Y \mid X^{(i)}) = \sum_{j=1}^{M_i} P(X^{(i)} = a_j)\, H(Y \mid X^{(i)} = a_j)</script><p><code>Information Gain</code> is the expected reduction in entropy of target variable Y for data sample</p>
+<script type="math/tex; mode=display">
+g(Y,X^{(i)}) = H(Y) - H(Y \mid X^{(i)})</script><p><code>Information Gain Ratio</code></p>
+<script type="math/tex; mode=display">
+g_{\small R}(Y,X^{(i)}) = \frac{g(Y,X^{(i)})}{H(Y)}</script><h2 id="Decision-Tree-Generation"><a href="#Decision-Tree-Generation" class="headerlink" title="Decision Tree Generation"></a>Decision Tree Generation</h2><h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a>ID3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ID3 (Examples, Target_Attribute, Attributes)</span><br><span class="line">    Create a root node for the tree</span><br><span class="line">    If all examples are positive, Return the single-node tree Root, with label = +.</span><br><span class="line">    If all examples are negative, Return the single-node tree Root, with label = -.</span><br><span class="line">    If number of predicting attributes is empty, then Return the single node tree Root, with label = most common value of the target attribute in the examples.</span><br><span class="line">    Otherwise Begin</span><br><span class="line">        A ← The Attribute that best classifies examples.</span><br><span class="line">        Decision Tree attribute for Root = A.</span><br><span class="line">        For each possible value, vi, of A,</span><br><span class="line">            Add a new tree branch below Root, corresponding to the test A = vi.</span><br><span class="line">            Let Examples(vi) be the subset of examples that have the value vi for A</span><br><span class="line">            If Examples(vi) is empty</span><br><span class="line">                Then below this new branch add a leaf node with label = most common target value in the examples</span><br><span class="line">            Else below this new branch add the subtree ID3 (Examples(vi), Target_Attribute, Attributes – &#123;A&#125;)</span><br><span class="line">    End</span><br><span class="line">    Return Root</span><br></pre></td></tr></table></figure>
+<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a>C4.5</h3><p>This algorithm has a few base cases.</p>
+<ul>
+<li>All the samples in the list belong to the same class. When this happens, it simply creates a leaf node for the decision tree saying to choose that class.</li>
+<li>None of the features provide any information gain. In this case, C4.5 creates a decision node higher up the tree using the expected value of the class.</li>
+<li>Instance of previously-unseen class encountered. Again, C4.5 creates a decision node higher up the tree using the expected value.</li>
+</ul>
+<p>The general algorithm for building decision trees is</p>
+<ol>
+<li>Check for the above base cases.</li>
+<li>For each attribute a, find the information gain ratio from splitting on a.</li>
+<li>Let a_best be the attribute with the highest information gain.</li>
+<li>Create a decision node that splits on a_best.</li>
+<li>Recurse on the sublists obtained by splitting on a_best, and add those nodes as children of node.</li>
+</ol>
+<h2 id="Pruning"><a href="#Pruning" class="headerlink" title="Pruning"></a>Pruning</h2><p>Irrelevant attributes can result in <strong>overfitting</strong> the training example data.</p>
+<p><strong>How to avoid overfitting?</strong></p>
+<ul>
+<li>Stop growing when data split is not statistically significant</li>
+<li>Acquire more training data</li>
+<li>Remove irrelevant attributes  (manual process – not always possible)</li>
+<li>Grow full tree, then <code>post-prune</code></li>
+</ul>
+<p><strong>How to select “best” tree?</strong></p>
+<ul>
+<li>Measure performance over training data</li>
+<li>Measure performance over separate validation data</li>
+<li>Add complexity penalty to performance measure (heuristic: simpler is better)</li>
+</ul>
+<p>Denote the number of leaf nodes of a decision tree $T$ as $|T|$, $t$ is a leaf node which contains $N_t$ data points. For each leaf node $t$, it contains $N_{tk}$ data points that belong to class $Y = y_k,\, k = 1, \ldots, K$. $H_t(T)$ is the emperical entropy of node $t$. $\alpha \geq 0$ is a regularization parameter.</p>
+<script type="math/tex; mode=display">
+C_\alpha(T) = \sum_{t=1}^{|T|} N_t H_t(T) + \alpha|T|</script><p>A larger $\alpha$ value tends to choose a simpler model. $\alpha = 0$ means only considering the fitting to the training set regardless of the complexity of the model.</p>
+<h3 id="Bottom-up-pruning"><a href="#Bottom-up-pruning" class="headerlink" title="Bottom-up pruning"></a>Bottom-up pruning</h3><ol>
+<li>Calculate the empirical entropy of each node.</li>
+<li>Shrink the tree recursively from the leaf nodes.<br> Suppose the decision tree before and after the shrinking is $T_A$ and $T_B$, and if $C_\alpha(T_A) \leq C_\alpha(T_B)$, perform the pruning. The parent node becomes to be the new leaf node.</li>
+<li>Repeat step 2 until we obtain the tree that minimizes the loss function.</li>
+</ol>
+<h2 id="CART-Algorithm"><a href="#CART-Algorithm" class="headerlink" title="CART Algorithm"></a>CART Algorithm</h2><ol>
+<li>Consider all predictor $X^{(i)}$ and all the all possible values of the cutpoints s for each of the predictors. Choose the predictor and cutpoint s.t. it minimizes the Gini Index<script type="math/tex; mode=display">
+\text{Gini}(Y) = 1 - \sum_{k=1}^K P(Y = y_k)^2</script>This can be done quickly, assuming number of predictors is not very large</li>
+<li>Repeat #1 but only consider the sub-regions</li>
+<li>Stop: node contains only one class or  node contains less than n data points or max depth is reached</li>
+</ol>
+<h2 id="Interview-Questions"><a href="#Interview-Questions" class="headerlink" title="Interview Questions"></a>Interview Questions</h2><h3 id="Explain-the-differences-between-Random-Forest-and-Gradient-Boosting-machines"><a href="#Explain-the-differences-between-Random-Forest-and-Gradient-Boosting-machines" class="headerlink" title="Explain the differences between Random Forest and Gradient Boosting machines."></a>Explain the differences between Random Forest and Gradient Boosting machines.</h3><p>Random forests are a significant number of decision trees pooled using averages or majority rules at the end. Gradient boosting machines also combine decision trees but at the beginning of the process unlike Random forests. Random forest creates each tree independent of the others while gradient boosting develops one tree at a time. Gradient boosting yields better outcomes than random forests if parameters are carefully tuned but it’s not a good option if the data set contains a lot of outliers/anomalies/noise as it can result in overfitting of the model.Random forests perform well for multiclass object detection. Gradient Boosting performs well when there is data which is not balanced such as in real time risk assessment.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Decision-Tree"><span class="toc-number">1.</span> <span class="toc-text">Decision Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-Tree-Model"><span class="toc-number">1.1.</span> <span class="toc-text">Decision Tree Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Decision-Tree-Algorithm"><span class="toc-number">1.1.1.</span> <span class="toc-text">Decision Tree Algorithm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attribute-Selection"><span class="toc-number">1.2.</span> <span class="toc-text">Attribute Selection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Information-Gain"><span class="toc-number">1.2.1.</span> <span class="toc-text">Information Gain</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-Tree-Generation"><span class="toc-number">1.3.</span> <span class="toc-text">Decision Tree Generation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ID3"><span class="toc-number">1.3.1.</span> <span class="toc-text">ID3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5"><span class="toc-number">1.3.2.</span> <span class="toc-text">C4.5</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pruning"><span class="toc-number">1.4.</span> <span class="toc-text">Pruning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bottom-up-pruning"><span class="toc-number">1.4.1.</span> <span class="toc-text">Bottom-up pruning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CART-Algorithm"><span class="toc-number">1.5.</span> <span class="toc-text">CART Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interview-Questions"><span class="toc-number">1.6.</span> <span class="toc-text">Interview Questions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Explain-the-differences-between-Random-Forest-and-Gradient-Boosting-machines"><span class="toc-number">1.6.1.</span> <span class="toc-text">Explain the differences between Random Forest and Gradient Boosting machines.</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://xueyuechuan.me/2020/12/20/ml-decision-tree/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&text=Machine Learning - Decision Tree"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&is_video=false&description=Machine Learning - Decision Tree"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine Learning - Decision Tree&body=Check out this article: http://xueyuechuan.me/2020/12/20/ml-decision-tree/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&title=Machine Learning - Decision Tree"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://xueyuechuan.me/2020/12/20/ml-decision-tree/&name=Machine Learning - Decision Tree&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 Yuechuan Xue
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/links/">Links</a></li>
+         
+          <li><a href="/notes/">Notes</a></li>
+         
+          <li><a href="/reading/">Reading</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        },
+        TeX: {
+            Macros: {
+                ab: "\\boldsymbol{a}",
+                bb: "\\boldsymbol{b}",
+                cb: "\\boldsymbol{c}",
+                db: "\\boldsymbol{d}",
+                eb: "\\boldsymbol{e}",
+                fb: "\\boldsymbol{f}",
+                gb: "\\boldsymbol{g}",
+                hb: "\\boldsymbol{h}",
+                ib: "\\boldsymbol{i}",
+                jb: "\\boldsymbol{j}",
+                kb: "\\boldsymbol{k}",
+                lb: "\\boldsymbol{l}",
+                mb: "\\boldsymbol{m}",
+                nb: "\\boldsymbol{n}",
+                ob: "\\boldsymbol{o}",
+                pb: "\\boldsymbol{p}",
+                qb: "\\boldsymbol{q}",
+                rb: "\\boldsymbol{r}",
+                sb: "\\boldsymbol{s}",
+                tb: "\\boldsymbol{t}",
+                ub: "\\boldsymbol{u}",
+                vb: "\\boldsymbol{v}",
+                wb: "\\boldsymbol{w}",
+                xb: "\\boldsymbol{x}",
+                yb: "\\boldsymbol{y}",
+                zb: "\\boldsymbol{z}",
+                abdot: "\\dot{\\boldsymbol{a}}",
+                bbdot: "\\dot{\\boldsymbol{b}}",
+                cbdot: "\\dot{\\boldsymbol{c}}",
+                dbdot: "\\dot{\\boldsymbol{d}}",
+                ebdot: "\\dot{\\boldsymbol{e}}",
+                fbdot: "\\dot{\\boldsymbol{f}}",
+                gbdot: "\\dot{\\boldsymbol{g}}",
+                hbdot: "\\dot{\\boldsymbol{h}}",
+                ibdot: "\\dot{\\boldsymbol{i}}",
+                jbdot: "\\dot{\\boldsymbol{j}}",
+                kbdot: "\\dot{\\boldsymbol{k}}",
+                lbdot: "\\dot{\\boldsymbol{l}}",
+                mbdot: "\\dot{\\boldsymbol{m}}",
+                nbdot: "\\dot{\\boldsymbol{n}}",
+                obdot: "\\dot{\\boldsymbol{o}}",
+                pbdot: "\\dot{\\boldsymbol{p}}",
+                qbdot: "\\dot{\\boldsymbol{q}}",
+                rbdot: "\\dot{\\boldsymbol{r}}",
+                sbdot: "\\dot{\\boldsymbol{s}}",
+                tbdot: "\\dot{\\boldsymbol{t}}",
+                ubdot: "\\dot{\\boldsymbol{u}}",
+                vbdot: "\\dot{\\boldsymbol{v}}",
+                wbdot: "\\dot{\\boldsymbol{w}}",
+                xbdot: "\\dot{\\boldsymbol{x}}",
+                ybdot: "\\dot{\\boldsymbol{y}}",
+                zbdot: "\\dot{\\boldsymbol{z}}",
+                abbar: "\\bar{\\boldsymbol{a}}",
+                bbbar: "\\bar{\\boldsymbol{b}}",
+                cbbar: "\\bar{\\boldsymbol{c}}",
+                dbbar: "\\bar{\\boldsymbol{d}}",
+                ebbar: "\\bar{\\boldsymbol{e}}",
+                fbbar: "\\bar{\\boldsymbol{f}}",
+                gbbar: "\\bar{\\boldsymbol{g}}",
+                hbbar: "\\bar{\\boldsymbol{h}}",
+                ibbar: "\\bar{\\boldsymbol{i}}",
+                jbbar: "\\bar{\\boldsymbol{j}}",
+                kbbar: "\\bar{\\boldsymbol{k}}",
+                lbbar: "\\bar{\\boldsymbol{l}}",
+                mbbar: "\\bar{\\boldsymbol{m}}",
+                nbbar: "\\bar{\\boldsymbol{n}}",
+                obbar: "\\bar{\\boldsymbol{o}}",
+                pbbar: "\\bar{\\boldsymbol{p}}",
+                qbbar: "\\bar{\\boldsymbol{q}}",
+                rbbar: "\\bar{\\boldsymbol{r}}",
+                sbbar: "\\bar{\\boldsymbol{s}}",
+                tbbar: "\\bar{\\boldsymbol{t}}",
+                ubbar: "\\bar{\\boldsymbol{u}}",
+                vbbar: "\\bar{\\boldsymbol{v}}",
+                wbbar: "\\bar{\\boldsymbol{w}}",
+                xbbar: "\\bar{\\boldsymbol{x}}",
+                ybbar: "\\bar{\\boldsymbol{y}}",
+                zbbar: "\\bar{\\boldsymbol{z}}",
+                abhat: "\\hat{\\boldsymbol{a}}",
+                bbhat: "\\hat{\\boldsymbol{b}}",
+                cbhat: "\\hat{\\boldsymbol{c}}",
+                dbhat: "\\hat{\\boldsymbol{d}}",
+                ebhat: "\\hat{\\boldsymbol{e}}",
+                fbhat: "\\hat{\\boldsymbol{f}}",
+                gbhat: "\\hat{\\boldsymbol{g}}",
+                hbhat: "\\hat{\\boldsymbol{h}}",
+                ibhat: "\\hat{\\boldsymbol{i}}",
+                jbhat: "\\hat{\\boldsymbol{j}}",
+                kbhat: "\\hat{\\boldsymbol{k}}",
+                lbhat: "\\hat{\\boldsymbol{l}}",
+                mbhat: "\\hat{\\boldsymbol{m}}",
+                nbhat: "\\hat{\\boldsymbol{n}}",
+                obhat: "\\hat{\\boldsymbol{o}}",
+                pbhat: "\\hat{\\boldsymbol{p}}",
+                qbhat: "\\hat{\\boldsymbol{q}}",
+                rbhat: "\\hat{\\boldsymbol{r}}",
+                sbhat: "\\hat{\\boldsymbol{s}}",
+                tbhat: "\\hat{\\boldsymbol{t}}",
+                ubhat: "\\hat{\\boldsymbol{u}}",
+                vbhat: "\\hat{\\boldsymbol{v}}",
+                wbhat: "\\hat{\\boldsymbol{w}}",
+                xbhat: "\\hat{\\boldsymbol{x}}",
+                ybhat: "\\hat{\\boldsymbol{y}}",
+                zbhat: "\\hat{\\boldsymbol{z}}",
+                alphab: "\\boldsymbol{\\alpha}",
+                betab: "\\boldsymbol{\\beta}",
+                gammab: "\\boldsymbol{\\gamma}",
+                deltab: "\\boldsymbol{\\delta}",
+                epsilonb: "\\boldsymbol{\\epsilon}",
+                zetab: "\\boldsymbol{\\zeta}",
+                etab: "\\boldsymbol{\\eta}",
+                thetab: "\\boldsymbol{\\theta}",
+                iotab: "\\boldsymbol{\\iota}",
+                kappab: "\\boldsymbol{\\kappa}",
+                lambdab: "\\boldsymbol{\\lambda}",
+                mub: "\\boldsymbol{\\mu}",
+                nub: "\\boldsymbol{\\nu}",
+                xib: "\\boldsymbol{\\xi}",
+                omikronb: "\\boldsymbol{\\omikron}",
+                pib: "\\boldsymbol{\\pi}",
+                rhob: "\\boldsymbol{\\rho}",
+                sigmab: "\\boldsymbol{\\sigma}",
+                taub: "\\boldsymbol{\\tau}",
+                upsilionb: "\\boldsymbol{\\upsilion}",
+                phib: "\\boldsymbol{\\phi}",
+                hib: "\\boldsymbol{\\hi}",
+                psib: "\\boldsymbol{\\psi}",
+                omegab: "\\boldsymbol{\\omega}",
+                bold: ["{\\boldsymbol #1}",1]
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
